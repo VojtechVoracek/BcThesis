@@ -1,0 +1,153 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfcsplain 2021.3.28)  8 APR 2021 08:57
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+ encTeX v. Jun. 2004, reencoding enabled
+**bakalarka
+(./bakalarka.tex The format: csplain <Mar. 2019>.
+The cs-fonts are preloaded and A4 size implicitly defined.
+The utf8->iso8859-2 re-encoding of Czech+Slovak alphabet activated by encTeX
+(./ctustyle2.tex
+CTUstyle2: Thesis at Czech Technical University in Prague, <beta(h) Mar.2021>
+\testinput=\read0
+
+(./opmac.tex
+This is OPmac (Olsak's Plain macros), version <Apr. 2020>
+\tmpnum=\count28
+\tmpdim=\dimen16
+\iindent=\dimen17
+\ttindent=\dimen18
+\colsep=\dimen19
+\mnoteindent=\dimen20
+\mnotesize=\dimen21
+\titskip=\skip18
+\ptunit=\dimen22
+\fontdim=\dimen23
+(/usr/share/texlive/texmf-dist/tex/csplain/fonts/ams-math.tex
+FONT: AMS math fonts - \mathchardef's prepared, 12 math families preloaded.
+\ptmunit=\dimen24
+)
+The \^, \`, \', \v, \" and \r expands to characters by ISO-8859-2.
+\reffile=\write0
+\testin=\read1
+\chapnum=\count29
+\secnum=\count30
+\seccnum=\count31
+\nonumnum=\count32
+\remskipamount=\skip19
+\tnum=\count33
+\fnum=\count34
+\dnum=\count35
+\itemnum=\count36
+\mullines=\count37
+\oulnum=\count38
+\ttline=\count39
+\viline=\count40
+\vifile=\read2
+\tabdata=\toks12
+\colnum=\count41
+\drulewidth=\dimen25
+\picwidth=\dimen26
+\picheight=\dimen27
+\fnotenum=\count42
+\fnotenumlocal=\count43
+\mnotenum=\count44
+\mnoteskip=\dimen28
+\auxfile=\write1
+\bibnum=\count45
+\bibmark=\toks13
+\lastcitenum=\count46
+\lastpage=\count47
+\pgwidth=\dimen29
+\pgheight=\dimen30
+\shiftoffset=\dimen31
+
+(./bakalarka.ref)
+\openout0 = `bakalarka.ref'.
+
+)
+\faculty=\toks14
+\department=\toks15
+\title=\toks16
+\subtitle=\toks17
+\author=\toks18
+\supervisor=\toks19
+\date=\toks20
+\studyinfo=\toks21
+\authorinfo=\toks22
+\workinfo=\toks23
+\workname=\toks24
+\pagetwo=\toks25
+\titleEN=\toks26
+\titleCZ=\toks27
+\titleSK=\toks28
+\subtitleEN=\toks29
+\subtitleCZ=\toks30
+\subtitleSK=\toks31
+\abstractEN=\toks32
+\abstractCZ=\toks33
+\abstractSK=\toks34
+\keywordsEN=\toks35
+\keywordsCZ=\toks36
+\keywordsSK=\toks37
+\thanks=\toks38
+\declaration=\toks39
+\specification=\toks40
+ (/usr/share/texlive/texmf-dist/tex/csplain/fonts/lmfonts.tex (/usr/share/texli
+ve/texmf-dist/tex/csplain/fonts/ff-mac.tex)
+FONT: Latin Modern - {\caps \sans \ttset \slant \nbold \ttprop \ttlight \ttcond
+ \quotset \upital \dunhill } {\rm \bf \it \bi } +AMS
+(/usr/share/texlive/texmf-dist/tex/csplain/fonts/chars-8z.tex)){/var/lib/texmf/
+fonts/map/pdftex/updmap/pdftex.map}
+\leftbox=\box16
+\rightbox=\box17
+\frontht=\dimen32
+\tocbox=\box18
+\tofbox=\box19
+\totbox=\box20
+\appnum=\count48
+\numA=\count49
+\numB=\count50
+\numC=\count51
+\numD=\count52
+\numE=\count53
+\maxglosindent=\dimen33
+\rfcnum=\count54
+)
+(/usr/share/texlive/texmf-dist/tex/csplain/opmac/opmac-bib.tex (./librarian.tex
+\lb@entrycount=\count55
+\lb@namecount=\count56
+\lb@tempcount=\count57
+\lb@sortnumber=\count58
+\NameCount=\count59
+\lb@read=\read3
+)) English hyphenation used (\language=0). \nonfrenchspacing is set on.
+[-1 <./ctulogo-new.pdf>] [-2] [-3] [-4] [-5] [-6] [1] [2] [3 <./g-pmapping.png>
+] [4 <./crossover.png> <./mutation.png>] [5 <./EApseudocode.jpg>] [6] [7]
+[8] [9] [10]
+(/usr/share/texlive/texmf-dist/tex/csplain/opmac/opmac-bib-simple.tex)
+(./myreferences.bib)
+l.374 OPmac WARNING: Missing field ``address'' in [IntoEA].
+l.374 OPmac WARNING: Entrytype @book  from [Luke2009] undefined.
+l.374 OPmac WARNING: Missing field ``isbn'' in [Darwin].
+l.374 OPmac WARNING: Missing field ``isbn'' in [Spencer].
+WARNING: unknown UTF-8 code: `ć = ^^c4^^87' (line: 374)
+WARNING: unknown UTF-8 code: `ã = ^^c3^^a3' (line: 374)
+l.374 OPmac WARNING: Entrytype @mics  from [mutationpic] undefined.
+[11] ){/usr/share/texmf/fonts/enc/dvips/lm/lm-cstt.enc}{/usr/share/texmf/fonts/
+enc/dvips/lm/lm-cs.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr
+/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{xl2tech.enc}<./Technika-Bold.pfb
+><./Technika-Book.pfb><./Technika-BookItalic.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/sh
+are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on bakalarka.pdf (17 pages, 773095 bytes).
+PDF statistics:
+ 341 PDF objects out of 1000 (max. 8388607)
+ 299 compressed objects within 3 object streams
+ 55 named destinations out of 1000 (max. 500000)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
+

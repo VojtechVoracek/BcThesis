@@ -1,0 +1,965 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfcsplain 2021.3.28)  28 MAR 2021 22:12
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+ encTeX v. Jun. 2004, reencoding enabled
+**uvod.tex
+(./uvod.tex The format: csplain <Mar. 2019>.
+The cs-fonts are preloaded and A4 size implicitly defined.
+The utf8->iso8859-2 re-encoding of Czech+Slovak alphabet activated by encTeX
+! Undefined control sequence.
+l.9 \chap
+          Úvod
+? 
+! Undefined control sequence.
+\ctustyle ->{\ssr 
+                  CTUstyle}
+l.11 ... užití plain\TeX{}ového makra \ctustyle
+                                                  {}, které
+? 
+! Undefined control sequence.
+l.18 o~\TeX{}u~\cite
+                    [prvni,tpp]
+? 
+! Undefined control sequence.
+l.19 a fungující \csplain
+                           {}\urlnote{http://petr.olsak.net/csplain.html}
+? 
+! Undefined control sequence.
+l.19 a fungující \csplain{}\urlnote
+                                     {http://petr.olsak.net/csplain.html}
+? 
+! Undefined control sequence.
+l.21 s~makrem OPmac\urlnote
+                           {http://petr.olsak.net/opmac.html}
+? 
+! Undefined control sequence.
+l.24 knihy~\cite
+                [tbn,tst,texbook].
+? 
+! Undefined control sequence.
+l.25 \csplain
+             {} je součástí balíčku
+? 
+! Undefined control sequence.
+l.26 \TeX{}live\urlnote
+                       {http://www.tug.org/texlive/}
+? 
+
+Overfull \hbox (28.11655pt too wide) in paragraph at lines 17--30
+\tenrm http://petr.olsak.net/csplain.html ve verzi as-poň Nov. 2012 s makrem O
+P-machttp://petr.olsak.net/opmac.html|
+
+\hbox(7.5+2.5)x452.96786, glue set - 1.0
+.\tenrm h
+.\kern-0.27779
+.\tenrm t
+.\tenrm t
+.\tenrm p
+.etc.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \mathop 
+\sec ->\mathop 
+               {\rm sec}\nolimits 
+l.31 \sec
+          Minimální dokument
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.32 
+     
+? 
+! Undefined control sequence.
+l.35 \begtt
+           
+? 
+(./ctustyle2.tex
+CTUstyle2: Thesis at Czech Technical University in Prague, <beta(h) Mar.2021>
+\testinput=\read0
+
+(/usr/share/texlive/texmf-dist/tex/csplain/opmac/opmac.tex
+This is OPmac (Olsak's Plain macros), version <Jul. 2019>
+\tmpnum=\count28
+\tmpdim=\dimen16
+\iindent=\dimen17
+\ttindent=\dimen18
+\colsep=\dimen19
+\mnoteindent=\dimen20
+\mnotesize=\dimen21
+\titskip=\skip18
+\ptunit=\dimen22
+\fontdim=\dimen23
+(/usr/share/texlive/texmf-dist/tex/csplain/fonts/ams-math.tex
+FONT: AMS math fonts - \mathchardef's prepared, 12 math families preloaded.
+\ptmunit=\dimen24
+
+! Font \mF=rsfs10 at 10.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \textfont #1=\mF \let \dgs...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+l.231 ...\normalmathloading\relax\else \normalmath
+                                                   \fi  % load families, nor...
+
+? 
+! Font \mF=rsfs7 at 7.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptfont #1=\mF \let \d...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+l.231 ...\normalmathloading\relax\else \normalmath
+                                                   \fi  % load families, nor...
+
+? 
+! Font \mF=rsfs5 at 5.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptscriptfont #1=\mF \...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+l.231 ...\normalmathloading\relax\else \normalmath
+                                                   \fi  % load families, nor...
+
+? 
+) The \^, \`, \', \v, \" and \r expands to characters by ISO-8859-2.
+\reffile=\write0
+\testin=\read1
+\chapnum=\count29
+\secnum=\count30
+\seccnum=\count31
+\nonumnum=\count32
+\remskipamount=\skip19
+\tnum=\count33
+\fnum=\count34
+\dnum=\count35
+\itemnum=\count36
+\mullines=\count37
+\oulnum=\count38
+\ttline=\count39
+\viline=\count40
+\vifile=\read2
+\tabdata=\toks12
+\colnum=\count41
+\drulewidth=\dimen25
+\picwidth=\dimen26
+\picheight=\dimen27
+\fnotenum=\count42
+\fnotenumlocal=\count43
+\mnotenum=\count44
+\mnoteskip=\dimen28
+\auxfile=\write1
+\bibnum=\count45
+\bibmark=\toks13
+\lastcitenum=\count46
+\lastpage=\count47
+\pgwidth=\dimen29
+\pgheight=\dimen30
+\shiftoffset=\dimen31
+)
+\faculty=\toks14
+\department=\toks15
+\title=\toks16
+\subtitle=\toks17
+\author=\toks18
+\supervisor=\toks19
+\date=\toks20
+\studyinfo=\toks21
+\authorinfo=\toks22
+\workinfo=\toks23
+\workname=\toks24
+\pagetwo=\toks25
+\titleEN=\toks26
+\titleCZ=\toks27
+\titleSK=\toks28
+\subtitleEN=\toks29
+\subtitleCZ=\toks30
+\subtitleSK=\toks31
+\abstractEN=\toks32
+\abstractCZ=\toks33
+\abstractSK=\toks34
+\keywordsEN=\toks35
+\keywordsCZ=\toks36
+\keywordsSK=\toks37
+\thanks=\toks38
+\declaration=\toks39
+\specification=\toks40
+
+(/usr/share/texlive/texmf-dist/tex/csplain/fonts/lmfonts.tex
+(/usr/share/texlive/texmf-dist/tex/csplain/fonts/ff-mac.tex)
+FONT: Latin Modern - {\caps \sans \ttset \slant \nbold \ttprop \ttlight \ttcond
+ \quotset \upital \dunhill } {\rm \bf \it \bi } +AMS
+(/usr/share/texlive/texmf-dist/tex/csplain/fonts/chars-8z.tex)
+! Font \mF=rsfs10 at 10.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \textfont #1=\mF \let \dgs...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+l.234 \normalmath
+                  \let\normalmathloading=y
+? 
+! Font \mF=rsfs7 at 7.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptfont #1=\mF \let \d...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+l.234 \normalmath
+                  \let\normalmathloading=y
+? 
+! Font \mF=rsfs5 at 5.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptscriptfont #1=\mF \...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+l.234 \normalmath
+                  \let\normalmathloading=y
+? 
+){/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+! Font \mF=rsfs10 at 11.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \textfont #1=\mF \let \dgs...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+l.289 \typosize[11/13.6]
+                        
+? 
+! Font \mF=rsfs7 at 7.69997pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptfont #1=\mF \let \d...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+l.289 \typosize[11/13.6]
+                        
+? 
+! Font \mF=rsfs5 at 5.5pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptscriptfont #1=\mF \...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+l.289 \typosize[11/13.6]
+                        
+? 
+\leftbox=\box16
+\rightbox=\box17
+\frontht=\dimen32
+\tocbox=\box18
+\tofbox=\box19
+\totbox=\box20
+\appnum=\count48
+\numA=\count49
+\numB=\count50
+\numC=\count51
+\numD=\count52
+\numE=\count53
+\maxglosindent=\dimen33
+\rfcnum=\count54
+) cs hyphenation used (\language=5). \frenchspacing is set on.
+! Font \mF=rsfs10 at 11.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \textfont #1=\mF \let \dgs...
+
+\boldmath ...family 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufb \lo...
+
+\titlepage ...pt \picw =3cm \def \picdir {}\titbf 
+                                                  \line {\inspic {ctulogo-\i...
+
+\makefront ...line ={\hss \drafttext } \titlepage 
+                                                  \vfil \break \printpagetwo...
+l.46 \makefront
+               
+? 
+! Font \mF=rsfs7 at 7.69997pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptfont #1=\mF \let \d...
+
+\boldmath ...family 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufb \lo...
+
+\titlepage ...pt \picw =3cm \def \picdir {}\titbf 
+                                                  \line {\inspic {ctulogo-\i...
+
+\makefront ...line ={\hss \drafttext } \titlepage 
+                                                  \vfil \break \printpagetwo...
+l.46 \makefront
+               
+? 
+! Font \mF=rsfs5 at 5.5pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptscriptfont #1=\mF \...
+
+\boldmath ...family 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufb \lo...
+
+\titlepage ...pt \picw =3cm \def \picdir {}\titbf 
+                                                  \line {\inspic {ctulogo-\i...
+
+\makefront ...line ={\hss \drafttext } \titlepage 
+                                                  \vfil \break \printpagetwo...
+l.46 \makefront
+               
+? 
+! Font \mF=rsfs10 at 25.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \textfont #1=\mF \let \dgs...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+\titlepage ...kip =0pt plus1fil {\typosize [25/30]
+                                                  \bfshape \nBlue \the \titl...
+...
+l.46 \makefront
+               
+? 
+! Font \mF=rsfs10 at 17.49992pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptfont #1=\mF \let \d...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+\titlepage ...kip =0pt plus1fil {\typosize [25/30]
+                                                  \bfshape \nBlue \the \titl...
+...
+l.46 \makefront
+               
+? 
+! Font \mF=rsfs10 at 12.5pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptscriptfont #1=\mF \...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+\titlepage ...kip =0pt plus1fil {\typosize [25/30]
+                                                  \bfshape \nBlue \the \titl...
+...
+l.46 \makefront
+               
+? 
+! Font \mF=rsfs10 at 15.0pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \textfont #1=\mF \let \dgs...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+\titlepage ...se \smallskip \fi {\typosize [15/23]
+                                                  \bfshape \nBlue \the \subt...
+...
+l.46 \makefront
+               
+? 
+! Font \mF=rsfs10 at 10.49995pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptfont #1=\mF \let \d...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+\titlepage ...se \smallskip \fi {\typosize [15/23]
+                                                  \bfshape \nBlue \the \subt...
+...
+l.46 \makefront
+               
+? 
+! Font \mF=rsfs7 at 7.5pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptscriptfont #1=\mF \...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\typosize [#1/#2]->\fontsizex [#1]
+                                  \setbaselineskip [#2]\ignorespaces 
+\titlepage ...se \smallskip \fi {\typosize [15/23]
+                                                  \bfshape \nBlue \the \subt...
+...
+l.46 \makefront
+               
+? 
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+\vbox(674.33032+1.94444)x452.96786, glue set 133.08258
+.\vbox(0.0+0.0)x0.0, glue set 25.0fil
+..\kern -25.0
+..\pdfdest name{pg:.-1} xyz
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\topskip) 1.6597
+.\hbox(8.3403+0.0)x452.96786, glue set 409.63446fil
+..\hbox(0.0+0.0)x20.0
+..\tenrm Ú
+..\tenrm v
+..\kern-0.27779
+..\tenrm o
+..\kern0.27779
+..\tenrm d
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 0.0
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\baselineskip) 5.05556
+.\hbox(6.94444+2.15277)x452.96786, glue set 0.75679
+..\hbox(0.0+0.0)x20.0
+..\tenrm T
+..\kern-0.83334
+..\tenrm e
+..\tenrm n
+..\kern-0.27779
+..\tenrm t
+..\tenrm o
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm d
+..\tenrm o
+..\tenrm k
+..\tenrm u
+..\discretionary
+...\tenrm -
+..\tenrm m
+..\tenrm e
+..\tenrm n
+..\kern-0.27779
+..\tenrm t
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm p
+..\kern0.27779
+..\tenrm o
+..\tenrm p
+..\tenrm i
+..\tenrm s
+..\tenrm u
+..\tenrm j
+..\tenrm e
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..etc.
+.\penalty 250
+.\glue(\baselineskip) 2.90279
+.\hbox(6.94444+1.94444)x452.96786, glue set 1.23222
+..\tenrm p
+..\kern0.27779
+..\tenrm o
+..\tenrm r
+..\tenrm u
+..\tenrm č
+..\tenrm e
+..\tenrm n
+..\tenrm o
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm n
+..\tenrm a
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm t
+..\tenrm v
+..\kern-0.27779
+..\tenrm o
+..\tenrm r
+..\tenrm b
+..\tenrm u
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm b
+..\tenrm a
+..\tenrm k
+..\kern-0.27779
+..\tenrm a
+..\tenrm l
+..\tenrm á
+..\tenrm ř
+..\tenrm s
+..etc.
+.\glue(\baselineskip) 1.71526
+.\hbox(8.3403+1.94444)x452.96786, glue set - 0.05511
+..\tenrm Č
+..\tenrm e
+..\tenrm s
+..\tenrm k
+..\kern-0.27779
+..\tenrm é
+..\tenrm m
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm v
+..\tenrm y
+..\tenrm s
+..\tenrm o
+..\tenrm k
+..\kern-0.27779
+..\tenrm é
+..\tenrm m
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm u
+..\tenrm č
+..\tenrm e
+..\tenrm n
+..\tenrm í
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm t
+..\tenrm e
+..\tenrm c
+..\kern-0.27779
+..\tenrm h
+..\discretionary
+...\tenrm -
+..\tenrm n
+..etc.
+.\penalty 250
+.\glue(\baselineskip) 3.11111
+.\hbox(6.94444+1.94444)x452.96786, glue set 299.82857fil
+..\tenrm l
+..\tenrm a
+..\tenrm d
+..\tenrm ,
+..\glue 3.33333 plus 2.08331 minus 0.88889
+..\tenrm j
+..\tenrm a
+..\tenrm k
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm v
+..\tenrm y
+..\tenrm t
+..\tenrm v
+..\kern-0.27779
+..\tenrm o
+..\tenrm ř
+..\tenrm i
+..\tenrm t
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm v
+..\tenrm l
+..\tenrm a
+..\tenrm s
+..\tenrm t
+..\tenrm n
+..\tenrm í
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm d
+..\tenrm o
+..\tenrm k
+..etc.
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\baselineskip) 2.55556
+.\hbox(7.5+2.5)x452.96786, glue set 0.1243
+..\hbox(0.0+0.0)x20.0
+..\tenrm A
+..\tenrm b
+..\kern-0.27779
+..\tenrm y
+..\tenrm s
+..\tenrm t
+..\tenrm e
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm m
+..\tenrm o
+..\tenrm h
+..\tenrm l
+..\tenrm i
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm p
+..\kern0.27779
+..\tenrm o
+..\tenrm u
+..\tenrm ž
+..\tenrm í
+..\tenrm t
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm t
+..\tenrm u
+..\tenrm t
+..\tenrm o
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm š
+..\tenrm a
+..etc.
+.\penalty 150
+.\glue(\baselineskip) 2.0
+.\hbox(7.5+2.5)x452.96786, glue set - 1.0
+..\tenrm h
+..\kern-0.27779
+..\tenrm t
+..\tenrm t
+..\tenrm p
+..\tenrm :
+..\tenrm /
+..\tenrm /
+..\tenrm p
+..\kern0.27779
+..\tenrm e
+..\tenrm t
+..\tenrm r
+..\tenrm .
+..\tenrm o
+..\tenrm l
+..\tenrm s
+..\tenrm a
+..\tenrm k
+..\tenrm .
+..\tenrm n
+..\tenrm e
+..\tenrm t
+..\tenrm /
+..\tenrm c
+..\tenrm s
+..\tenrm p
+..\tenrm l
+..\tenrm a
+..\tenrm i
+..etc.
+.\glue(\baselineskip) 2.0
+.\hbox(7.5+2.5)x452.96786, glue set 0.03795
+..\tenrm v
+..\kern-0.27779
+..\tenrm e
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm v
+..\kern-0.27779
+..\tenrm e
+..\tenrm r
+..\tenrm z
+..\tenrm i
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm a
+..\tenrm s
+..\discretionary
+...\tenrm -
+..\tenrm p
+..\kern0.27779
+..\tenrm o
+..\tenrm ň
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm J
+..\tenrm a
+..\tenrm n
+..\tenrm .
+..\penalty 10000
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm 2
+..\tenrm 0
+..\tenrm 1
+..\tenrm 3
+..\tenrm .
+..etc.
+.\glue(\baselineskip) 2.0
+.\hbox(7.5+2.5)x452.96786, glue set - 0.3935
+..\tenrm b
+..\tenrm a
+..\tenrm l
+..\tenrm í
+..\tenrm č
+..\kern-0.27779
+..\tenrm k
+..\tenrm u
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm T
+..\kern -1.66702
+..\hbox(6.75595+0.0)x6.80557, shifted 2.15277
+...\tenrm E
+..\kern -1.25
+..\tenrm X
+..\tenrm l
+..\tenrm i
+..\tenrm v
+..\kern-0.27779
+..\tenrm e
+..\tenrm h
+..\kern-0.27779
+..\tenrm t
+..\tenrm t
+..\tenrm p
+..\tenrm :
+..\tenrm /
+..\tenrm /
+..\tenrm w
+..\tenrm w
+..\tenrm w
+..etc.
+.\penalty 150
+.\glue(\baselineskip) 2.55556
+.\hbox(6.94444+1.94444)x452.96786, glue set 150.21733fil
+..\tenrm s
+..\tenrm o
+..\tenrm f
+..\discretionary replacing 2
+...\tenrm t
+...\tenrm -
+..\tenrm t
+..\kern-0.27779
+..\tenrm w
+..\kern-0.27779
+..\tenrm a
+..\tenrm r
+..\tenrm e
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm a
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm j
+..\tenrm e
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm m
+..\tenrm o
+..\tenrm ž
+..\tenrm n
+..\tenrm é
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm j
+..\tenrm e
+..\tenrm j
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm i
+..\tenrm n
+..\discretionary
+...\tenrm -
+..etc.
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\baselineskip) 3.11111
+.\hbox(6.94444+0.0)x452.96786, glue set 324.6954fil
+..\hbox(0.0+0.0)x20.0
+..\mathon
+..\hbox(4.30554+0.0)x12.83333
+...\tenrm s
+...\tenrm e
+...\tenrm c
+..\glue(\thinmuskip) 1.66663
+..\mF M
+..\kern1.09026
+..\mF i
+..\mF n
+..\mF i
+..\mF m
+..\tenrm á
+..\mF l
+..\kern0.19678
+..\mF n
+..\tenrm í
+..\mF d
+..\mF o
+..\mF k
+..\kern0.3148
+..\mF u
+..\mF m
+..\mF e
+..\mF n
+..\mF t
+..\mathoff
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 0.0
+.etc.
+
+ [-1]
+[-2 <./ctulogo-new.pdf>] [-3] [-4] [-5]
+l.46 OPmac WARNING: \maketoc -- data unavailable, TeX me again.
+\openout0 = `uvod.ref'.
+
+[-6]
+l.46 OPmac WARNING: \outlines -- data unavailable. TeX me again.
+! Font \mF=rsfs10 at 19.00914pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \textfont #1=\mF \let \dgs...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\fontscalex ...im \withoutunit \fontsizex \tmpdim 
+                                                  \fi \fi 
+\typoscale [#1/#2]->\fontscalex [#1]
+                                    \scalebaselineskip [#2]\ignorespaces 
+...
+l.48 \chap Úvod
+                
+? 
+! Font \mF=rsfs10 at 13.30634pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptfont #1=\mF \let \d...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\fontscalex ...im \withoutunit \fontsizex \tmpdim 
+                                                  \fi \fi 
+\typoscale [#1/#2]->\fontscalex [#1]
+                                    \scalebaselineskip [#2]\ignorespaces 
+...
+l.48 \chap Úvod
+                
+? 
+! Font \mF=rsfs10 at 9.50456pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptscriptfont #1=\mF \...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\fontscalex ...im \withoutunit \fontsizex \tmpdim 
+                                                  \fi \fi 
+\typoscale [#1/#2]->\fontscalex [#1]
+                                    \scalebaselineskip [#2]\ignorespaces 
+...
+l.48 \chap Úvod
+                
+? 
+! Font \mF=rsfs10 at 15.84087pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \textfont #1=\mF \let \dgs...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\fontscalex ...im \withoutunit \fontsizex \tmpdim 
+                                                  \fi \fi 
+\typoscale [#1/#2]->\fontscalex [#1]
+                                    \scalebaselineskip [#2]\ignorespaces 
+...
+l.52 \sec Myšlenka
+                   
+? 
+! Font \mF=rsfs10 at 11.08855pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptfont #1=\mF \let \d...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\fontscalex ...im \withoutunit \fontsizex \tmpdim 
+                                                  \fi \fi 
+\typoscale [#1/#2]->\fontscalex [#1]
+                                    \scalebaselineskip [#2]\ignorespaces 
+...
+l.52 \sec Myšlenka
+                   
+? 
+! Font \mF=rsfs7 at 7.92043pt not loadable: Metric (TFM) file not found.
+<recently read> \ptmunit 
+                         
+\loadmathfamily ... \mF =\whichtfm {#2} at\dgsize 
+                                                  \scriptscriptfont #1=\mF \...
+
+\normalmath ...mily 5 msbm \loadmathfamily 6 rsfs 
+                                                  \loadmathfamily 7 eufm \lo...
+
+\fontsizex ...im /\tmpa /\tmpb ]}\tmp \normalmath 
+                                                  \fi 
+\fontscalex ...im \withoutunit \fontsizex \tmpdim 
+                                                  \fi \fi 
+\typoscale [#1/#2]->\fontscalex [#1]
+                                    \scalebaselineskip [#2]\ignorespaces 
+...
+l.52 \sec Myšlenka
+                   
+? 
+[1] ){xl2tech.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-cs.enc}<./Technika-Bo
+ld.pfb><./Technika-Book.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cs/csr1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
+Output written on uvod.pdf (7 pages, 107382 bytes).
+PDF statistics:
+ 84 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+

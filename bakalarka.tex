@@ -1,0 +1,377 @@
+% The documentation of the usage of CTUstyle -- the template for
+% typessetting thesis by plain\TeX at CTU in Prague
+% ---------------------------------------------------------------------
+% Petr Olsak  Jan. 2013
+
+% You can copy this file to your own file and do some changes.
+% Then you can run:  pdfcsplain your-file
+\input ctustyle2  % The template (in version 2) is included here.
+%\input pdfuni    % Uncomment this if you need accented PDFoutlines
+\input opmac-bib % Uncomment this for direct reading of .bib database files 
+%\input my_references.bib
+
+
+\worktype [B/EN]
+\faculty {F3}
+\department {Department of Cybernetics}
+\title {Differential Evolution Crossover with Dependency Detection}
+\titleCZ {Křížení pro diferenciální evoluci s detekcí závislostí}
+\author {Vojtěch Voráček}
+\date {March 2021}
+
+\pagetwo    {}  % The text printed on the page 2 at the bottom.
+
+\abstractEN {
+   This document shows and tests an usage of the plain\TeX{} officially
+   (may be) recommended design style {\ssr CTUstyle} for bachelor (Bsc.), master
+   (Ing.), or doctoral (Ph.D.) theses at the Czech Technical University in
+   Prague. The template defines all thesis mandatory structural elements and
+   typesets their content to fulfil the university formal rules.
+
+   This is version 2 of this template which implements the Technika font
+   recommended by CTU graphics identity reference since 2016.
+}
+\abstractCZ {
+    Abstrakt stručně a přesně
+    reprezentuje obsah práce, shrnuje cíl, metody, výsledky a závěry. 
+}           % If your language is Slovak use \abstractSK instead \abstractCZ
+
+\keywordsEN {%
+   document design template; bachelor, master, Ph.D. thesis; \TeX{}.
+}
+\keywordsCZ {%
+    Klíčová slova jsou odborné termíny vyjadřující obsah práce. 
+}
+\thanks {           % Use main language here
+   Chtěl bych poděkovat své manželce Ludmile za podporu nejen finanční.
+   Díky tomu mohu na svém pracovišti dělat, co mě baví, a nejsem stresován 
+   výplatní páskou.
+}
+\declaration {      % Use main language here
+   Prohlašuji, že jsem předloženou práci vypracoval
+   samostatně a že jsem uvedl veškeré použité informační zdroje v~souladu
+   s~Metodickým pokynem o~dodržování etických principů při přípravě
+   vysokoškolských závěrečných prací.
+
+   V Praze dne 13. 13. 2013 % !!! Attention, you have to change this item.
+   \signature % makes dots
+}
+
+%%%%% <--   % The place for your own macros is here.
+
+%\draft     % Uncomment this if the version of your document is working only.
+%\linespacing=1.7  % uncomment this if you need more spaces between lines
+                   % Warning: this works only when \draft is activated!
+%\savetoner        % Turns off the lightBlue backround of tables and
+                   % verbatims, only for \draft version.
+%\blackwhite       % Use this if you need really Black+White thesis.
+%\onesideprinting  % Use this if you really don't use duplex printing. 
+
+\makefront  % Mandatory command. Makes title page, acknowledgment, contents etc.
+
+
+\chap Introduction
+\sec Motivation
+
+%Tady napisu, ze plno existuje rada situaci, kdy musime optimalizovat black box.
+%K tomuto se hodi evolucni algoritmy, jednim z nejlepsich v real-value domene je DE.
+%DE ma nevyhodu, ze nedokaze rozlisit zavislosti mezi castmi promennych a tedy nepracuje
+%efektivne. Cilem je adaptovat standrardni DE, aby dokazala rozeznat zavislosti a
+%pristusobit to, jakym zpusobem pracuje tomu, jak je to zavisle.
+
+Striving for the best solution of a certain problem is an important part of many fields
+of human interest. The process of finding the best solution according to some
+criteria is called optimization. Optimization in mathematical notation:
+
+In the real world, there are a large number of
+engineering optimization problems whose input-output relationships are noisy and
+indistinct, so it cannot be assumed anything about the optimized function but it's
+possible to observe its outputs on given inputs. In these cases, the function is 
+called a black box function and an optimization as a black box optimization.
+
+Due to these limited capabilities, all black box optimization algorithms are
+allowed to perform just these three steps:
+
+\begitems
+*Create a candidate solution
+*Check if a candidate is feasible or not
+*Evaluate its fitness by using the objective function
+\enditems
+
+From the mid-1950s, a new family of optimization algorithms called Evolutionary
+algorithms has started to be developed.~\cite[Friedberg1958ALM,Friedberg1959ALM]
+Evolutionary algorithms have proven to be very effective while optimizing black
+box functions.~\cite[comparison] Among evolutionary algorithms, \em Differential
+Evolution \em (DE) has achieved excellent results on real-valued black box functions.~\cite[DE].
+
+However, there exists a class of functions containing dependent solution components
+and the recognition of those components may be a crucial task which could lead to
+significantly enhanced performance. Nevertheless, DE does not provide any tool capable of
+recognizing the dependent components of a solution. Thus it can be seen that this particular
+class of functions is the weakness of DE.
+
+This work aims to find a way how to find dependencies between parts of solutions and
+how to represent a dependency structure. It would lead to the proposal of a new crossover
+operator for DE well suited for functions with dependent solution components. This new 
+operator should partially eliminate the above-mentioned weakness of DE.
+
+
+
+\chap Evolutionary algorithms
+
+This chapter is mainly based on these references:~\cite[IntoEA, wong2015evolutionary, Luke2009]
+
+Evolutionary algorithms (EAs) is a set of stochastic metaheuristic optimization algorithms
+inspired by Darvin's theory of evolution by natural selection.~\cite[Darwin] The theory
+describes the process of development of organisms over time as a result of changes
+in heritable traits. Changes which allow an organism to better adapt to its environment
+will help it survive and reproduce more offspring. This phenomenon is commonly
+called as “Survival of the fittest” first used by Herbert Spencer.~\cite[Spencer]
+
+In analogy, EA maintains a “population” of potential solutions (\em individuals\em) for the
+given problem. Population is iteratively evolved by encouraging the reproduction of
+fitter individuals. The fitness is usually the value of the objective function in the
+optimization problem being solved. New candidate solutions are created either by
+combining existing individuals (crossover) or by modification of an individual (mutation).
+The algorithm runs until a candidate solution with sufficient quality is found
+or a user-defined computational limit is reached.
+
+
+\sec Components of evolutionary algorithms
+In this section, certain parts of evolutionary algorithms are discussed in detail.
+In general, EAs can be divided into various components, procedures, or operators,
+which are:
+
+\begitems
+*representation of individuals
+*objective function
+*population
+*parent selection
+*crossover operator
+*mutation operator
+*replacement strategy
+\enditems
+
+To define a particular EA, it is necessary to specify these components. In addition,
+the initialization procedure and the termination condition must be defined to obtain working
+algorithm.
+
+\secc Representation of individuals
+Each individual is encoded in so called \em chromosomes\em. Representation of chromosome is
+called \em genotype \em. While \em phenotype \em refers to the interpretation of the genotype,
+in other words, how the objective function treats the genotype. The Representation also involves
+a genotype-phenotype mapping. For instance, given an optimization problem on integers, if one
+decide to represent them by their binary code, then $20$ would be seen as a phenotype 
+and $10100$ as a genotype representing it.
+
+\bigskip
+
+\medskip
+\picw=15.3cm \cinspic g-pmapping.png
+\bigskip
+\caption/f Examples of genotype-phenotype mapping
+(a) Integere representation
+(b) Protein structure representation on a lattice model
+(c) Tree representation for a mathematical expression~\cite[wong2015evolutionary]
+\medskip
+
+\secc Objective function
+The role of the objective function, is to represent the requirement to adapt to.
+Objective function defines how quality individual is with respect to the problem
+in consideration. Technically, it is a function which takes an individual as an input
+and produces a the measure of quality of a given individual as an output. The measure of
+quality is called \em fitness \em and the objective function is called \em fitness
+function\em.
+
+To remain with the above-mentioned example, the problem was to minimise $x^2$ on
+integers. The fitness of the individual represented by the genotype $10100$ would be
+defined as a square of its corresponding phenotype: $20^2 = 400$
+
+\secc Population
+Population in a evolutionary algorithm means a set of individuals. Population can be
+specified only by setting the population size, in other words, how many individuals
+are in population. This parameter is usually specified by user.
+
+\secc Parent selection
+During each \em generation \em (one iteration of algorithm), a certain part of population
+is selected to breed offspring. 
+The choice is made similarly to natural selection, in other words, fitter individuals
+are preferred, nevertheless, low quality individuals are given a small, but positive change
+to be selected. Otherwise, the EA could become too greedy and get stuck in the local optimum.
+Parent selection along with the replacement strategy pushes quality improvements.
+Parent selection as well as other EA procedures are usually stochastic.
+
+Individuals selected by parent selection are called \em parents\em.
+
+\secc Crossover operator
+\em Crossover \em is a genetic operator used to combine typically two parents to
+generate new offsprings. The idea behind crossover is that by mating two
+individuals with different but desirable features, it is possible to produce offsprings
+which combines both of those features. Similarly to other genetic operators, crossover is stochastic.
+
+\medskip
+\picw=15.3cm \cinspic crossover.png
+\bigskip
+\caption/f Example of One-point crossover (part of chromosome right to the Crossover point
+are swapped between two parents chromosomes)~\cite[crossoverpic]
+\medskip
+
+
+\secc Mutation operator
+\em Mutation \em is an unary genetic operator which changes parts of the chromosome of an
+individual, typically randomly. In mutation, the mutated individual may change entirely from
+the original individual. Mutation is used to maintain and introduce diversity in the
+genetic population.
+
+\medskip
+\picw=8cm \cinspic mutation.png
+\bigskip
+\caption/f Example of mutation~\cite[mutationpic]
+\medskip
+
+\secc Replacement strategy
+\em Replacement strategy \em defines which individuals survive and become members of
+subsequent generation. Typically, the decision is based on the quality of individuals,
+prefering those with higher fitness. The replacement strategy is similar to parent
+selection, as both are responsible for promoting quality improvement. However,
+parent selection is usually stochastic while the replacement strategy is often deterministic.
+
+
+\secc Initialization
+It generates a defined number of individuals of the given representation, thereby
+creating the initial population. \em Initialization \em is often done randomly
+due to lack of knowledge when optimizing black box functions.
+
+
+\secc Termination condition
+The algorithm runs until the \em termination condition \em has been reached. If we
+know the optimum of the optimized problem, then reaching the optimum (with a given
+precision $\epsilon \geq  0$) is a natural termination condition. However, since EAs
+are stochastic, there is usually no guarantee to reach an optimum and the condition
+would be never satisfied. Therefore, this condition is extended to a condition which
+certainly stops the algorithm, such as the limited number of fitness function calls.
+
+
+\sec General scheme
+%By merging all above-mentioned components, the evolutionary algorithm is formed.
+%It this section
+%irstly, an initial population is generated by initialization procedure.
+In the previous section, the main parts of an EA were introduced individually.
+By merging all above-mentioned components, the evolutionary algorithm is formed.
+This section describes the way an EA works as a whole.
+\bigskip
+
+%\medskip
+\picw=14cm \cinspic EApseudocode.jpg
+\bigskip
+\caption/f General scheme of an evolutionary algorithm
+%\medskip
+
+\bigskip
+
+Firstly, an initial population is generated by an initialization procedure.
+The population is subsequently evaluated by a fitness function. Then starts
+a generational process.
+
+The generational process is repeated until a terminal
+condition is not satisfied. Generational process starts by parent selection, usually
+based on a fitness, some individuals are chosen to seed the new generation. The
+chosen individuals are combined by a crossover operator to produce offsprings, which
+are then modified by the mutation operator. Offspring are then evaluated by a fitness
+function and the generational process ends by creating a new population. Creating a new
+population is performed with respect to the replacement strategy that selects some newly
+created offsprings to replace some members of the old population.
+
+The algorithm returns the best individual found so far, eventually some statistics concerning
+the run of algorithm.
+
+\sec Differential evolution
+
+This chapter is mainly based on these references:~\cite[DE, Luke2009]
+
+Differential evolution was introduced by Storn and Price~\cite[DE] as an efficient
+evolutionary algorithm initially designed for multidimensional real-valued spaces.
+
+DE utilizes a population of real vectors. The initial population is chosen randomly.
+After initialization, for each member $\vec{x}_i$ of a population $P$ is generated a
+so called \em mutatant vector\em. A mutatant vector is generated by adding the
+weighted difference between two individuals ($\vec{x}_{r_2}$, $\vec{x}_{r_3}$) to a third individual
+($\vec{x}_{r_1}$). These three individuals are mutually exlusive. The mutant vector is then
+crossed over with $\vec{x}_i$ 
+The offspring $\vec{o}_i$ is then created by crossing over the mutatnt vector with $\vec{x}_i$.
+
+Note that a size of mutatant vector is largely based on the actual variance in the
+population. The mutant vector will make major changes if the population is spread, on
+the other hand mutant vecotr will be small if the population is condensed in a
+particular region. Thus DE belongs to the family of adaptive mutation algorithms.
+
+Lastly, newly created offspring is compared to his parent using the greedy criteria.
+If the offspring is better, it replace its parent in the population.
+
+To put it more formally, standard DE is defined by specifying of following components of EA:
+
+
+\secc Representation
+Individuals are represented by real-valued vectors:
+\medskip
+\centerline{$\vec{x_i} = \{x_{i,1}, x_{i,2}, ..., x_{i,D}\},
+\forall{j}: x_{i,j} \in{\bbchar{R}}$,}
+\medskip
+\noindent where \em i \em represents the index of the individual in the population \em P \em
+and \em D \em stands for dimension of the optimized function. Population is represented as
+following:
+\medskip
+\centerline{$P = \{\vec{x}_1, \vec{x}_2, ..., \vec{x}_{NP}\},NP \geq 4,$}
+\medskip
+\noindent where \em NP \em is the size of population.
+
+\secc Mutation
+For each individual in the population $\vec{x}_i, i = 1, 2, ..., NP$, DE generates mutant
+vector $\vec{m}_i$ as following:
+\medskip
+\centerline{$\vec{m}_i = \vec{x}_{r_1} + F*(\vec{x}_{r_2} - \vec{x}_{r_3})$,}
+\medskip
+\noindent with random, mutually exclusive indexes $r_1, r_2, r_3 \in\{1, 2, ..., NP\}$,
+which are also chosen to be different from the running index \em i\em. $F$, called 
+\em differential weight\em, is a constant factor $\in [0, 2]$, representing the
+amplification of the random deviation $(\vec{x}_{r_2} - \vec{x}_{r_3})$. Individual
+$\vec{x}_i$ is called the parent of $\vec{m}_i$.
+
+\secc Crossover
+After mutation the mutant vector $\vec{m}_i$ undergoes a crossover with the its parent
+$\vec{x}_i$ to generate the offspring $\vec{o}_i$. Standard DE take advantage of binomial
+crossover, where offspring is generated as following:
+\medskip
+\centerline{$\vec{o}_i = \vec{x}_{r_1} + F*(\vec{x}_{r_2} - \vec{x}_{r_3})$,}
+\medskip
+\noindent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chap Modelovani zavislosti
+
+\chap Hledani zavislosti
+
+
+
+\chap Setup
+
+\chap Results
+
+\bibchap
+\usebib/c (simple) myreferences
+
+
+\bye

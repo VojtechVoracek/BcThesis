@@ -1,0 +1,1875 @@
+%% OPmac -- Olsak's PlainTeX macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% User documetation
+% This file is encoded in UTF-8
+
+\chyph  % use (pdf)csplain
+\input opmac
+\input pdfuni
+\hyperlinks{\Blue}{\Green}
+
+\typosize[11/13]
+
+\catcode`<=13
+\def<#1>{\hbox{$\langle$\it#1\/$\rangle$}}
+
+\activettchar"
+
+\insertoutline{OBSAH} \outlines{0} 
+
+\tit OPmac -- rozÅ¡iÅ™ujÃ­cÃ­ makra plain\TeX{}u
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\centerline{\it Petr OlÅ¡Ã¡k, 2012 -- 2019}
+
+\bigskip
+\centerline{\url{http://petr.olsak.net/opmac.html}}
+
+\notoc\nonum \sec Obsah
+\maketoc
+
+\nonum \sec Ãšvod
+%%%%%%%%%
+OPmac je balÃ­k jednoduchÃ½ch doplÅˆujÃ­cÃ­ch maker k plain\TeX{}u umoÅ¾ÅˆujÃ­cÃ­
+uÅ¾ivatelÅ¯m zÃ¡kladnÃ­ \LaTeX{}ovou funkcionalitu: zmÄ›ny velikosti pÃ­sma,
+automatickou tvorbu obsahu a rejstÅ™Ã­ku, prÃ¡ci s {\tt bib} databÃ¡zemi,
+referencemi, moÅ¾nost proloÅ¾enÃ­ referencÃ­ hyperlinkovÃ½mi odkazy atd.
+
+HlavnÃ­ zÃ¡sady balÃ­ku OPmac jsou:
+
+\begitems
+* V jednoduchosti je sÃ­la.
+* Makra nejsou univerzÃ¡lnÃ­, ale jsou ÄitelnÃ¡ a srozumitelnÃ¡.
+* UÅ¾ivatel si makra mÅ¯Å¾e snadno pÅ™edefinovat k obrazu svÃ©mu. 
+\enditems
+
+KaÅ¾dÃ© makro je napsÃ¡no s cÃ­lem co nejvÄ›tÅ¡Ã­ srozumitelnosti pro lidi, kteÅ™Ã­
+to budou chtÃ­t ÄÃ­st a mÄ›nit. TroufÃ¡m si Å™Ã­ci, Å¾e balÃ­k nabÃ­zÃ­ ÄtenÃ¡Å™i
+inspiraci, jak se programujÃ­ \TeX{}ovÃ¡ makra. Z~kÃ³du maker je cÃ­tit jistÃ¡
+elegance. TechnickÃ¡ ÄÃ¡st dokumentace k OPmac by tedy mohla slouÅ¾it jako uÄebnice
+programovÃ¡nÃ­ \TeX{}ovÃ½ch maker.
+To je zÃ¡sadnÃ­ rozdÃ­l od koncepce \LaTeX{}u. KdyÅ¾ se ÄlovÄ›k podÃ­vÃ¡
+do \LaTeX{}ovÃ©ho souboru "latex.ltx", vystÅ™evÃ­ se na nÄ›j mnoÅ¾stvÃ­ zavinÃ¡ÄÅ¯ a
+makra, ze kterÃ½ch je Äasto cÃ­tit topornost a mnohdy nepochopenÃ­ vnitÅ™nÃ­
+koncepce \TeX{}u. Skoro nikdo se v~tom nevyznÃ¡. Soubor "latex.ltx" obsahuje
+8000 Å™Ã¡dkÅ¯ a schopnosti \LaTeX{}u jsou navÃ­c ukryty v~desÃ­tkÃ¡ch rÅ¯znÃ½ch
+dalÅ¡Ã­ch makro souborech, zatÃ­mco v~OPmac vidÃ­te vÅ¡e pohromadÄ› a nÃ¡zornÄ›. 
+NavÃ­c v nÄ›kterÃ½ch vÄ›cech OPmac vÃ½raznÄ› pÅ™ekraÄuje moÅ¾nosti \LaTeX{}u: 
+generovÃ¡nÃ­ rejstÅ™Ã­kÅ¯ bez externÃ­ho programu, pÅ™Ã­mÃ© ÄtenÃ­ "*.bib" souborÅ¯
+bez bib\TeX{}u, listingy externÃ­ch souborÅ¯.
+
+BalÃ­k OPmac nabÃ­zÃ­ podobnÄ› jako \LaTeX{} autorÅ¯m textÅ¯ {\it rozhranÃ­}, tj.
+smluvenou sadu znaÄek na vymezenÃ­ struktury dokumentu. Je jinÃ¡, neÅ¾ v
+\LaTeX{}u, moÅ¾nÃ¡ nabÃ­dne napsat zdrojovÃ½ text ÄlÃ¡nku ponÄ›kud pÅ™ehlednÄ›ji a
+oku vÃ­ce lahodÃ­cÃ­m zpÅ¯sobem. BalÃ­k OPmac ovÅ¡em neÅ™eÅ¡Ã­ typografickÃ½ vzhled
+dokumentu. Bez doplÅˆujÃ­cÃ­ch maker vyleze jednoduchÃ½ stÅ™Ã­zlivÃ½ dokument.
+PÅ™edpoklÃ¡dÃ¡ se, Å¾e autor dodateÄnÃ½ch plain\TeX{}ovÃ½ch maker uÅ¡ije vzhled
+dokumentu na mÃ­ru konkrÃ©tnÃ­mu poÅ¾adavku.
+
+PÅ™Ã­klad zaÄÃ¡tku dokumentu:
+
+\begtt
+\input opmac        % zavedenÃ­ makra OPmac
+\chyph              % zapnutÃ­ ÄeÅ¡tiny 
+\fontfam [LM fonts] % pouÅ¾itÃ­ Latin Modern fontÅ¯
+\typosize[12/14]    % nastavenÃ­ zÃ¡kladnÃ­ velikosti sazby
+\endtt
+
+Makro OPmac spolupracuje s bÄ›Å¾nÃ½mi plain\TeX{}ovÃ½mi formÃ¡ty: s KnuthovÃ½m
+klasickÃ½m \hbox{plain}\TeX{}em nebo s \csplain{}em nebo s plain\TeX{}em
+doplnÄ›nÃ½m makry z~"etex.src" (ten je v~bÄ›Å¾nÃ½ch \TeX{}ovÃ½ch distribucÃ­ch 
+zÃ¡kladnÃ­m formÃ¡tem pdf\TeX{}u, Xe\TeX{}u a Lua\TeX{}u). 
+
+UÅ¾ivatelÅ¯m OPmac nabÃ­zÃ­m konzultace po emailu a uvÃ­tÃ¡m hlÃ¡Å¡enÃ­ o chybÃ¡ch.
+VÃ½sledky konzultacÃ­ typicky zveÅ™ejÅˆuji na
+\url{http://petr.olsak.net/opmac-tricks.html}, kde najdete desÃ­tky
+nejrÅ¯znÄ›jÅ¡Ã­ch Å™eÅ¡enÃ­ dÃ­lÄÃ­ch problÃ©mÅ¯.
+
+
+\sec VÃ½bÄ›r fontovÃ© rodiny
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+OPmac implicitnÄ› rodinu fontÅ¯ nenastavuje, tj. fonty jsou pÅ™ipraveny stejnÃ©
+jako v plainTeXu (CM fonty) nebo v \CS{}plainu (CS fonty). Je ale moÅ¾nÃ© 
+pouÅ¾Ã­t tzv. \uv{fontovÃ© soubory} pro zavedenÃ­ jinÃ© fontovÃ© rodiny, tj.
+typicky ÄtyÅ™ zÃ¡kladnÃ­ch variant "\rm", "\bf", "\it" a "\bi". Tyto soubory
+internÄ› pouÅ¾Ã­vajÃ­ primitivnÃ­ pÅ™Ã­kaz "\font" pro zavedenÃ­ jednotlivÃ½ch fontÅ¯.
+
+NemusÃ­te si pamatovat nÃ¡zev souboru, kterÃ½ je potÅ™eba pro zavedenÃ­ fontovÃ©
+rodiny pouÅ¾Ã­t. StaÄÃ­ napsat "\fontfam[<NÃ¡zevRodiny>]" a poÅ¾adovanÃ½
+soubor se naÄte. V argumentu <NÃ¡zevRodiny> nezÃ¡leÅ¾Ã­ na mezerÃ¡ch a velkÃ½ch
+pÃ­smenech, takÅ¾e "\fontfam[Times Roman]" je totÃ©Å¾ jako
+"\fontfam[TimesRoman]" i jako "\fontfam[timesroman]". TakÃ© je pÅ™ipraveno
+nÄ›kolik bÄ›Å¾nÃ½ch aliasÅ¯, takÅ¾e tÅ™eba "\fontfam[times]" rovnÄ›Å¾ zavede rodinu
+Times~Roman.
+
+PouÅ¾ijete-li "\fontfam[?]", zobrazÃ­ se na terminÃ¡lu a v log souboru pÅ™ehled
+vÅ¡ech fontovÃ½ch rodin dostupnÃ½ch pomocÃ­ fontovÃ½ch souborÅ¯. ÄŒÃ¡st seznamu vypadÃ¡
+takto:
+
+\begtt
+[LM Fonts]  {\caps \sans \ttset ...} {\rm \bf \it \bi } +AMS (8z 8t U)
+[TG Heros]  {\caps \cond } {\rm \bf \it \bi } +TX (8z 8t)
+\endtt
+%
+Nejprve je uveden <NÃ¡zevRodiny>, pak nÃ¡sleduje seznam modifikÃ¡torÅ¯
+zÃ¡kladnÃ­ch selektorÅ¯ nÃ¡sledovanÃ½ zÃ¡kladnÃ­mi selektory pro vÃ½bÄ›r variant v
+danÃ© rodinÄ›, pak za znakem plus je uvedena implicitnÃ­ matematickÃ¡ sada fontÅ¯
+uÅ¾itÃ¡ k vybranÃ© rodinÄ› a koneÄnÄ› v kulatÃ© zÃ¡vorce je seznam kÃ³dovÃ¡nÃ­, kterÃ©
+rodina fontÅ¯ podporuje. VÃ­ce informacÃ­ o makru "\fontfam" lze najÃ­t v
+souboru "fontfam.tex".
+
+Fonty pÅ™epÃ­nÃ¡me pomocÃ­ zÃ¡kladnÃ­ch selektorÅ¯ ("\rm", "\bf", "\it", "\bi").
+BezprostÅ™ednÄ› pÅ™ed zÃ¡kladnÃ­m selektorem mohou pÅ™edchÃ¡zet {\em modifikÃ¡tory}
+kterÃ© dÃ¡le pozmÄ›ÅˆujÃ­ variantu pÃ­sma. NapÅ™Ã­klad "\caps\it" zapne malÃ© kapitÃ¡lky
+v kurzÃ­vÄ› nebo "\cond\caps\bf" zapne kondenzovanou modifikaci s malÃ½mi
+kapitÃ¡lkami tuÄnÃ© varianty.
+ModifikÃ¡tory nÃ¡sledovanÃ© pÅ™Ã­kazem "\fam" (napÅ™. "\caps\fam") modifikujÃ­
+vÅ¡echny pozdÄ›ji pouÅ¾itÃ© zÃ¡kladnÃ­ selektory (uvnitÅ™ stejnÃ© skupiny).
+ModifikÃ¡tory nÃ¡sledovanÃ© sekvencÃ­ "\one" (napÅ™. "\caps\one") modifikujÃ­ jen
+aktuÃ¡lnÄ› uÅ¾Ã­vanou variantu pÃ­sma. ModifikÃ¡tory pracujÃ­ typicky nezÃ¡visle na
+sobÄ› a kaÅ¾dÃ¡ rodina fontÅ¯ mÅ¯Å¾e disponovat jinou sadou modifikÃ¡torÅ¯. VÃ­ce se
+o nich pÃ­Å¡e v~souboru "cs-heros.tex" nebo v ÄlÃ¡nku "kpfonts-plain.pdf".
+
+PouÅ¾ijete-li "\fontfam[Catalog]", vytiskne se katalog dostupnÃ½ch fontovÃ½ch
+rodin.
+
+
+\sec Velikosti fontÅ¯ a Å™Ã¡dkovÃ¡nÃ­
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+VÅ¡echna makra popsanÃ¡ v tÃ©to i pÅ™edchozÃ­ sekci nastavujÃ­ zmÄ›ny ve fontech a dalÅ¡Ã­ch
+parametrech jen lokÃ¡lnÄ›, takÅ¾e jsou-li ve skupinÄ›, 
+za nÃ­ se nastavenÃ­ vracÃ­ k pÅ¯vodnÃ­m hodnotÃ¡m.
+
+Makro "\typosize[<velikost fontu>/<Å™Ã¡dkovÃ¡nÃ­>]" nastavÃ­ velikost textovÃ½ch i
+matematickÃ½ch fontÅ¯ a Å™Ã¡dkovÃ¡nÃ­. Je-li nÄ›kterÃ½ z parametrÅ¯ prÃ¡zdnÃ½, makro
+nastavÃ­ jen Ãºdaje plynoucÃ­ z neprÃ¡zdnÃ©ho parametru. 
+Parametry neobsahujÃ­ jednotku, jednotka pt se doplnÃ­ v~makru. PÅ™Ã­klady
+
+\begtt
+\typosize[10/12]    % to je implicitnÃ­ nastavenÃ­
+\typosize[11/12.5]  % font velikosti 11pt, Å™Ã¡dkovÃ¡nÃ­ 12.5pt
+\typosize[8/]       % font velikosti 8pt, Å™Ã¡dkovÃ¡nÃ­ nezmÄ›nÄ›no.
+\endtt
+
+ZaÄÃ¡tek dokumentu tedy mÅ¯Å¾e vypadat takto:
+
+\begtt
+\input opmac \typosize[11.5/13]  % sazba v pÃ­smu 11.5pt s Å™Ã¡dkovÃ¡nÃ­m 13pt
+\endtt
+
+Makro "\typoscale[<faktor-font>/<faktor-Å™Ã¡dkovÃ¡nÃ­>]" zvÄ›tÅ¡Ã­ nebo zmenÅ¡Ã­ velikost
+textovÃ½ch i matematickÃ½ch fontÅ¯ resp. Å™Ã¡dkovÃ¡nÃ­ <faktor>krÃ¡t aktuÃ¡lnÃ­ 
+velikost fontÅ¯ resp. Å™Ã¡dkovÃ¡nÃ­. 
+Faktor je celÃ© ÄÃ­slo, pÅ™itom 1000 znamenÃ¡
+faktor jedna ku jednÃ© (jako za slovem "scaled" v~pÅ™Ã­kazu "\font"). Je-li parametr
+prÃ¡zdnÃ½, je to stejnÃ©, jako by byl roven 1000.
+
+\begtt
+\typoscale[800/800]    % fonty i Å™Ã¡dkovÃ¡nÃ­ se zmenÅ¡Ã­ na 80 %
+\typoscale[\magstep2/] % \magstep2 je 1440, tj. fonty se zvÄ›tÅ¡Ã­ 1,44krÃ¡t
+\endtt
+
+NÄ›kdy je Å¾Ã¡doucÃ­ (napÅ™. pÅ™i pÅ™echodu na poznÃ¡mky pod Äarou) zmenÅ¡it font vzhledem
+ke stÃ¡le stejnÃ© velikosti pÃ­sma. StaÄÃ­ psÃ¡t
+"\typobase\typoscale[<font>/<Å™Ã¡dkovÃ¡nÃ­>]". Pak se provede zvÄ›tÅ¡enÃ­/zmenÅ¡enÃ­
+vzhledem k {\em zÃ¡kladnÃ­mu pÃ­smu}, coÅ¾ je pÃ­smo nastavenÃ© po prvnÃ­m pouÅ¾itÃ­ 
+"\typosize" nebo "\typoscale".
+
+Pokud zavedete font pÅ™Ã­kazem "\font\prepinac=<metrika> <nic-nebo-at-nebo-scaled>",
+pak "\prepinac" pÅ™epÃ­nÃ¡ do pevnÄ› stanovenÃ©ho fontu, kterÃ½ nenÃ­ ovlivnÄ›n
+makry na nastavovÃ¡nÃ­ velikosti. Ale co nenÃ­, mÅ¯Å¾e bÃ½t. StaÄÃ­ font
+registrovat pomocÃ­ "\regfont\prepinac" a nynÃ­ i "\prepinac" pÅ™epÃ­nÃ¡ do fontu
+podle velikosti nastavenÃ© pomocÃ­ "\typosize" nebo "\typoscale". PÅ™Ã­klad:
+\par\nobreak
+
+\begtt
+\font\zapfchan=pzcmi8z  \regfont\zapfchan
+\typosize[20/] Taky \zapfchan pÅ™epne do Zapf-Chancery ve velikosti 20pt.
+\endtt
+
+OPmac registruje pÄ›t fontovÃ½ch pÅ™epÃ­naÄÅ¯
+ukrytÃ½ch v makrech "\rm", "\it", "\bf", "\bi", "\tt". TakÅ¾e tato makra
+implicitnÄ› nastavujÃ­ font do stanovenÃ© velikosti.
+
+Na mÃ­sto "\typosize" a "\typoscale" je moÅ¾no pouÅ¾Ã­t 
+makra na zmÄ›nu velikosti jen aktuÃ¡lnÃ­ho fontu
+"\thefontsize[<velikost-fontu>]" a "\thefontscale[<faktor>]".
+Tato makra nemÄ›nÃ­ matematickÃ© fonty ani Å™Ã¡dkovÃ¡nÃ­. 
+
+VÅ¡echna zde uvedenÃ¡ makra na zmÄ›nu velikosti fontÅ¯ jsou vybavena
+inteligencÃ­: hledajÃ­ metriku, kterÃ¡ mÃ¡ svou designovanou velikost nejblÃ­Å¾e
+poÅ¾adovanÃ© velikosti. TakÅ¾e pÅ™i poÅ¾adavku na velikost 13pt se pouÅ¾ije metrika
+"csr12 at13pt", zatÃ­mco pÅ™i velikosti 7.5pt se pouÅ¾ije metrika 
+"csr8 at7.5pt". Data pro tuto inteligenci jsou pÅ™eÄtena ze souboru
+"ams-math.tex", kde je najdete u pÅ™Ã­kazÅ¯ "\regtfm".
+
+PoslednÃ­ poznÃ¡mka k fontÅ¯m se tÃ½kÃ¡ makra "\em", kterÃ© 
+pÅ™epÃ­nÃ¡ variantu pÃ­sma specifickÃ½m zpÅ¯sobem. Je to kontextovÃ© makro, kterÃ© pracuje v
+zÃ¡vislosti na aktuÃ¡lnÄ› zvolenÃ©m fontu. ImplicitnÄ› pÅ™epÃ­nÃ¡ na "\it". Pokud
+ale je aktuÃ¡lnÃ­m fontem "\it", pÅ™epne na "\rm". Je-li aktuÃ¡lnÃ­m fontem "\bf"
+pÅ™epne na "\bi" a obrÃ¡cenÄ›. Makro navÃ­c sprÃ¡vnÄ› doplnÃ­ italickÃ© korekce ke
+slovu pÅ™ed jeho pouÅ¾itÃ­m a za jeho pouÅ¾itÃ­m. TakÅ¾e se o italickÃ© korekce
+nenÃ­ nutno starat. PÅ™Ã­klad:
+
+\begtt
+To je {\em zdÅ¯raznÄ›nÃ½} text.     % jako: To je {\it zdÅ¯raznÄ›nÃ½\/} text.
+\it To je {\em zdÅ¯raznÄ›nÃ½} text. % jako: To je\/ {\rm zdÅ¯raznÄ›nÃ½} text.
+\bf To je {\em zdÅ¯raznÄ›nÃ½} text. % jako: To je {\bi zdÅ¯raznÄ›nÃ½\/} text.
+\bi To je {\em zdÅ¯raznÄ›nÃ½} text. % jako: To je\/ {\bf zdÅ¯raznÄ›nÃ½} text.
+\endtt
+
+
+
+
+\label[cleneni]
+\sec ÄŒlenÄ›nÃ­ dokumentu
+%%%%%%%%%%%%%%%%%%%%%%
+Dokument se mÅ¯Å¾e sklÃ¡dat z kapitol, kapitola ze sekcÃ­ a sekce z podsekcÃ­.
+Titul dokumentu vyznaÄte pomocÃ­ "\tit <titul><konec-Å™Ã¡dku>", kapitolu
+zahajte "\chap <titul><konec-Å™Ã¡dku>" a podobnÄ› novou sekci zahajte
+"\sec <titul><konec-Å™Ã¡dku>" a podsekci 
+"\secc <titul><konec-Å™Ã¡dku>".
+TakÅ¾e tÅ™eba:
+
+\begtt
+\chap Brouci
+
+\sec  Chrousti
+
+\secc O nesmrtelnosti chroustÅ¯
+
+Bla bla bla bla ...
+Bla bla bla a jeÅ¡tÄ› bla.
+\endtt
+
+Kapitoly se automaticky ÄÃ­slujÃ­ jednÃ­m ÄÃ­slem, sekce dvÄ›ma ÄÃ­sly (ÄÃ­slo
+kapitoly.sekce) a podsekce tÅ™emi ÄÃ­sly. Pokud dokument neobsahuje kapitoly,
+ÄÃ­slo kapitoly chybÃ­, tj. sekce mÃ¡ jedno ÄÃ­slo a podsekce dvÄ›.
+
+ImplicitnÃ­ vzhled nadpisÅ¯ kapitol, sekcÃ­ a podsekcÃ­ je definovÃ¡n v
+makrech "\printchap", "\printsec" a "\printsecc". MÅ¯Å¾ete se na obsah tÄ›chto
+maker podÃ­vat do technickÃ© dokumentace nebo do "opmac.tex". MÅ¯Å¾ete se tÄ›mi
+makry inspirovat a tÅ™eba je pÅ™edefinovat podle vlastnÃ­ho typografickÃ©ho nÃ¡vrhu. 
+
+PrvnÃ­ odstavec za titulem kapitoly, sekce a podsekce nenÃ­ odsazen. Pokud jej
+chcete mÃ­t odsazen jako ostatnÃ­ odstavce, napiÅ¡te "\let\firstnoindent=\relax".
+
+JestliÅ¾e je nÃ¡zev kapitoly, sekce nebo podsekce pÅ™Ã­liÅ¡ dlouhÃ½, rozlomÃ­ se do
+Å™Ã¡dkÅ¯. V takovÃ©m pÅ™Ã­padÄ› je nÄ›kdy lepÅ¡Ã­ rozdÄ›lit nÃ¡zev do Å™Ã¡dkÅ¯ manuÃ¡lnÄ›. 
+K tomu slouÅ¾Ã­ makro "\nl", kterÃ© odÅ™Ã¡dkuje v mÃ­stÄ› pouÅ¾itÃ­ (newline).
+Toto makro se navÃ­c v obsahu chovÃ¡ jako mezera.
+
+Kapitola, sekce, podsekce se neÄÃ­sluje, pÅ™edchÃ¡zÃ­-li "\nonum". Kapitola,
+sekce, podsekce se neobjevÃ­ v obsahu, pÅ™edchÃ¡zlÃ­-li "\notoc".
+
+\label[cislovani]
+\sec DalÅ¡Ã­ ÄÃ­slovanÃ© objekty a odkazy na nÄ›
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+KromÄ› kapitol, sekcÃ­ a podsekcÃ­ se automaticky ÄÃ­slujÃ­ jeÅ¡tÄ› rovnice a
+popisky pod obrÃ¡zky a pod tabulkami. 
+
+Pokud je na konci display mÃ³du uvedeno
+"\eqmark", tato rovnice bude ÄÃ­slovanÃ¡. FormÃ¡t ÄÃ­slovÃ¡nÃ­ je implicitnÄ› jedinÃ©
+ÄÃ­slo uzavÅ™enÃ© v kulatÃ© zÃ¡vorce resetovanÃ© pÅ™i kaÅ¾dÃ©m zahÃ¡jenÃ­ novÃ© sekce.
+PÅ™Ã­klad: "$$ a^2 + b^2 = c^2 \eqmark $$" vytiskne
+$$ 
+  a^2 + b^2 = c^2 \eqmark 
+$$
+
+Je-li potÅ™eba oÄÃ­slovat jednÃ­m ÄÃ­slem vÃ­ce rovnic sestavenÃ½ch pomocÃ­
+"\eqalignno", pak pouÅ¾ijte "\eqmark" v poslednÃ­m sloupci, napÅ™Ã­klad takto:
+
+\begtt
+$$
+  \eqalignno{a^2+b^2 &= c^2 \cr 
+                   c &= \sqrt{a^2+b^2} & \eqmark \cr}
+$$
+\endtt
+UkÃ¡zka dÃ¡vÃ¡ tento vÃ½sledek:
+
+\label[vypocet]
+$$
+  \eqalignno{a^2+b^2 &= c^2 \cr
+                   c &= \sqrt{a^2+b^2} & \eqmark \cr}
+$$
+
+DalÅ¡Ã­mi ÄÃ­slovanÃ½mi objekty jsou popisky.
+Popisek pod obrÃ¡zky je potÅ™eba uvÃ©st slovem "\caption/f" a popisek pod
+nebo nad tabulkami slovem "\caption/t". Pak nÃ¡sleduje text popisku ukonÄenÃ½
+prÃ¡zdnÃ½m Å™Ã¡dkem. PÅ™Ã­klad:
+
+\begtt
+\hfil\table{rl}{vÄ›k   & hodnota \crl\noalign{\smallskip}
+                0--1  & nemÄ›Å™itelnÃ¡ \cr 
+                1--6  & projevujÃ­cÃ­ se \cr
+                6--12 & vÃ½raznÃ¡ \cr
+               12--20 & extrÃ©mnÃ­ \cr
+               20--60 & mÃ­rnÄ›jÅ¡Ã­ \cr
+               60--$\infty$ & umÃ­rnÄ›nÃ¡} % vytvoÅ™enÃ­ tabulky
+\par\nobreak\medskip
+\caption/t ZÃ¡vislost zÃ¡vislosti na poÄÃ­taÄÃ­ch na vÄ›ku.
+\endtt
+%
+Tato ukÃ¡zka vytvoÅ™Ã­:
+
+\label[zkouÅ¡Ã­m]
+\medskip
+\hfil\table{rl}{vÄ›k   & hodnota \crl\noalign{\smallskip}
+           0--1  & nemÄ›Å™itelnÃ¡ \cr 
+           1--6  & projevujÃ­cÃ­ se \cr
+           6--12  & vÃ½raznÃ¡ \cr
+           12--20 & extrÃ©mnÃ­ \cr
+           20--60 & mÃ­rnÄ›jÅ¡Ã­ \cr
+           60--$\infty$ & umÃ­rnÄ›nÃ¡}
+\par\nobreak\medskip
+\caption/t ZÃ¡vislost zÃ¡vislosti na poÄÃ­taÄÃ­ch na vÄ›ku.
+\medskip
+
+VidÃ­me, Å¾e makro "\caption/t" doplnilo slovo \uv{Tabulka} nÃ¡sledovanÃ© ÄÃ­slem.
+Toto ÄÃ­slo pÅ™ebÃ­rÃ¡ ÄÃ­slo sekce a za teÄku doplÅˆuje jeÅ¡tÄ› ÄÃ­slo
+tabulky. PodobnÄ› se chovÃ¡ "\caption/f", jen mÃ­sto slova \uv{Tabulka} se v textu
+zjevÃ­ slovo \uv{ObrÃ¡zek}. ObrÃ¡zky a tabulky jsou ÄÃ­slovÃ¡ny nezÃ¡visle.
+Popisek je centrovÃ¡n. Je-li popisek delÅ¡Ã­ na vÃ­ce Å™Ã¡dcÃ­ch, je centrovÃ¡n
+poslednÃ­ Å™Ã¡dek.
+
+ZpÅ¯sob ÄÃ­slovÃ¡nÃ­ lze zmÄ›nit jinou definicÃ­ makra "\thednum" (pro
+rovnici), "\thetnum" (pro tabulky) a "\thefnum" (pro obrÃ¡zky). Makro OPmac
+je definuje implicitnÄ› takto:
+
+\begtt
+\def\thednum{(\the\dnum)} 
+\def\thetnum{\thesecnum.\the\tnum}
+\def\thefnum{\thesecnum.\the\fnum}
+\endtt
+
+Makro OPmac vloÅ¾Ã­ slovo \uv{Tabulka} v zÃ¡vislosti na nastavenÃ©m jazyce
+pÅ™Ã­kazem "\chyph", "\shyph", "\ehyph". PÅ™i "\shyph" dostaneme \uv{TabuÄ¾ka} a
+pÅ™i "\ehyph" mÃ¡me \uv{Table}. PodobnÄ› se chovajÃ­ slova 
+\uv{ObrÃ¡zek/ObrÃ¡zok/Figure} a \uv{Kapitola/Kapitola/Chapter}. 
+JinÃ¡ automaticky generovanÃ¡ slova OPmac nepouÅ¾Ã­vÃ¡.
+
+PÅ™edefinovat tato slova lze pomocÃ­ "\sdef", jak ukazuje nÃ¡sledujÃ­cÃ­ pÅ™Ã­klad,
+kterÃ½ zamÄ›nÃ­ celÃ¡ slova za zkratky.
+
+\begtt
+\sdef{mt:t:cs}{Tab.}  \sdef{mt:t:sk}{Tab.}  \sdef{mt:t:en}{Tab.}
+\sdef{mt:f:cs}{Obr.}  \sdef{mt:f:sk}{Obr.}  \sdef{mt:f:en}{Fig.}
+\endtt
+
+\LaTeX{}ovÃ­ uÅ¾ivatelÃ© jsou zvyklÃ­, Å¾e jim tabulky a obrÃ¡zky plavou v
+dokumentu, pÅ™iÄemÅ¾ inklinujÃ­ k hornÃ­ ÄÃ¡sti strÃ¡nky. To se pÅ™i pouÅ¾itÃ­ OPmac
+implicitnÄ› nedÄ›je, ale je moÅ¾no plavÃ¡nÃ­ zaÅ™Ã­dit
+pomocÃ­ plain\TeX{}ovÃ©ho makra "\topinsert" resp. "\midinsert". NapÅ™Ã­klad:
+
+\begtt
+\topinsert
+   \hfil\table{rl}{...} % vytvoÅ™enÃ­ tabulky
+   \medskip
+   \caption/t ZÃ¡vislost zÃ¡vislosti na poÄÃ­taÄÃ­ch na vÄ›ku.
+\endinsert
+\endtt
+
+Na automaticky ÄÃ­slovanÃ© objekty je nutno se obÄas v textu odkazovat.
+ProtoÅ¾e dopÅ™edu nevÃ­me, pod jakÃ½m ÄÃ­slem se rovnice, sekce, tabulka atd.
+vytiskne, je potÅ™eba pouÅ¾Ã­t internÃ­ lejblÃ­ky k oznaÄenÃ­ odkazovanÃ½ch
+objektÅ¯. K tomu slouÅ¾Ã­ makro "\label[<lejblÃ­k>]", kterÃ© musÃ­ pÅ™edchÃ¡zet
+makru, jeÅ¾ generuje ÄÃ­slo. NenÃ­ nutnÃ©, aby "\label" pÅ™edchÃ¡zel tÄ›snÄ› danÃ©mu
+makru. Tedy napÅ™Ã­klad:
+
+\begtt
+\label[chroust] \sec O nesmrtelnosti chroustÅ¯
+
+\label[zavislaci]
+\hfil\table{rl}{...} % vytvoÅ™enÃ­ tabulky
+\caption/t ZÃ¡vislost zÃ¡vislosti na poÄÃ­taÄÃ­ch na vÄ›ku.
+
+\label[pythagoras]
+$$ a^2 + b^2 = c^2 \eqmark $$
+
+NynÃ­ mÅ¯Å¾eme hovoÅ™it o~sekci~\ref[chroust] na stranÄ›~\pgref[chroust] nebo 
+taky o~rovnici~\ref[pythagoras] na stranÄ›~\pgref[pythagoras]. DÃ¡le bude 
+potÅ™eba upozornit na tabulku~\ref[zavislaci] na stranÄ›~\pgref[zavislaci], 
+kterÃ¡ shrnuje jistÃ½ druh zÃ¡vislosti.
+\endtt
+
+Text z ukÃ¡zky vytvoÅ™Ã­ zhruba toto: \uv{NynÃ­ mÅ¯Å¾eme hovoÅ™it o sekci 2.1 
+na stranÄ› 13 nebo taky o rovnici (1) na stranÄ› 15. DÃ¡le bude 
+potÅ™eba upozornit na tabulku 5.3.1 na stranÄ› 42, 
+kterÃ¡ shrnuje jistÃ½ druh zÃ¡vislosti.} 
+
+JestliÅ¾e se v textu vyskytujÃ­ dopÅ™ednÃ© reference (tj. odkazujeme na objekt,
+kterÃ½ jeÅ¡tÄ› nenÃ­ vytiÅ¡tÄ›n) nebo text odkazuje na strÃ¡nky ("\pgref"), je nutnÃ©
+\TeX{}ovat dokument aspoÅˆ dvakrÃ¡t. 
+
+PomocÃ­ "\label[<lejblÃ­k>]\wlabel{<text>}" se dÃ¡ vytvoÅ™it kdekoli 
+obecnÃ½ cÃ­l <text>, na kterÃ½ je moÅ¾nÃ© odkazovat makry 
+"\ref[<lejblÃ­k>]" nebo "\pgref[<lejblÃ­k>]".
+
+\sec OdrÃ¡Å¾ky
+%%%%%%%%%%%%
+
+JednotlivÃ© myÅ¡lenky je obÄas potÅ™eba vypÃ­chnout odrÃ¡Å¾kami. ProstÅ™edÃ­ s
+odrÃ¡Å¾kami se vymezuje sekvencemi "\begitems" a "\enditems". UvnitÅ™ tohoto
+prostÅ™edÃ­ je hvÄ›zdiÄka aktivnÃ­m znakem, kterÃ½ zahajuje odrÃ¡Å¾ky. ProstÅ™edÃ­ s
+odrÃ¡Å¾kami je moÅ¾nÃ© vnoÅ™it do sebe. PomocÃ­ "\style <znak>" hned za slovem
+"\begitems" je moÅ¾nÃ© vymezit nÄ›kterÃ© z pÅ™eddefinovanÃ½ch vzhledÅ¯ odrÃ¡Å¾ek:
+
+\begtt
+\style o % malÃ½ puntÃ­k
+\style O % velkÃ½ puntÃ­k $\bullet$ (implicitnÃ­ volba)
+\style - % spojovnÃ­k
+\style n % odrÃ¡Å¾ky ÄÃ­slovanÃ© 1., 2., 3., ...
+\style N % odrÃ¡Å¾ky ÄÃ­slovanÃ© 1), 2), 3), ...
+\style i % odrÃ¡Å¾ky ÄÃ­slovanÃ© (i), (ii), (iii), (iv), ...
+\style I % odrÃ¡Å¾ky ÄÃ­slovanÃ© I, II, III, IV, ...
+\style a % odrÃ¡Å¾ky s pÃ­smeny a), b), c), ...
+\style A % odrÃ¡Å¾ky s pÃ­smeny A), B), C), ...
+\style x % malÃ½ ÄtvereÄek
+\style X % velkÃ½ ÄtvereÄek
+\endtt
+
+PÅ™Ã­klad:
+
+\begtt
+\begitems \style n
+* Tady je prvnÃ­ myÅ¡lenka.
+* A tady druhÃ¡, kterÃ¡ je rozdÄ›lena na
+  \begitems \style a
+  * podmyÅ¡lenku
+  * a hned nÃ¡sleduje dalÅ¡Ã­ podmyÅ¡lenka,
+  * poslednÃ­ podmyÅ¡lenka.
+  \enditems
+* Tady je tÅ™etÃ­ myÅ¡lenka.
+\enditems
+\endtt
+%
+vytvoÅ™Ã­ nÃ¡sledujÃ­cÃ­ vÃ½stup:
+
+\begitems \style n
+* Tady je prvnÃ­ myÅ¡lenka.
+* A tady druhÃ¡, kterÃ¡ je rozdÄ›lena na
+  \begitems \style a
+  * podmyÅ¡lenku
+  * a hned nÃ¡sleduje dalÅ¡Ã­ podmyÅ¡lenka,
+  * poslednÃ­ podmyÅ¡lenka.
+  \enditems
+* Tady je tÅ™etÃ­ myÅ¡lenka.
+\enditems
+
+Chcete-li uvnitÅ™ prostÅ™edÃ­ s odrÃ¡Å¾kami vytisknout hvÄ›zdiÄku, piÅ¡te~"\char`\*".
+
+PomocÃ­ "\sdef{item:<pÃ­smeno>}{<text>}" si mÅ¯Å¾ete dodefinovat vzhled odrÃ¡Å¾ek
+podle svÃ½ch pÅ™edstav. ImplicitnÃ­ odrÃ¡Å¾ku mÅ¯Å¾ete pÅ™edefinovat pomocÃ­
+"\def\normalitem{<text>}".
+
+JednotlivÃ¡ prostÅ™edÃ­ s odrÃ¡Å¾kami se odsazujÃ­ podle
+velikosti registru "\iindent", kterÃ½ je nastaven na hodnotu "\parindent" v
+dobÄ› ÄtenÃ­ souboru "opmac.tex". Pokud pozdÄ›ji zmÄ›nÃ­te "\parindent",
+doporuÄuji na stejnou hodnotu nastavit "\iindent".
+VertikÃ¡lnÃ­ mezera nad a pod prostÅ™edÃ­m s odrÃ¡Å¾kami je Å™Ã­zena makrem
+"\iiskip".
+
+\sec Tvorba automaticky generovanÃ©ho obsahu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Makro "\maketoc" vytiskne v mÃ­stÄ› svÃ©ho pouÅ¾itÃ­ obsah dokumentu bez nadpisu,
+jen jednotlivÃ© Å™Ã¡dky obsahu. OdsazenÃ­ jednotlivÃ½ch Å™Ã¡dkÅ¯ je nastaveno na
+nÃ¡sobky registru "\iindent". ÄŒasto je potÅ™eba dokument \TeX{}ovat vÃ­cekrÃ¡t,
+neÅ¾ se obsah zjevÃ­ a neÅ¾ se ÄÃ­sla stran srovnajÃ­ sprÃ¡vnÄ›, protoÅ¾e po
+prvnÃ­m zjevenÃ­ obsahu se mohou strÃ¡nky posunout jinam.
+
+Titulek k obsahu by nemÄ›l bÃ½t ÄÃ­slovanÃ½ a nemÄ›l by se zjevit v obsahu, takÅ¾e
+jej zapÃ­Å¡eme tÅ™eba pomocÃ­
+
+\begtt
+\nonum\notoc\sec Obsah
+\endtt
+
+Titulky kapitol, sekcÃ­ a podsekcÃ­ zapisuje OPmac pro ÃºÄely sestavenÃ­ obsahu do
+externÃ­ho souboru "*.ref". MÅ¯Å¾e se stÃ¡t, Å¾e uÅ¾ivatel v tÄ›chto textech
+pouÅ¾ije nÄ›jakÃ© komplikovanÃ© makro, kterÃ© se pak v souboru \uv{rozsype} do
+takovÃ©ho stavu, Å¾e nejde vzÃ¡pÄ›tÃ­ pÅ™eÄÃ­st. V takovÃ©m pÅ™Ã­padÄ› je potÅ™eba
+makro zabezpeÄit proti expanzi pÅ™i zÃ¡pisu do souboru pomocÃ­
+deklarace "\addprotect\makro". Takto deklarovanÃ© makro je pak zabezpeÄenÃ©
+proti expanzi do "*.ref" souboru. NapÅ™Ã­klad OPmac deklaruje:
+
+\begtt
+\addprotect~ \addprotect\TeX \addprotect\thefontsize \addprotect\em
+\endtt 
+%
+a mnoho dalÅ¡Ã­ch. NenÃ­ moÅ¾nÃ© ale pÅ™edvÃ­dat vÅ¡echno, co mÅ¯Å¾e uÅ¾ivatel
+nacpat do titulku sekce nebo kapitoly. Pokud se tedy \uv{rozsype}
+REF soubor, je potÅ™eba si tÃ­mto zpÅ¯sobem zabezpeÄit pouÅ¾Ã­vanÃ© makro.
+
+PoznÃ¡mka: PÅ™i pÅ™echodu na novÄ›jÅ¡Ã­ verzi OPmac se mÅ¯Å¾e stÃ¡t, Å¾e REF soubor
+vygenerovanÃ½ starou verzÃ­ zpÅ¯sobÃ­ chyby pÅ™i dalÅ¡Ã­m zpracovÃ¡nÃ­. Pak je
+potÅ™ebnÃ© nejprve REF soubor smazat.
+
+
+\sec SestavenÃ­ rejstÅ™Ã­ku
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+Makro pro zanÃ¡Å¡enÃ­ slov do rejstÅ™Ã­ku je navrÅ¾eno s ohledem na optimalizaci
+poÄtu ÃºhozÅ¯ na klÃ¡vesnici. Autor uÅ¾ napsal svÃ© dÃ­lo, mÃ¡ danÃ½ termÃ­n
+odevzdÃ¡nÃ­ a nynÃ­ ho ÄekÃ¡ ÃºmornÃ¡ prÃ¡ce vyhledÃ¡vÃ¡nÃ­ slov v textu, kterÃ¡ by
+mÄ›la pÅ™ijÃ­t do rejstÅ™Ã­ku, a jejich vyznaÄovÃ¡nÃ­. Je tÅ™eba mu tuto prÃ¡ci co
+nejvÃ­ce usnadnit.
+
+Pro zanesenÃ­ slova do rejstÅ™Ã­ku slouÅ¾Ã­ makro "\ii". Je to zkratka za
+\uv{insert to index}.
+Jeho parametr je <slovo> bez mezery ukonÄenÃ© mezerou (obecnÄ›jÅ¡Ã­ tvar parametru
+uvedeme pozdÄ›ji). Toto slovo se pÅ™epÃ­Å¡e do rejstÅ™Ã­ku, ve kterÃ©m jsou vÅ¡echna
+takto deklarovanÃ¡ slova seÅ™azena podle abecedy a jsou k nim pÅ™ipojena ÄÃ­sla
+strÃ¡nek, na kterÃ½ch bylo pouÅ¾ito odpovÃ­dajÃ­cÃ­ makro "\ii <slovo>". 
+PÅ™Ã­klad:
+
+\begtt
+Tady mluvÃ­m o jistÃ©m
+\ii kroutilÃ­k
+kroutilÃ­ku, kterÃ½ provokoval moji zvÄ›davost.
+\endtt
+
+Makro "\ii" viditelnÄ› neudÄ›lÃ¡ v sazbÄ› nic. PÅ™ilepÃ­ se na nÃ¡sledujÃ­cÃ­ slovo (v
+naÅ¡em pÅ™Ã­kladÄ› slovo \uv{kroutilÃ­ku}) jako skrytÃ¡ znaÄka. ÄŒÃ­slo strany,
+kde se ta znaÄka objevÃ­, bude v rejstÅ™Ã­ku vedle slova \uv{kroutilÃ­k}.
+
+Je-li "\ii" zapsÃ¡no ve vertikÃ¡lnÃ­m mÃ³du, zahÃ¡jÃ­ se v danÃ©m mÃ­stÄ› odstavec,
+aby se mohla neviditelnÃ¡ znaÄka z "\ii" nalepit na nÃ¡sledujÃ­cÃ­ slovo. Pokud
+si to z nÄ›jakÃ½ch dÅ¯vodÅ¯ nepÅ™ejete, pouÅ¾ijte internÃ­ variantu makra
+"\iindex{<slovo>}", kterÃ¡ nezahajuje odstavec.
+
+Pokud se v rejstÅ™Ã­ku mÃ¡ objevit stejnÃ© slovo jako v textu, nenÃ­ nutno je psÃ¡t
+dvakrÃ¡t. StaÄÃ­ pouÅ¾Ã­t makro "\iid" (zkratka za "\ii" double):
+
+\begtt
+HlavnÃ­ zÃ¡sady jsou \iid nestrannost , \iid pravdomluvnost a \iid odvaha .
+\endtt
+%
+To povede ke stejnÃ©mu vÃ½sledku jako
+
+\begtt
+HlavnÃ­ zÃ¡sady jsou \ii nestrannost nestrannost,
+\ii pravdomluvnost pravdomluvnost a \ii odvaha odvaha.
+\endtt
+%
+PovÅ¡imnÄ›te si, Å¾e ÄÃ¡rky a teÄky jsou odstrÄeny od dublovanÃ©ho slova, protoÅ¾e
+mezera je ukonÄovacÃ­ znak parametru "\iid". Do textu se mezera vrÃ¡tÃ­ prÃ¡vÄ›
+tehdy, kdyÅ¾ nenÃ¡sleduje teÄka nebo ÄÃ¡rka. V naÅ¡em pÅ™Ã­kladÄ› pÅ™ed spojkou \uv{a}
+mezera ve vÃ½sledku je, ale pÅ™ed teÄkou nebo ÄÃ¡rkou mezera nenÃ­.
+
+Vlastnosti makra "\iid" jsou tÃ­mto popsÃ¡ny zcela. VraÅ¥me se k makru "\ii",
+kterÃ© poskytuje dalÅ¡Ã­ moÅ¾nosti.
+
+Parametr "\ii" je vÅ¾dy ukonÄen mezerou. MÅ¯Å¾e obsahovat ÄÃ¡rky (bez mezer),
+kterÃ© naznaÄujÃ­, Å¾e se do rejstÅ™Ã­ku dÃ¡vÃ¡ vÃ­ce slov:
+
+\begtt
+{\bf Definice.}
+\ii lineÃ¡rnÃ­~prostor,vektorovÃ½~prostor
+{\em LineÃ¡rnÃ­m prostorem} (nebo tÃ©Å¾ vektorovÃ½m prostorem) rozumÃ­me ...
+\endtt
+%
+Dostaneme totÃ©Å¾ jako pÅ™i "\ii lineÃ¡rnÃ­~prostor \ii vektorovÃ½~prostor "
+a tato ukÃ¡zka demonstruje jeÅ¡tÄ› jednu vÄ›c: je-li potÅ™eba do parametru "\ii"
+dostat mezeru, piÅ¡te vlnku nebo napiÅ¡te heslo uzavÅ™enÃ© ve svorkÃ¡ch.
+
+Pokud se v rejstÅ™Ã­ku objevÃ­ hesla sklÃ¡dajÃ­cÃ­ se z vÃ­ce slov, obvykle chceme,
+aby u~hesla, kterÃ© opakuje prvnÃ­ slovo, se toto slovo 
+v rejstÅ™Ã­ku nevypisovalo opakovanÄ›, ale
+aby bylo nahrazeno pomlÄkou. NapÅ™Ã­klad:
+\par\nobreak
+\medskip
+\hbox{\indent lineÃ¡rnÃ­ podprostor \ 12, 16, 18, 29}\nobreak
+\hbox{\indent \space --- prostor \ 12, 16--32, 51}\nobreak
+\hbox{\indent \space --- zÃ¡vislost \ 18--20, 34}
+\medskip
+
+\noindent PÅ™i takovÃ©m poÅ¾adavku piÅ¡te mÃ­sto vlnky mezi slovy lomÃ­tko. PÅ™Ã­klad:
+
+\begtt
+\ii lineÃ¡rnÃ­/prostor,vektorovÃ½/prostor
+\endtt
+
+NÄ›kdy je vhodnÃ© kromÄ› hesla lineÃ¡rnÃ­/prostor zaÅ™adit i heslo
+prostor/lineÃ¡rnÃ­. Aby se to nemuselo psÃ¡t dvakrÃ¡t, je k dispozici zkratka
+"@" napsanÃ¡ za ÄÃ¡rku na konci parametru:
+
+\begtt
+\ii lineÃ¡rnÃ­/prostor,vektorovÃ½/prostor,@
+% je totÃ©Å¾ jako \ii lineÃ¡rnÃ­/prostor,vektorovÃ½/prostor
+%               \ii prostor/lineÃ¡rnÃ­,prostor/vektorovÃ½
+\endtt
+
+PoÄet lomÃ­tek v hesle pro rejstÅ™Ã­k nenÃ­ omezen. MÅ¯Å¾ete tedy vytvoÅ™it
+vÃ­ceÃºrovÅˆovÃ½ rejstÅ™Ã­k. NicmÃ©nÄ› je tÅ™eba vÄ›dÄ›t, Å¾e zkratka "@" nevytvÃ¡Å™Ã­
+vÅ¡echny permutace, ale jen pÅ™esune prvnÃ­ Ãºdaj pÅ™ed lomÃ­tkem za vÅ¡echny
+ostatnÃ­. TakÅ¾e "\ii a/b/c,@" je totÃ©Å¾ jako "\ii a/b/c" "\ii b/c/a".
+
+SamotnÃ½ rejstÅ™Ã­k vznikne v mÃ­stÄ› pÅ™Ã­kazu "\makeindex". RejstÅ™Ã­k obsahuje
+data z pÅ™edchozÃ­ho zpracovÃ¡nÃ­ dokumentu \TeX{}em, takÅ¾e je potÅ™eba
+\TeX{}ovat aspoÅˆ dvakrÃ¡t. Makro "\makeindex" abecednÄ› seÅ™adÃ­ data v rejstÅ™Ã­ku
+podle ÄeskÃ½ch a slovenskÃ½ch pravidel Å™azenÃ­ a upravÃ­ odkazy na strÃ¡nky
+(aby se strÃ¡nky neopakovaly a inklinovaly k zÃ¡pisu ve tvaru 26--28). Makro
+"\makeindex" se nestarÃ¡ o prostÅ™edÃ­, do kterÃ©ho sazbu vyvrhne, ani o nadpis.
+To musÃ­me udÄ›lat sami. OPmac nabÃ­zÃ­ pro sazbu do vÃ­ce sloupcÅ¯ makra
+"\begmulti <poÄet-sloupcÅ¯> ... \endmulti". PÅ™Ã­klad:
+
+\begtt
+\sec RejstÅ™Ã­k
+\begmulti 3 \makeindex \endmulti
+\endtt
+
+Do rejstÅ™Ã­ku musejÃ­ bÃ½t zaÅ™azena jen \uv{ÄistÃ¡} slova, kterÃ¡ neobsahujÃ­ makra
+expandujÃ­cÃ­ na primitivnÃ­ pÅ™Ã­kazy \TeX{}u. Pokud chcete vytisknout v rejstÅ™Ã­ku
+nÄ›co komplikovanÄ›jÅ¡Ã­ho, mÅ¯Å¾ete sestavit slovnÃ­k vÃ½jimek pomocÃ­ 
+maker "\iis <heslo><mezera>{<tisk>}" 
+(nÃ¡zev makra mÅ¯Å¾eme ÄÃ­st jako "\ii" speciÃ¡lnÃ­). 
+Funkci si vysvÄ›tlÃ­me na pÅ™Ã­kladu:
+
+\begtt
+\iis chikvadrat {$\chi$-kvadrÃ¡t}
+\iis relax {{\tt \char`\\relax}}
+\iis Goedelova/vÄ›ta/o~neÃºplnosti {G\"odelova/vÄ›ta/o~neÃºplnosti}
+\iis vÄ›ta/o~neÃºplnosti/Goedelova {vÄ›ta/o~neÃºplnosti/G\"odelova}
+\endtt
+%
+Lze pak psÃ¡t "\ii relax", "\ii chikvadrat" nebo 
+"\ii Goedelova/vÄ›ta/o~neÃºplnosti,@". 
+OPmac abecednÄ› Å™adÃ­ podle tÄ›chto hesel, ale kdyÅ¾ dojde
+na potÅ™ebu heslo vytisknout do rejstÅ™Ã­ku, vytiskne mÃ­sto tÄ›chto hesel
+materiÃ¡l, 
+kterÃ½ je uveden na pravÃ© stranÄ› slovnÃ­ku. 
+PÅ™Ã­klad ukazuje, Å¾e tÃ­m lze
+Å™eÅ¡it nejen tisk hesel, kterÃ¡ je potÅ™eba oÅ¡etÅ™it
+speciÃ¡lnÃ­mi makry (v pÅ™Ã­kladu slovo relax), ale takÃ©
+vÃ½jimky abecednÃ­ho Å™azenÃ­.
+%
+SlovnÃ­k vÃ½jimek je moÅ¾nÃ½ zapsat kamkoli pÅ™ed "\makeindex", 
+typicky se pÃ­Å¡e na zaÄÃ¡tek dokumentu. 
+
+VÃ½jimku z Å™azenÃ­ dvojhlÃ¡sky ch (napÅ™Ã­klad ve slovÄ› mochnÃ¡tÃ½, tj. mnohonohÃ½)
+je moÅ¾nÃ© zaÅ™Ã­dit pomocÃ­ teÄky, kterÃ¡ mÃ¡ stejnÄ› jako ostatnÃ­ interpunÄnÃ­
+znaky, nulovou Å™adicÃ­ platnost (OPmac hesla Å™adÃ­, jakoby tam interpunkce
+nebyla). TakÅ¾e tÅ™eba takto:
+\begtt
+... \ii moc.hnÃ¡tÃ½ ...
+\iis moc.hnÃ¡tÃ½ {mochnÃ¡tÃ½} 
+\endtt
+%
+Je-li pÅ™i zpracovÃ¡nÃ­ "\makeindex" zapnutÃ½ anglickÃ½ jazyk (implicitnÃ­
+nastavenÃ­ nebo po pÅ™epÃ­naÄi
+"\ehyph"), pak se ch neinterpretuje jako dvojhlÃ¡ska. OstatnÃ­ pravidla Å™azenÃ­
+zÅ¯stÃ¡vajÃ­ nezmÄ›nÄ›na.
+
+Pro rÅ¯znÃ© speciÃ¡lnÃ­ znaky mÅ¯Å¾ete vyuÅ¾Ã­t znak "@", kterÃ½ se Å™adÃ­ pÅ™ed celou
+abecedou. SpeciÃ¡lnÃ­ znak pak nahradÃ­te aÅ¾ ve slovnÃ­ku vÃ½jimek.
+TakÅ¾e tÅ™eba "\ii Ernst~@~Young" pro Å™azenÃ­ a
+"\iis Ernst~@~Young {Ernst \& Young}" pro tisk.
+
+
+\sec Barvy, vodoznaky
+%%%%%%%%%%%%%%%%%%%%%
+
+Makra uvedenÃ¡ v tÃ©to sekci nastavujÃ­ barvy jen pÅ™i pÅ™Ã­mÃ©m
+vytvÃ¡Å™enÃ­ do PDF. TakÅ¾e pÅ™i vÃ½stupu do DVI tato makra neudÄ›lajÃ­ nic.
+%
+Barvu textu mÅ¯Å¾ete nastavit pomocÃ­ pÅ™epÃ­naÄÅ¯ 
+{\localcolor\Blue "\Blue"}, 
+{\localcolor\Red "\Red"}, 
+{\localcolor\Brown "\Brown"},
+{\localcolor\Green "\Green"}, 
+{\localcolor\Yellow "\Yellow"}, 
+{\localcolor\Cyan "\Cyan"}, 
+{\localcolor\Magenta "\Magenta"}, 
+{"\White"}, 
+{\localcolor\Grey "\Grey"}, 
+{\localcolor\LightGrey "\LightGrey"} a 
+{"\Black"}. 
+
+ImplicitnÄ› tyto pÅ™epÃ­naÄe pracujÃ­ globÃ¡lnÄ› nezÃ¡visle na \TeX{}ovÃ© skupinÄ›.
+Barvu jinou neÅ¾ Äernou je pak potÅ™eba ukonÄit explicitnÃ­m pÅ™epÃ­naÄem
+"\Black". Toto chovÃ¡nÃ­ je moÅ¾nÃ© zmÄ›nit uvedenÃ­m pÅ™Ã­znaku "\localcolor".
+Tento pÅ™Ã­znak je moÅ¾nÃ© nastavit globÃ¡lnÄ› (napÅ™Ã­klad na zaÄÃ¡tku dokumentu)
+nebo lokÃ¡lnÄ› uvnitÅ™ skupiny. PÅ™i globÃ¡lnÃ­m nastavenÃ­ se sazba vracÃ­ 
+k~pÅ¯vodnÃ­ barvÄ› za vÅ¡emi \TeX{}ovÃ½mi skupinami 
+a pÅ™i lokÃ¡lnÃ­m nastavenÃ­ se k pÅ¯vodnÃ­ barvÄ› vracÃ­ sazba
+za skupinou zaÄÃ­najÃ­cÃ­ pÅ™Ã­znakem "\localcolor" (a za vÅ¡emi vnoÅ™enÃ½mi skupinami).
+PÅ™Ã­klad:
+
+\def\podbarvi#1#2#3{\setbox0=\hbox{#3}\leavevmode
+  {\localcolor\rlap{#1\strut\vrule width\wd0}#2\box0}}
+
+\begtt
+ÄŒernÃ½ {\localcolor \Blue modrÃ½ {\Green zelenÃ½ \Red ÄervenÃ½} modrÃ½} ÄernÃ½. 
+\endtt
+%
+DalÅ¡Ã­ pÅ™Ã­klad vytvoÅ™Ã­ \podbarvi\Yellow\Brown{podbarvenÃ½ text:}
+
+\begtt
+\def\podbarvi#1#2#3{\setbox0=\hbox{#3}\leavevmode
+   {\localcolor\rlap{#1\strut\vrule width\wd0}#2\box0}}
+   \podbarvi\Yellow\Brown{Tady je hnÄ›dÃ½ text na Å¾lutÃ©m pozadÃ­.}
+\endtt
+
+V pÅ¯vodnÃ­ verzi OPmac bylo moÅ¾nÃ© rozliÅ¡ovat barvy tenkÃ½ch linek a pÃ­sma.
+Tuto vlastnost jsem opustil od verze Dec.~2014. ZdÅ¯vodnÄ›nÃ­ najdete v
+technickÃ© dokumentaci.
+
+KromÄ› uvedenÃ½ch barevnÃ½ch pÅ™epÃ­naÄÅ¯ si mÅ¯Å¾ete \uv{namÃ­chat} v reÅ¾imu CMYK 
+i barvy vlastnÃ­. StaÄÃ­ se inspirovat, jak jsou uvedenÃ© pÅ™epÃ­naÄe 
+definovÃ¡ny:\par\nobreak
+
+\begtt
+\def\Red{\setcmykcolor{0 1 1 0}}
+\def\Brown{\setcmykcolor{0 0.67 0.67 0.5}} ...
+\endtt
+
+AktuÃ¡lnÃ­ barvu ve formÄ› ÄtyÅ™ ÄÃ­sel CMYK je moÅ¾nÃ© pÅ™eÄÃ­st z makra
+"\currentcolor" napÅ™Ã­klad pomocÃ­
+"\let\savedcolor=\currentcolor" a pozdÄ›ji je moÅ¾nÃ© se k tÃ©to barvÄ›
+vrÃ¡tit pomocÃ­ "\setcmykcolor\savedcolor".
+
+
+\medskip
+{\bf Vodoznakem} je mÃ­nÄ›n Å¡edÃ½ text opakujÃ­cÃ­ se na kaÅ¾dÃ© strÃ¡nce,
+kterÃ½ je vytiÅ¡tÄ›n pod obvyklÃ½m textem. NapÅ™Ã­klad OPmac nabÃ­zÃ­ makro
+"\draft", kterÃ© zpÅ¯sobÃ­, Å¾e kaÅ¾dÃ¡ strÃ¡nka obsahuje Å¡ikmo napsanÃ½ velikÃ½ Å¡edÃ½
+nÃ¡pis DRAFT. MÅ¯Å¾ete se inspirovat v technickÃ© dokumentaci, jak je to
+udÄ›lÃ¡no.
+
+
+\label[klikani]
+
+\sec KlikacÃ­ odkazy
+%%%%%%%%%%%%%%%%%%%
+
+Pokud napÃ­Å¡ete na zaÄÃ¡tek dokumentu "\hyperlinks{<color-in>}{<color-out>}", pak
+se v dokumentu pÅ™i vÃ½stupu do PDF stanou klikacÃ­mi:
+
+\begitems
+* ÄÃ­sla generovanÃ¡ pomocÃ­ "\ref" a "\pgref",
+* ÄÃ­sla kapitol, sekcÃ­, podsekcÃ­ a strÃ¡nek v obsahu,
+* ÄÃ­sla nebo znaÄky generovanÃ© pomocÃ­ "\cite" (odkazy na literaturu),
+* texty tiÅ¡tÄ›nÃ© pomocÃ­ makra "\url" nebo "\ulink".
+\enditems
+
+PoslednÃ­ z uvedenÃ½ch odkazÅ¯ je externÃ­ a bude mÃ­t barvu <color-out>, zatÃ­mco
+ostatnÃ­ ÄÃ­sla jsou internÃ­mi odkazy a budou mÃ­t barvu <color-in>. PÅ™Ã­klad:
+
+\begtt
+\hyperlinks{\Blue}{\Green}   % vnitÅ™nÃ­ odkazy modrÃ©, URL zelenÃ©
+\endtt
+
+Je moÅ¾nÃ© zobrazit rÃ¡meÄky ohraniÄujÃ­cÃ­ aktivnÃ­ plochu pro klikÃ¡nÃ­. Tyto
+rÃ¡meÄky jsou viditelnÃ© jen v PDF prohlÃ­Å¾eÄi, pÅ™i tisku na tiskÃ¡rnÄ› se
+nezobrazujÃ­. StaÄÃ­ tÄ›mto rÃ¡meÄkÅ¯m \uv{namÃ­chat} barvu (tentokrÃ¡t RGB) a
+definovat nÄ›kterÃ© ze sekvencÃ­ "\pgborder", "\tocborder", "\citeborder",
+"\refborder" a "\urlborder". PrvnÃ­ ÄÃ¡st jmÃ©na kontrolnÃ­ sekvence 
+urÄuje, jakÃ½ch odkazÅ¯ se to tÃ½kÃ¡. PÅ™Ã­klad:
+
+\begtt
+\def\tocborder{1 0 0}  % odkazy v obsahu vlevo budou mÃ­t ÄervenÃ½ rÃ¡meÄek
+\def\pgborder{0 1 0}   % odkazy na strÃ¡nky budou mÃ­t zelenÃ½ rÃ¡meÄek
+\def\citeborder{0 0 1} % odkazy na publikace budou mÃ­t modrÃ½ rÃ¡meÄek
+\endtt
+%
+ImplicitnÄ› tato makra nejsou definovÃ¡na, coÅ¾ znamenÃ¡, Å¾e se rÃ¡meÄky netvoÅ™Ã­.
+
+ManuÃ¡lnÄ› je moÅ¾no vytvoÅ™it cÃ­l odkazu makrem
+"\dest[<typ>:<lejblÃ­k>]"
+a klikacÃ­ text mak\-rem "\link[<typ>:<lejblÃ­k>]{<color>}{<text>}".
+Parametr <typ> je typ odkazu (toc, pg, cite, ref nebo dalÅ¡Ã­). 
+
+Makro "\url" vytiskne odkaz do internetu. PÅ™Ã­klad: "\url{http://petr.olsak.net}"
+vytvoÅ™Ã­ \url{http://petr.olsak.net}. Text je psÃ¡n strojopisem a mÅ¯Å¾e se
+lÃ¡mat do Å™Ã¡dkÅ¯ za lomÃ­tky. Je-li nastaveno "\hyperlinks", stÃ¡vÃ¡ se tento
+text aktivnÃ­m vnÄ›jÅ¡Ã­m odkazem. 
+VyskytujÃ­-li se v~argumentu "\url" znaky
+"%", "\", "#", "$", "{" a "}", je tÅ™eba pouÅ¾Ã­t 
+"\%", "\\", "\#", "\$", "\{" a "\}".
+OstatnÃ­ speciÃ¡lnÃ­ znaky "~", "_", "^", "&" lze napsat do parametru "\url"
+pÅ™Ã­mo. 
+DÃ¡le je moÅ¾no do parametru "\url" napsat "\|" k oznaÄenÃ­ mÃ­sta, kde
+je dovoleno zlomit Å™Ã¡dek.
+%
+LibovolnÃ½ text odkazovanÃ½ na webovou strÃ¡nku lze vloÅ¾it pomocÃ­
+"\ulink[<URL>]{<text>}". NapÅ™Ã­klad odkaz na
+\ulink[http://petr.olsak.net/opmac.html]{strÃ¡nky OPmac} jsou vytvoÅ™eny
+pomocÃ­ "\ulink[http://petr.olsak.net/opmac.html]{strÃ¡nky OPmac}".
+
+Obsah dokumentu se dÃ¡ pÅ™esunout do levÃ© zÃ¡loÅ¾ky PDF prohlÃ­Å¾eÄe tak, Å¾e klikÃ¡nÃ­m na
+nÄ›j se pÅ™echÃ¡zÃ­ v~dokumentu na poÅ¾adovanÃ© mÃ­sto. Ve specifikaci PDF se tomu
+Å™Ã­kÃ¡ \uv{outlines}. Makro, kterÃ© uvedenou vÄ›c zaÅ™Ã­dÃ­, se jmenuje
+"\outlines{<ÃºroveÅˆ>}". ZÃ¡loÅ¾ky budou implicitnÄ› rozevÅ™eny do <ÃºrovnÄ›>
+vÄetnÄ›. TakÅ¾e tÅ™eba pÅ™i <ÃºroveÅˆ>=0 jsou
+vidÄ›t jen ÃºrovnÄ› kapitol. BohuÅ¾el pÃ­smo v~zÃ¡loÅ¾kÃ¡ch typicky
+nezvlÃ¡dÃ¡ sprÃ¡vnÄ› ÄeskÃ¡ a slovenskÃ¡ pÃ­smena. 
+%(kÃ³dovÃ¡nÃ­ PDFDocEncoding neobsahuje ÄeskÃ© znaky). 
+Proto OPmac konvertuje texty do
+zÃ¡loÅ¾ek tak, Å¾e tam jsou bez hacku a carek.
+%\fnote
+%{Chcete-li hÃ¡Äky a ÄÃ¡rky zachovat, pouÅ¾ijte doplÅˆkovÃ© makro {\tt pdfuni.tex}.} 
+Chcete-li vypnout tuto konverzi, napiÅ¡te "\def\toasciidata{}".
+Chcete-li akcenty zachovat, pouÅ¾ijte doplÅˆkovÃ© makro "pdfuni.tex".
+
+SamotnÃ½ Å™Ã¡dek do zÃ¡loÅ¾ek vloÅ¾Ã­te makrem
+"\insertoutline{<text>}". Text v~tomto pÅ™Ã­padÄ› nepodlÃ©hÃ¡ konverzi.
+V sazbÄ› se neobjevÃ­ nic, jen se stane cÃ­lem, kdyÅ¾ uÅ¾ivatel na zÃ¡loÅ¾ku
+s~<textem> klikne. Obsah se do zÃ¡loÅ¾ek vloÅ¾Ã­ celÃ½ bÄ›hem Äinnosti makra
+"\outlines", takÅ¾e dalÅ¡Ã­ Å™Ã¡dky vloÅ¾enÃ© pomocÃ­ "\insertoutline" tomuto
+obsahu pÅ™edchÃ¡zejÃ­ nebo nÃ¡sledujÃ­ podle toho, zda pÅ™edchÃ¡zejÃ­ nebo nÃ¡sledujÃ­
+mÃ­stu, kde je pouÅ¾ito "\outlines".
+
+
+\sec Verbatim texty
+%%%%%%%%%%%%%%%%%%%
+
+Vytisknout ÄÃ¡st textu verbatim \uv{tak jak je} bez interpretace 
+speciÃ¡lnÃ­ch znakÅ¯ lze
+v prostÅ™edÃ­ vymezenÃ©m makry "\begtt" a "\endtt". PÅ™Ã­klad:
+
+{\def\tthook{\adef/{\string\endtt}}
+\begtt
+\begtt
+Tady je vÅ¡e
+   napsÃ¡no bez   interpretace speciÃ¡lnÃ­ch znakÅ¯, jakÃ½mi
+ jsou mezera, %, $, \, ~, ^, _, {, }, #, &.
+/
+\endtt
+}
+Ve vÃ½stupu se objevÃ­:
+
+\begtt
+Tady je vÅ¡e
+   napsÃ¡no bez   interpretace speciÃ¡lnÃ­ch znakÅ¯, jakÃ½mi
+ jsou mezera, %, $, \, ~, ^, _, {, }, #, &.
+\endtt
+%
+NenÃ­-li za "\endtt" prÃ¡zdnÃ½ Å™Ã¡dek, nemÃ¡ nÃ¡sledujÃ­cÃ­ odstavec vÃ½chozÃ­
+odsazenÃ­. 
+
+Je-li pÅ™ed zahÃ¡jenÃ­m "\begtt" nastaven registr "\ttline" na nezÃ¡pornou
+hodnotu, bude makro ÄÃ­slovat Å™Ã¡dky. PrvnÃ­ Å™Ã¡dek mÃ¡ ÄÃ­slo "\ttline+1"
+a po prÃ¡ci makra se registr "\ttline" posune na ÄÃ­slo poslednÃ­ho
+vytiÅ¡tÄ›nÃ©ho Å™Ã¡dku. TakÅ¾e v~dalÅ¡Ã­m prostÅ™edÃ­ "\begtt" ... "\endtt" 
+ÄÃ­slovÃ¡nÃ­ pokraÄuje tam, kde pÅ™estalo. ImplicitnÄ› je "\ttline=-1",
+takÅ¾e ÄÃ­slovÃ¡nÃ­ neprobÃ­hÃ¡.
+
+LevÃ© odsazenÃ­ kaÅ¾dÃ©ho Å™Ã¡dku v "\begtt...\endtt" je nastaveno na "\ttindent".
+Tento registr mÃ¡ vÃ½chozÃ­ hodnotu rovnu "\parindent" (v dobÄ› ÄtenÃ­ souboru
+"opmac.tex"). VertikÃ¡lnÃ­ mezera nad a pod verbatim vÃ½pisem je vloÅ¾ena
+makrem "\ttskip". 
+
+Makro "\begtt" zahÃ¡jÃ­ skupinu a v nÃ­ nastavÃ­ vÅ¡em speciÃ¡lnÃ­m znakÅ¯m plain\TeX{}u 
+kategorii 12. Pak spustÃ­ makro "\tthook", kterÃ©
+je implicitnÄ› prÃ¡zdnÃ©. V nÄ›m je moÅ¾no nastavit dalÅ¡Ã­ kategorie znakÅ¯ podle
+potÅ™eby. Definici aktivnÃ­ch znakÅ¯ je potÅ™eba udÄ›lat
+pomocÃ­ "\adef<znak>{<text>}". NormÃ¡lnÃ­ "\def" nefunguje, dÅ¯vod je
+vysvÄ›tlen v~TBN, str.~26. PÅ™Ã­klad:
+
+{\def\tthook{\adef/{\string\endtt}}
+\begtt
+\def\tthook{\adef!{?}}
+\begtt
+NynÃ­ se kaÅ¾dÃ½ vykÅ™iÄnÃ­k promÄ›nÃ­ v otaznÃ­k. Å½e nevÄ›Å™Ã­te? VyzkouÅ¡ejte!
+/
+\endtt
+}
+DefinovanÃ½ "\tthook" funguje ve vÅ¡ech verbatim vÃ½pisech, dokud jej
+nepÅ™edefinujete jinak. Tipy:
+\par\nobreak
+\begtt
+\def\tthook{\typosize[9/11]}    % jinÃ¡ velikost verbatim vÃ½pisÅ¯
+\def\tthook{\ttline=0}          % vÅ¡echny vÃ½pisy ÄÃ­slovÃ¡ny od jedniÄky
+\def\tthook{\adef{ }{\char`\ }} % mÃ­sto mezer budou vaniÄky
+\endtt
+
+Verbatim lze tisknout i v Å™Ã¡dku uvnitÅ™ odstavce. PomocÃ­ "\activettchar<znak>" si
+uÅ¾ivatel zvolÃ­ znak, kterÃ½ bude aktivnÃ­ a bude zahajovat i konÄit verbatim
+vÃ½pisy uvnitÅ™ odstavce. Verbatim vÃ½pis se v odstavci nikdy nerozlomÃ­ (je v
+boxu). Autor makra OPmac obvykle nastavuje 
+"\activettchar"{\tt\char`\"}, takÅ¾e pak mÅ¯Å¾e psÃ¡t tÅ™eba toto:
+
+\begtt
+Je-li pÅ™ed zahÃ¡jenÃ­m "\begtt" nastaven registr "\ttline" na nezÃ¡pornou...
+\endtt
+%
+Znak nastavenÃ½ pomocÃ­ "\activettchar" mÃ¡ lokÃ¡lnÃ­ platnost a ruÅ¡Ã­ se takÃ©
+pozdÄ›jÅ¡Ã­m nastavenÃ­m "\activettchar" na jinou hodnotu. PÅ™i zahÃ¡jenÃ­ kaÅ¾dÃ©ho
+Å™Ã¡dkovÃ©ho verbatim vÃ½pisu se spustÃ­ makro "\intthook", kterÃ© je implicitnÄ›
+prÃ¡zdnÃ©. {\bf UpozornÄ›nÃ­:} deklaraci "\activettchar<znak>" proveÄte aÅ¾ po pÅ™eÄtenÃ­ vÅ¡ech
+makrosouborÅ¯. DÅ¯vod: "\activettchar" nastavuje <znak> jako aktivnÃ­, coÅ¾ mÅ¯Å¾e pÅ™i
+ÄtenÃ­ souborÅ¯ maker vadit. NenÃ­ taky rozumnÃ© aktivovat znak pro derivaci nebo jinÃ½
+v~textu pouÅ¾Ã­vanÃ½ znak.
+
+Verbatim vÃ½pisy je moÅ¾nÃ© tisknout z externÃ­ho souboru. NapÅ™Ã­klad
+
+\begtt
+\verbinput (12-42) program.c
+\endtt
+%
+vytiskne ve stejnÃ© ÃºpravÄ›, jako pÅ™i pouÅ¾itÃ­ "\begtt", ... "\endtt", 
+Å™Ã¡dky 12 aÅ¾ 42 ze souboru "program.c". 
+Parametry v kulatÃ© zÃ¡vorce mohou vypadat takÃ© takto:
+
+\begtt
+\verbinput (-60) program.c   % vÃ½pis od zaÄÃ¡tku souboru do Å™Ã¡dku 60
+\verbinput (61-) program.c   % vÃ½pis od Å™Ã¡dku 61 do konce souboru
+\verbinput (-) program.c     % vÃ½pis celÃ©ho souboru
+\verbinput (70+10) program.c % vÃ½pis od Å™Ã¡dku 70, tiskne 10 Å™Ã¡dkÅ¯
+\endtt
+
+V dalÅ¡Ã­ch ukÃ¡zkÃ¡ch OPmac Äte od Å™Ã¡dku, kterÃ½ nÃ¡sleduje za naposledy
+pÅ™eÄtenÃ½m Å™Ã¡dkem souboru z pÅ™edchozÃ­ho volÃ¡nÃ­ "\verbinput". Je-li soubor
+Äten poprvÃ©, zaÄÃ­nÃ¡ ÄÃ­st prvnÃ­m Å™Ã¡dkem. Tento prvnÄ› ÄtenÃ½ 
+Å™Ã¡dek je oznaÄen v komentÃ¡Å™Ã­ch jako "n".
+
+\begtt
+\verbinput (+10) program.c  % vÃ½pis deseti Å™Ã¡dkÅ¯ od Å™Ã¡dku n
+\verbinput (+) program.c    % vÃ½pis od Å™Ã¡dku n do konce souboru
+\vebrinput (-5+7) program.c % vynechÃ¡ 5 Å™Ã¡dkÅ¯, od n+5 tiskne dalÅ¡Ã­ch 7
+\verbinput (-3+) program.c  % vynechÃ¡ 3 Å™Ã¡dky, tiskne do konce souboru
+\endtt
+%
+NarazÃ­-li ÄtenÃ­ na konec souboru dÅ™Ã­v, neÅ¾ je vytiÅ¡tÄ›no vÅ¡e, co si Å¾Ã¡dÃ¡
+uÅ¾ivatel, pÅ™epis souboru je ukonÄen a Å¾Ã¡dnÃ¡ chyba se nezjevÃ­. 
+
+VÃ½pisy provedenÃ© makrem "\verbinput" jsou ovlivnÄ›ny registrem
+"\ttindent" a makrem "\tthook" stejnÄ›, jako prostÅ™edÃ­ "\begtt"\dots"\endtt".
+PÅ™i "\ttline"{\tt\char`\<-1} se netisknou ÄÃ­sla Å™Ã¡dkÅ¯. Je-li "\ttline=-1", ÄÃ­sluje se podle
+Å™Ã¡dkÅ¯ souboru. Je-li "\ttline" nezÃ¡pornÃ©, ÄÃ­sluje se od "\ttline+1".
+
+
+\sec JednoduchÃ© tabulky
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\LaTeX{}ovÃ­ uÅ¾ivatelÃ© jsou zvyklÃ­ pÅ™i vymezenÃ­ pravidel zarovnÃ¡vÃ¡nÃ­ v
+tabulce pouÅ¾Ã­vat deklarace typu "{cclr}". KaÅ¾dÃ© pÃ­smeno vymezÃ­ jeden sloupec
+v tabulce, pÅ™itom pÃ­smeno "c" znamenÃ¡ centrovanÃ½ sloupec, "l" je sloupec
+zarovnanÃ½ doleva a "r" sloupec zarovnanÃ½ doprava.
+Podobnou moÅ¾nost deklarace jednoduchÃ½ch tabulek nabÃ­zÃ­
+OPmac v makru "\table{<deklarace>}{<data>}". PÅ™Ã­klad:
+
+\begtt
+\table{||lc|r||}{\crl 
+   mÄ›sÃ­c     & zboÅ¾Ã­     & cena\hfil  \crli \tskip.2em
+   leden     & noÅ¥as     & 14 kKÄ     \cr
+   Ãºnor      & skejt     &  2 kKÄ     \cr
+   Äervenec  & jachtiÄka & 3,4 MKÄ    \crl}
+\endtt
+
+UvedenÃ½ pÅ™Ã­klad povede na nÃ¡sledujÃ­cÃ­ vÃ½sledek:
+
+\medskip
+\hfil\table{||lc|r||}{\crl
+    mÄ›sÃ­c     & zboÅ¾Ã­  & cena\hfil  \crli \tskip.2em
+    leden     & noÅ¥as  & 14 kKÄ     \cr
+    Ãºnor      & skejt  &  2 kKÄ     \cr
+   Äervenec  & jachtiÄka & 3,4 MKÄ  \crl}
+\medskip
+
+Ve skuteÄnosti vÃ½sledek nebude uprostÅ™ed Å™Ã¡dku, ale tam, kam "\table"
+napÃ­Å¡ete. 
+
+KromÄ› pÃ­smen "c", "l", "r" se v <deklaraci> mohou objevit znaky
+\uv{svislÃ­tko}, kterÃ© vymezujÃ­ svislou ÄÃ¡ru mezi sloupci. 
+DÃ¡le kromÄ› deklarÃ¡torÅ¯ jednotlivÃ½ch sloupcÅ¯ "c", "l", "r" je v OPmac od verze Jun
+2017 pÅ™ipraven deklarÃ¡tor "p{<rozmÄ›r>}", kterÃ½ vymezÃ­ sloupec
+tabulky s pevnou Å¡Ã­Å™kou sloupce <rozmÄ›r>. DelÅ¡Ã­ text se formÃ¡tuje jako odstavec
+danÃ© Å¡Ã­Å™ky bez odstavcovÃ© zarÃ¡Å¾ky, kratÅ¡Ã­ jednoÅ™Ã¡dkovÃ½ text je vlevo. NapÅ™Ã­klad
+"p{42mm}"
+vytvoÅ™Ã­ sloupec pro text Å¡irokÃ½ 42\,mm. PÅ™i velmi ÃºzkÃ½ch sloupcÃ­ch nastÃ¡vajÃ­
+obvykle potÃ­Å¾e s formÃ¡tovÃ¡nÃ­m odstavce do bloku. V takovÃ©m pÅ™Ã­padÄ› mÅ¯Å¾ete
+hned za <rozmÄ›r> pÅ™idat tÅ™eba "\raggedright" a odstavec bude formÃ¡tovÃ¡n 
+s~nezarovnanÃ½m pravÃ½m okrajem, napÅ™Ã­klad "p{42mm\raggedright}".
+
+Pokud v <deklaraci> pouÅ¾ijete "(<text>)", je tento text aplikovÃ¡n v kaÅ¾dÃ©m
+Å™Ã¡dku tabulky v~mÃ­stÄ› odpovÃ­dajÃ­cÃ­m umÃ­stÄ›nÃ­ v <deklaraci>. NapÅ™Ã­klad "r(\kern10pt)l"
+vloÅ¾Ã­ mezi sloupce "r" a "l" dodateÄnou desetibodovou mezeru.
+
+V <deklaraci> je moÅ¾nÃ© mÃ­sto opakovÃ¡nÃ­ stejnÃ©ho deklarÃ¡toru pouÅ¾Ã­t ÄÃ­slo
+nÃ¡sledovanÃ© deklarÃ¡torem, tedy tÅ™eba "4c" je totÃ©Å¾ jako "cccc". Opakovat se
+mohou celÃ© Ãºseky <deklarace>, pokud za ÄÃ­slem pokraÄuje Ãºsek ve svorkÃ¡ch.
+NapÅ™Ã­klad "c 3{|c}" je totÃ©Å¾ jako "c|c|c|c".  Mezery v~<deklaraci> se ignorujÃ­ a
+je moÅ¾nÃ© je pouÅ¾Ã­t pro zvÃ½Å¡enÃ­ pÅ™ehlednosti.
+
+V datovÃ© ÄÃ¡sti tabulky musÃ­ bÃ½t pÅ™esnÄ› tolik sloupcÅ¯, kolik jich bylo deklarovÃ¡no.
+Jsou oddÄ›leny znakem "&" nebo symbolem pro konec Å™Ã¡dku "\cr". Z toho vyplÃ½vÃ¡,
+Å¾e na kaÅ¾dÃ©m Å™Ã¡dku musÃ­ bÃ½t v datovÃ© ÄÃ¡sti o jeden znak "&" mÃ©nÄ›, neÅ¾ je poÄet sloupcÅ¯.
+NedodrÅ¾Ã­te-li toto pravidlo, \TeX{} se pomstÃ­ chybovou hlÃ¡Å¡kou
+\begtt
+! Extra alignment tab has been changed to \cr
+\endtt  
+%
+nebo vytvoÅ™Ã­ nedomrlou tabulku. 
+
+MÃ­sto symbolu pro konec Å™Ã¡dku "\cr" je moÅ¾no
+pouÅ¾Ã­t "\crl" (pÅ™idÃ¡ jednoduchou vodorovnou ÄÃ¡ru) nebo "\crll" (pÅ™idÃ¡ dvojitou
+ÄÃ¡ru), "\crli" (pÅ™idÃ¡ ÄÃ¡ru pÅ™eruÅ¡enou svislÃ½mi dvojitÃ½mi linkami, 
+tj.~{\bf i}nterrupted) a 
+"\crlli" (pÅ™idÃ¡ dvojitou ÄÃ¡ru pÅ™eruÅ¡enou svislÃ½mi dvojitÃ½mi linkami).
+KoneÄnÄ› lze pouÅ¾Ã­t "\crlp{<seznam>}", coÅ¾ vloÅ¾Ã­ pÅ™eruÅ¡ovanou ÄÃ¡ru jako
+"\crli", ale jen ve sloupcÃ­ch, jejichÅ¾ poÅ™adovÃ¡ ÄÃ­sla oddÄ›lenÃ¡ ÄÃ¡rkami 
+jsou vyjmenovÃ¡na v <seznamu>. TakÅ¾e tÅ™eba uÅ¾itÃ­ "\crlp{1,2}" v ukÃ¡zce tabulky vÃ½Å¡e
+(mÃ­sto "\crli") vytvoÅ™Ã­ ÄÃ¡ru jen pod slovy \uv{mÄ›sÃ­c} a \uv{zboÅ¾Ã­}. V
+<seznamu> lze pouÅ¾Ã­vat zkratky typu "<od>-<do>", napÅ™Ã­kad "1-3,5" je totÃ©Å¾ jako
+"1,2,3,5".
+
+TÄ›snÄ› za "\cr", "\crl" atd. mÅ¯Å¾e nÃ¡sledovat "\tskip<dimen>",
+coÅ¾ vytvoÅ™Ã­ vertikÃ¡lnÃ­ mezeru velikosti <dimen>, pÅ™itom se nepÅ™eruÅ¡Ã­ svislÃ©
+ÄÃ¡ry v tabulce.
+
+Za povÅ¡imnutÃ­ stojÃ­, Å¾e v ukÃ¡zce u slova \uv{cena} je pÅ™ipojeno
+"\hfil", coÅ¾ vloÅ¾Ã­ pruÅ¾nou mezeru vpravo od poloÅ¾ky. ProtoÅ¾e sloupec "r"
+obsahuje implicitnÃ­ stejnou pruÅ¾nou mezeru vlevo, je slovo \uv{cena} centrovÃ¡no, 
+zatÃ­mco ostatnÃ­ Ãºdaje ve sloupci jsou zarovnÃ¡ny
+napravo. 
+
+Makro "\table" pracuje s pÅ™eddefinovanÃ½mi hodnotami, kterÃ© mÅ¯Å¾ete zmÄ›nit,
+pokud chcete dosÃ¡hnout jinÃ½ vzhled tabulky:
+
+\begtt
+\def\tabiteml{\enspace} % co vklÃ¡dÃ¡ vlevo kaÅ¾dÃ© datovÃ© poloÅ¾ky
+\def\tabitemr{\enspace} % co vklÃ¡dÃ¡ vpravo kaÅ¾dÃ© datovÃ© poloÅ¾ky
+\def\tabstrut{\strut}   % podpÄ›ra vymezujÃ­cÃ­ vÃ½Å¡ku Å™Ã¡dkÅ¯
+\def\vvkern{1pt}   % velikost mezery mezi dvojitou svislou linkou
+\def\hhkern{1pt}   % velikost mezery mezi dvojitou vodorovnou linkou
+\endtt
+
+VyzkouÅ¡ejte si tabulku po "\def\tabiteml{}\def\tabitemr{}". Sloupce budete
+mÃ­t na sebe nalepeny bez mezer. PÅ™Ã­klad definice "\tabstrut": 
+
+\begtt
+\def\tabstrut{\vrule height11pt depth3pt width0pt}
+\endtt
+%
+Tento pÅ™Ã­klad vymezuje v tabulce vzdÃ¡lenost mezi ÃºÄaÅ™Ã­m 14pt, z toho
+11pt je rezervovÃ¡no pro pÅ™etahy nad ÃºÄaÅ™Ã­m a 3pt pro pÅ™etahy pod
+ÃºÄaÅ™Ã­m. Vyskytne-li se vÄ›tÅ¡Ã­ pÃ­smeno, zvÄ›tÅ¡Ã­ to v~danÃ©m mÃ­stÄ› Å™Ã¡dkovÃ¡nÃ­.
+
+OPmac definuje "\strut" zÃ¡vislÃ½ na zvolenÃ©m Å™Ã¡dkovÃ¡nÃ­ (pÅ™i pouÅ¾itÃ­ pÅ™Ã­kazu
+"\typosize") zhruba takto:
+
+\begtt
+\def\strut{\vrule height.709<baselineskip> depth.291<baselineskip> width0pt}
+\endtt
+
+Tip: vyzkouÅ¡ejte si
+"\def\tabiteml{$\enspace} \def\tabitemr{\enspace$}". Ty dolary zpÅ¯sobÃ­, Å¾e
+kaÅ¾dÃ¡ datovÃ¡ poloÅ¾ka bude zpracovÃ¡na v matematickÃ©m mÃ³du. Makro "\table" se
+nynÃ­ podobÃ¡ \LaTeX{}ovÃ©mu prostÅ™edÃ­ "array".
+
+Chcete-li pÅ™esÃ¡hnout jednÃ­m Ãºdajem vÃ­ce sloupcÅ¯ tabulky, mÅ¯Å¾ete pouÅ¾Ã­t
+plain\TeX{}ovÃ© makro "\multispan{<ÄÃ­slo>}" nebo makro z OPmac
+"\mspan<ÄÃ­slo>[<deklarace>]{<text>}", kterÃ© pÅ™esÃ¡hne <ÄÃ­slo> sloupcÅ¯ a <text>
+v tomto prostoru formÃ¡tuje podle <deklarace>, kterÃ¡ obsahuje deklaraci prÃ¡vÄ›
+jednoho sloupce podle stejnÃ½ch pravidel jako je <deklarace> "\table". 
+MÃ¡te-li v~tabulce svislÃ© ÄÃ¡ry
+a chcete, aby svislÃ© ÄÃ¡ry z "\mspan" na nÄ› navazovaly, pak pouÅ¾ijte v
+"\mspan" ÄÃ¡ry pÅ™ed Ãºdajem "c", "l" nebo "r" jedinÄ› v pÅ™Ã­padÄ›, Å¾e "\mspan" zasahuje do
+prvnÃ­ho sloupce. V~ostatnÃ­ch pÅ™Ã­padech pouÅ¾Ã­vejte ÄÃ¡ry vÃ½hradnÄ› na konci
+<deklarace>, protoÅ¾e kaÅ¾dÃ½ sloupec (s vÃ½jimkou prvnÃ­ho) pÅ™idÃ¡vÃ¡ pÅ™Ã­padnÃ©
+svislÃ© ÄÃ¡ry jen na svÅ¯j konec.
+
+Makro "\frame{<text>}" vytvoÅ™Ã­ rÃ¡meÄek kolem <textu> s vnitÅ™nÃ­mi okraji
+o~velikostech "\vvkern" a "\hhkern". NapÅ™Ã­klad "\frame{ahoj}" vytvoÅ™Ã­ \frame{ahoj}.
+PovÅ¡imnÄ›te si, Å¾e ÃºÄaÅ™Ã­ rÃ¡movanÃ©ho textu zÅ¯stalo nezmÄ›nÄ›no. Pokud chcete mÃ­t
+tabulku s dvojitÃ½mi Äarami, je vÃ½hodnÃ© ji vytvoÅ™it po stranÃ¡ch 
+a nahoÅ™e a dole s~jednoduchÃ½mi Äarami a celou ji zabalit do "\frame":
+
+\vbox{
+\begtt
+\frame{\table{|c||l||r||c|}{\crl
+  \mspan4[|c|]{\bf Nadpis} \crl 
+  \noalign{\kern\hhkern}\crli
+  prvnÃ­ & druhÃ½ & tÅ™etÃ­  & ÄtvrtÃ½ \crlli
+  sedmÃ½ & osmÃ½  & devÃ¡tÃ½ & desÃ¡tÃ½ \crli}}
+\endtt 
+\par\removelastskip\vskip-8.3ex
+\hfill\frame{\table{|c||l||r||c|}{\crl
+  \mspan4[|c|]{\bf Nadpis} \crl 
+  \noalign{\kern\hhkern}\crli
+  prvnÃ­ & druhÃ½ & tÅ™etÃ­  & ÄtvrtÃ½ \crlli
+  sedmÃ½ & osmÃ½  & devÃ¡tÃ½ & desÃ¡tÃ½ \crli}}
+}
+\medskip
+
+KromÄ› pÅ™eddefinovanÃ½ch znakÅ¯ "c,l,r,p" lze v "<deklaraci>" "\table" pouÅ¾Ã­t
+libovolnÃ½ dalÅ¡Ã­ symbol pro deklaraci sloupce, staÄÃ­ pÅ™ipravit 
+"\def\tabdeclare<symbol>{<vlevo>##<vpravo>}". Toto je podrobnÄ›ji popsÃ¡no
+v technickÃ© dokumentaci.
+
+TlouÅ¡Å¥ka vÅ¡ech Äar je v \TeX{}u implicitnÄ› 0,4pt. OPmac umoÅ¾Åˆuje tuto
+implicitnÃ­ tlouÅ¡Å¥ku nastavit jinak pomocÃ­ "\rulewidth=<Å¡Ã­Å™ka>", napÅ™Ã­klad
+"\rulewidth=1.5pt".
+
+DalÅ¡Ã­ pÅ™Ã­klad pouÅ¾itÃ­ makra "\table" najdete v sekci~\ref[cislovani].
+Pokud potÅ™ebujete vytvoÅ™it komplikovanÄ›jÅ¡Ã­ tabulky, mÅ¯Å¾ete se inspirovat
+sekcÃ­ \ulink[http://petr.olsak.net/opmac-tricks.html]{OPmac trikÅ¯}
+vÄ›nujÃ­cÃ­ se tabulkÃ¡m. MÅ¯Å¾ete si takÃ© definovat pÅ™Ã­padnÄ› dalÅ¡Ã­ vlastnÃ­ tabulkovÃ©
+deklarÃ¡tory nebo pouÅ¾Ã­t pÅ™Ã­mo primitivnÃ­ "\halign", coÅ¾ vyÅ¾aduje zÅ™ejmÄ›  
+prostudovat TBN, kapitolu Ätvrtou.
+
+
+\sec VklÃ¡dÃ¡nÃ­ obrÃ¡zkÅ¯
+%%%%%%%%%%%%%%%%%%%%%
+
+Makro "\inspic <jmÃ©no>.<pÅ™Ã­pona><mezera>" vloÅ¾Ã­ obrÃ¡zek. Je-li pÅ™edem nastaven
+registr "\picw", mÃ¡ obrÃ¡zek poÅ¾adovanou Å¡Ã­Å™ku.
+ImplicitnÃ­ hodnota registru je 0\,pt, coÅ¾ znamenÃ¡, Å¾e bude obrÃ¡zek vloÅ¾en 
+ve svÃ© pÅ™irozenÃ© velikosti. Analogicky lze nastavit vÃ½Å¡ku obrÃ¡zku registrem
+"\picheight".
+PÅ™Ã­pony souboru s obrÃ¡zkem mohou bÃ½t "png", "jpg", "jbig2", "pdf".
+
+ObrÃ¡zek je vyhledÃ¡n v adresÃ¡Å™i "\picdir". Toto makro je implicitnÄ› prÃ¡zdnÃ©,
+tj. obrÃ¡zek je vyhledÃ¡n v aktuÃ¡lnÃ­m adresÃ¡Å™i.
+
+O umÃ­stÄ›nÃ­ obrÃ¡zku v sazbÄ› se musÃ­te postarat vlastnÃ­mi prostÅ™edky.
+NapÅ™Ã­klad:
+
+\begtt
+\picw=.5\hsize \centerline{\inspic hodiny.jpg }\nobreak\medskip
+\caption/f Hodiny na brnÄ›nskÃ©m nÃ¡mÄ›stÃ­ Svobody.
+\endtt
+
+Makro nenÃ­ vhodnÃ© pouÅ¾Ã­t pÅ™i opakovanÃ©m pouÅ¾itÃ­ stejnÃ©ho obrÃ¡zku v dokumentu
+(opakujÃ­cÃ­ se grafika na kaÅ¾dÃ© stranÄ› nebo obrÃ¡zek jako 
+odrÃ¡Å¾ka ve vÃ½Ätu poloÅ¾ek). V takovÃ©m pÅ™Ã­padÄ› je vhodnÄ›jÅ¡Ã­ natÃ¡hnout obrÃ¡zek
+do PDF dokumentu jen jednou pdf\TeX{}ovÃ½m pÅ™Ã­kazem "\pdfximage" a dÃ¡le
+opakovat jeho zobrazenÃ­ na rÅ¯znÃ½ch mÃ­stech dokumentu pomocÃ­ "\pdfrefximage".
+Dokumentace k pdf\TeX{}u Å™ekne vÃ­c.
+
+Makro "\inspic" pracuje jen pÅ™i vÃ½stupu do PDF. Pokud mÃ¡te
+nastaven vÃ½stup do DVI,
+mÅ¯Å¾ete pouÅ¾Ã­t makro "epsf.tex". Vzhledem k omezenÃ½m moÅ¾nostem (obrÃ¡zek jen
+ve formÃ¡tu EPS) nenÃ­ tento zpÅ¯sob prÃ¡ce s obrÃ¡zky v makru OPmac podporovÃ¡n.
+
+Chcete-li \uv{programovat} obrÃ¡zky pÅ™Ã­mo ve zdrojovÃ©m textu \TeX{}u, lze
+pouÅ¾Ã­t plain\TeX{}ovÃ© rozhranÃ­ vynikajÃ­cÃ­ho makra Ti{\em k}Z, se kterÃ½m je OPmac
+kompatibilnÃ­.
+
+\sec PDF transformace
+%%%%%%%%%%%%%%%%%%%%%
+
+VeÅ¡kerÃ¡ sazba v pdf\TeX{}u mÅ¯Å¾e podlÃ©hat lineÃ¡rnÃ­ transformaci, kterÃ¡ je
+danÃ¡ transformaÄnÃ­ maticÃ­
+"\pdfsetmatrix{<a> <b> <c> <d>}". Tato matice se v lineÃ¡rnÃ­ algebÅ™e
+zapisuje do dvou Å™Ã¡dkÅ¯:
+$$
+  \pmatrix{a&c\cr b&d}, \quad \hbox{napÅ™. zvÄ›tÅ¡enÃ­: }
+  \pmatrix{s_1&0\cr 0&s_2}, \quad \hbox{nebo rotace: }
+  \pmatrix{\cos\varphi&\ -\sin\varphi \cr \sin\varphi&\ \hphantom-\cos\varphi}.
+$$
+Pdf\TeX{}ovÃ© primitivy "\pdfsetmatrix", "\pdfsave" a "\pdfrestore" bohuÅ¾el
+nejsou v dokumentaci pdf\TeX{}u uvedeny, tak je musÃ­m dokumentovat aspoÅˆ
+zde. PÅ™Ã­kaz "\pdfsave" uloÅ¾Ã­ stÃ¡vajÃ­cÃ­ transformaÄnÃ­ matici a aktuÃ¡lnÃ­ bod
+sazby. V dobÄ› konÃ¡nÃ­ pÅ™Ã­kazu "\pdfrestore" se matice vrÃ¡tÃ­ do pÅ¯vodnÃ­ podoby
+a aktuÃ¡lnÃ­ bod sazby v tÃ© dobÄ› musÃ­ bÃ½t na stejnÃ©m mÃ­stÄ›, jako byl v~dobÄ›
+"\pdfsave", jinak se nÃ¡m sazba rozjede a pdf\TeX{} nadÃ¡vÃ¡. Toho se dÃ¡
+docÃ­lit napÅ™. pomocÃ­ "\pdfsave...\rlap{<text>}\pdfrestore".
+TransformaÄnÃ­ matice se nastavujÃ­ pomocÃ­ "\pdfsetmatrix". OpakovanÃ© pouÅ¾itÃ­
+"\pdfsetmatrix" zpÅ¯sobÃ­ pronÃ¡sobenÃ­ transformaÄnÃ­ matice novou maticÃ­,
+takÅ¾e to funguje jako sklÃ¡dÃ¡nÃ­ zobrazenÃ­. OPmac nabÃ­zÃ­ dvÄ› uÅ¾iteÄnÃ¡ makra
+"\pdfscale{<vodorovnÄ›>}{<svisle>}" a "\pdfrotate{<Ãºhel>}". Parametr "<Ãºhel>"
+je interpretovÃ¡n ve stupnÃ­ch. Tato makra provedou odpovÃ­dajÃ­cÃ­
+"\pdfsetmatrix".
+
+Aplikujeme-li vÃ­ce matic za sebou, je potÅ™eba vÄ›dÄ›t, Å¾e vÃ½chozÃ­ text
+prochÃ¡zÃ­ transformacÃ­ jednotlivÃ½ch matic \uv{odzadu dopÅ™edu}, takÅ¾e
+napÅ™Ã­klad:
+
+\begtt
+PrvnÃ­: \pdfsave \pdfrotate{30}\pdfscale{-2}{2}\rlap{text1}\pdfrestore
+      % text1 je zvÄ›tÅ¡en dvakrÃ¡t a pÅ™eklopen podÃ©l svislÃ© osy,
+      % dÃ¡le je otoÄen o 30 stupÅˆÅ¯ doleva a koneÄnÄ› je vytiÅ¡tÄ›n.
+druhÃ½: \pdfsave \pdfscale{-2}{2}\pdfrotate{30}\rlap{text2}\pdfrestore
+      % text2 je otoÄen o 30 stupÅˆÅ¯ doleva, dÃ¡le zvÄ›tÅ¡en a pÅ™eklopen
+      % podÃ©l svislÃ© osy, nakonec vytiÅ¡tÄ›n.
+tÅ™etÃ­: \pdfsave \pdfrotate{-15.3}\pdfsetmatrix{2 0 1.5 2}\rlap{text3}%
+       \pdfrestore % nejprve zkosenÃ­, pak otoÄenÃ­ o 15.3 stupÅˆÅ¯ doprava
+\endtt
+
+\bigskip
+UkÃ¡zka dÃ¡vÃ¡ nÃ¡sledujÃ­cÃ­ vÃ½sledek. PrvnÃ­: 
+  \pdfsave \pdfrotate{30}\pdfscale{-2}{2}\rlap{text1}\pdfrestore
+druhÃ½:
+  \pdfsave \pdfscale{-2}{2}\pdfrotate{30}\rlap{text2}\pdfrestore
+tÅ™etÃ­: 
+  \pdfsave \pdfrotate{-15.3}\pdfsetmatrix{2 0 1.5 2}\rlap{text3}%
+       \pdfrestore 
+\bigskip\bigskip
+
+
+\sec PoznÃ¡mky pod Äarou a na okraji
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PoznÃ¡mku pod Äarou} 
+vytvoÅ™Ã­te pomocÃ­ "\fnote{<text>}". V mÃ­stÄ› tohoto zÃ¡pisu
+v textu se objevÃ­ automaticky generovanÃ¡ znaÄka a pod Äarou dole na strÃ¡nce
+je tato znaÄka zopakovÃ¡na a vedle nÃ­ je <text>. 
+
+ZnaÄka je implicitnÄ› definovanÃ¡ jako ÄÃ­slo v exponentu.
+ÄŒÃ­slovÃ¡nÃ­ poznÃ¡mek je na kaÅ¾dÃ© strÃ¡nce zapoÄato
+jedniÄkou\fnote
+{Toto chovÃ¡nÃ­ se dÃ¡ zmÄ›nit vloÅ¾enÃ­m pÅ™Ã­kazu {\tt\char`\\runningfnotes} na
+zaÄÃ¡tek dokumentu. V takovÃ©m pÅ™Ã­padÄ› se poznÃ¡mky ÄÃ­slujÃ­ od jednÃ© v celÃ©m
+dokumentu. DalÅ¡Ã­ moÅ¾nosti ÄÃ­slovÃ¡nÃ­ jsou uvedeny v technickÃ© dokumentaci.}.
+ÄŒÃ­sla jsou vygenerovÃ¡na sprÃ¡vnÄ› aÅ¾ po
+opakovanÃ©m \TeX{}ovÃ¡nÃ­. PÅ™i prvnÃ­m zpracovÃ¡nÃ­ jsou mÃ­sto ÄÃ­sel otaznÃ­ky.
+
+ImplicitnÃ­ znaÄkovÃ¡nÃ­ je moÅ¾nÃ© zmÄ›nit pÅ™edefinovÃ¡nÃ­m makra "\thefnote".
+NapÅ™Ã­klad po
+
+\begtt
+\def\thefnote{\ifcase\locfnum\or
+   *\or**\or***\or$^{\dag}$\or$^{\ddag}$\or$^{\dag\dag}$\fi)}
+\endtt
+%
+bude prvnÃ­ poznÃ¡mka mÃ­t hvÄ›zdiÄku se zÃ¡vorkou, druhÃ¡ dvÄ› hvÄ›zdiÄky se
+zÃ¡vorkou atd. UvedenÃ¡ definice pÅ™edpoklÃ¡dÃ¡, Å¾e na jednÃ© strÃ¡nce nebudete mÃ­t
+vÃ­ce neÅ¾ 6 poznÃ¡mek.
+
+Makro "\fnote" je moÅ¾nÃ© zapsat jen v bÄ›Å¾nÃ©m textu odstavce, nikoli v boxu
+(napÅ™Ã­klad v~tabulce). Chcete-li odkazovat tÅ™eba z tabulky, je nutnÃ© v
+tabulce vytvoÅ™it jen znaÄky a mimo tabulku (ovÅ¡em tak, aby to neuteklo na
+jinou strÃ¡nku) zapÃ­Å¡ete texty poznÃ¡mek. K vytvoÅ™enÃ­ znaÄky pouÅ¾ijte
+"\fnotemark<ÄÃ­slo>" a text (bez znaÄky) vytvoÅ™Ã­ "\fnotetext{<text>}".
+PÅ™Ã­klad:
+
+\begtt
+{\typoscale[/1200]\table{||lc|r||}{\crl 
+     mÄ›sÃ­c     & zboÅ¾Ã­                & cena\hfil \crli \tskip.2em
+     leden     & noÅ¥as\fnotemark1     & 14 kKÄ    \cr
+     Ãºnor      & skejt\fnotemark2     &  2 kKÄ    \cr
+     Äervenec  & jachtiÄka\fnotemark3 & 3,4 MKÄ   \crl}}
+\par\nobreak \fnotetext{notebook}\fnotetext{skateboard}\fnotetext{jachta}
+\endtt
+%
+ÄŒÃ­sla za slovy "\fnotemark" je tÅ™eba psÃ¡t od jednÃ© v kaÅ¾dÃ© tabulce/boxu.
+NemusejÃ­ souviset se skuteÄnÃ½m ÄÃ­slem poznÃ¡mky. NapÅ™Ã­klad, je-li na stejnÃ© strÃ¡nce nad 
+tabulkou z ukÃ¡zky normÃ¡lnÃ­ "\fnote", bude mÃ­t vytiÅ¡tÄ›no ÄÃ­slo 1, 
+odkazy v tabulce budou mÃ­t ÄÃ­sla~2, 3, 4 a pÅ™Ã­padnÃ¡ dalÅ¡Ã­ poznÃ¡mka pod
+tabulkou na stejnÃ© strÃ¡nce obdrÅ¾Ã­ ÄÃ­slo 5.
+
+{\bf PoznÃ¡mku na okraji strÃ¡nky} vytvoÅ™Ã­te pomocÃ­ Å™Ã­dicÃ­ sekvence
+"\mnote{<text>}". PoznÃ¡mka je vlevo (na pravou zarÃ¡Å¾ku) na sudÃ© strÃ¡nce a je
+vpravo (na levou zarÃ¡Å¾ku) na lichÃ© strÃ¡nce. Tuto vlastnost majÃ­ poznÃ¡mky aÅ¾
+po opakovanÃ©m \TeX{}ovÃ¡nÃ­. PÅ™i prvnÃ­m \TeX{}ovÃ¡nÃ­ jsou vÅ¡echny poznÃ¡mky vpravo.
+Chcete-li mÃ­t poznÃ¡mky i pÅ™i opakovanÃ©m \TeX{}ovÃ¡nÃ­ jen vpravo nebo jen
+vlevo, piÅ¡te do Ãºvodu dokumentu "\fixmnotes\right" nebo "\fixmnotes\left".
+
+Å˜Ã­dicÃ­ sekvenci "\mnote{<text>}" mÅ¯Å¾ete napsat do odstavce nebo pÅ™ed
+odstavec. S odstavcem samotnÃ½m to nic neudÄ›lÃ¡. Å˜Ã¡dek odstavce, kde je
+"\mnote" vloÅ¾ena jako neviditelnÃ¡ znaÄka, je na stejnÃ© Ãºrovni, jako prvnÃ­
+Å™Ã¡dek textu poznÃ¡mky. 
+
+Text poznÃ¡mky je od sazby odsazen o "\mnoteindent" a maximÃ¡lnÃ­ Å¡Ã­Å™ka
+poznÃ¡mky je "\mnotesize". Text poznÃ¡mky se rozlomÃ­ do vÃ­ce Å™Ã¡dkÅ¯, aby
+nepÅ™esÃ¡hl "\mnotesize".
+
+NenÃ­ oÅ¡etÅ™en pÅ™Ã­pad, kdy je "\mnote" vÃ­ceÅ™Ã¡dkovÃ¡ a je umÃ­stÄ›na na ÃºroveÅˆ
+napÅ™Ã­klad poslednÃ­ho Å™Ã¡dku strany. Pak text poznÃ¡mky pÅ™eÄuhuje ponÄ›kud 
+dolÅ¯ ze strany. Nebo se poznÃ¡mky mohou pÅ™ekrÃ½vat. 
+Je tedy nutnÃ© "\mnote" pouÅ¾Ã­t jen na velmi krÃ¡tkÃ© poznÃ¡mky a
+pÅ™Ã­padnÄ› si tento jev pohlÃ­dat a oÅ¡etÅ™it pÅ™i definitivnÃ­ sazbÄ› manuÃ¡lnÄ›.
+Pro manuÃ¡lnÃ­ oÅ¡etÅ™enÃ­ vertikÃ¡lnÃ­ polohy poznÃ¡mek slouÅ¾Ã­ "\mnoteskip", coÅ¾ je
+registr, kterÃ½ udÃ¡vÃ¡, o kolik se mÃ¡ nÃ¡sledujÃ­cÃ­ poznÃ¡mka (a jen ta) posunout
+nahoru. PÅ™i zÃ¡pornÃ© hodnotÄ› se posune dolÅ¯. NapÅ™Ã­klad 
+"\mnoteskip=2\baselineskip \mnote{<text>}" posune poznÃ¡mku o~dva Å™Ã¡dky vÃ½Å¡e.
+
+
+\sec BibliografickÃ© Ãºdaje
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Odkazy.}
+PomocÃ­ "\cite[<lejblÃ­k>]" nebo "\cite[<lejblÃ­k1>,<lejblÃ­k2>,<lejblÃ­k3>]"
+atd. vytvoÅ™Ã­me v~textu odkazy na poloÅ¾ky v seznamu literatury. V
+seznamu literatury je tÅ™eba uvÃ©st zÃ¡znamy, kterÃ© majÃ­ odkazovanÃ© lejblÃ­ky.
+Tyto zÃ¡znamy dostanou v seznamu automaticky vygenerovanÃ¡ ÄÃ­sla a sekvence
+"\cite" se pak promÄ›nÃ­ na ÄÃ­selnÃ© odkazy, napÅ™Ã­klad [27] nebo [18,~24,~42]
+atd. SouvislÃ© Å™ady ÄÃ­sel [1,~2,~3,~5,~6] se promÄ›nÃ­ v~intervaly
+[1--3,~5--6] jen tehdy, kdyÅ¾ je v ÃºvodnÃ­ deklaraci dokumentu napsÃ¡no
+"\shortcitations". A seÅ™adÃ­ se podle velikosti pÅ™i "\sortcitations".
+
+PÅ™i "\nonumcitations" se odkazy nepÅ™evÃ¡dÄ›jÃ­ na ÄÃ­sla. K tomu je potÅ™eba
+pouÅ¾Ã­t navazujÃ­cÃ­ Bib\TeX{}ovÃ½ styl (napÅ™. "alpha", "apalike") nebo
+rozÅ¡Ã­Å™enou formu pÅ™Ã­kazu "\bib", viz nÃ­Å¾e. Odkazy vypadajÃ­ pÅ™i stylu 
+"alpha" takto [Nov08] a pÅ™i stylu "apalike" 
+takto [NovÃ¡k, 2008].
+
+PÅ™Ã­kaz "\rcite[<lejblÃ­ky>]" funguje jako "\cite[<lejblÃ­ky>]", ale kolem odkazÅ¯ 
+nejsou pÅ™idÃ¡ny zÃ¡vorky. MoÅ¾nost vyuÅ¾itÃ­: "[\rcite[novak08],~s.~213]" vytvoÅ™Ã­
+napÅ™Ã­klad odkaz [17,~s.~213]. ZÃ¡vorky kolem musÃ­te napsat sami. 
+
+PÅ™Ã­kaz "\ecite[<lejblÃ­k>]{<text>}" vytiskne pouhÃ½ "<text>", kterÃ½ se chovÃ¡
+jako odkaz na literaturu.
+PÅ™Ã­klad pouÅ¾itÃ­: "z~vÃ½sledÅ¯ NovÃ¡ka [\ecite[novak08]{2008},~s.~213] plyne..."
+z~vÃ½sledkÅ¯ NovÃ¡ka [2008, s. 213] plyne\dots\ PÅ™itom "novak08" je registrovÃ¡n do
+seznamu citovanÃ½ch poloÅ¾ek a tÅ™eba pÅ™i "\hyperlinks" bude ÄÃ­slo 2008 prolinkovÃ¡no 
+s odpovÃ­dajÃ­cÃ­ poloÅ¾kou v~seznamu literatury. 
+
+PÅ™Ã­klady redefinice "\cite" pro alternativnÃ­ formÃ¡tovÃ¡nÃ­ odkazÅ¯:
+
+\begtt
+\def\cite[#1]{(\rcite[#1])}     % \cite[lejblÃ­k] vytvoÅ™Ã­ (27)
+\def\cite[#1]{$^{\rcite[#1]}$}  % \cite[lejblÃ­k] vytvoÅ™Ã­^{27}
+\endtt
+
+\noindent {\bf Seznam literatury} je moÅ¾nÃ© vloÅ¾it do dokumentu ÄtyÅ™mi rÅ¯znÃ½mi
+zpÅ¯soby:
+
+\begitems
+* ManuÃ¡lnÄ›: pomocÃ­ jednotlivÃ½ch poloÅ¾ek "\bib[<lejblÃ­k>]" pÅ™Ã­mo v dokumentu.
+* S vyuÅ¾itÃ­m Bib\TeX{}u makrem "\usebibtex{<bib-bÃ¡ze>}{<bst-styl>}".
+* VyuÅ¾itÃ­m jednou vygenerovanÃ© databÃ¡ze makrem "\usebbl/<typ> <bbl-bÃ¡ze>".
+* PÅ™Ã­mÃ½m ÄtenÃ­m ".bib" databÃ¡ze makry \TeX{}u bez vyuÅ¾itÃ­ Bib\TeX{}u.
+\enditems
+
+JednotlivÃ© zpÅ¯soby jsou nÃ­Å¾e probrÃ¡ny podrobnÄ›ji.
+
+\medskip\noindent
+{\bf ManuÃ¡lnÄ› vloÅ¾enÃ½ seznam literatury} v dokumentu vypadÃ¡ napÅ™Ã­klad takto:
+\par\nobreak
+
+\begtt
+\bib [tbn] Petr OlÅ¡Ã¡k. {\it\TeX{}book naruby.} 468~s. Brno: Konvoj, 2001.
+\bib [tst] Petr OlÅ¡Ã¡k. {\it TypografickÃ½ systÃ©m \TeX.} 
+                       300~s. Brno: Konvoj, 2000.
+\endtt
+%
+VÃ½Å¡e uvedenÃ¡ ukÃ¡zka dÃ¡ nÃ¡sledujÃ­cÃ­ vÃ½stup:
+\medskip
+\bib[tbn] Petr OlÅ¡Ã¡k. {\it\TeX{}book naruby.} 468~s. Brno: Konvoj, 2001.
+\bib[tst] Petr OlÅ¡Ã¡k. {\it TypografickÃ½ systÃ©m \TeX.} 
+                    300~s. Brno: Konvoj, 2000.
+\medskip
+Je moÅ¾nÃ© pouÅ¾Ã­t rozÅ¡Ã­Å™enÃ½ zpÅ¯sob zÃ¡pisu 
+"\bib [<lejblÃ­k>] = {<znaÄka>} <text zÃ¡znamu>". Ãšdaj "<znaÄka>" se 
+pouÅ¾ije do odkazÅ¯ pÅ™i zapnutÃ©m "\nonumcitations". Kolem rovnÃ­tka musejÃ­ bÃ½t mezery.
+NapÅ™Ã­klad:
+
+\begtt
+\bib [tbn] = {OlÅ¡Ã¡k, 2001} 
+     OLÅ ÃK, P. {\it\TeX{}book naruby.} 468~s. Brno: Konvoj, 2001.
+\endtt
+
+\medskip\noindent
+{\bf VyuÅ¾itÃ­ Bib\TeX{}u.} PÅ™edpoklÃ¡dÃ¡ se, Å¾e uÅ¾ivatel disponuje souborem
+"<bib-bÃ¡ze>.bib", ve kterÃ©m jsou nashromÃ¡Å¾dÄ›ny bibliografickÃ© Ãºdaje ve
+formÃ¡tu, v jakÃ©m je Äte program Bib\TeX{}. V~\TeX{}ovÃ© distribuci jistÄ›
+najdete nÄ›jakÃ½ "*.bib" soubor, tak se do nÄ›j podÃ­vejte. LejblÃ­kem je prvnÃ­
+Ãºdaj u~kaÅ¾dÃ©ho bibliografickÃ©ho zÃ¡znamu. Soubor "<bib-bÃ¡ze>.bib" by mÄ›l
+obsahovat bibliografickÃ© Ãºdaje, kterÃ© jsou nadmnoÅ¾inou toho, co potÅ™ebuje
+uÅ¾ivatel vypsat ve svÃ©m dokumentu.
+Na mÃ­sto, kde budete chtÃ­t vypsat seznam
+literatury, vloÅ¾te nÃ¡sledujÃ­cÃ­ pokyn:
+
+\begtt
+\usebibtex{<bib-bÃ¡ze>}{<bst-styl>}
+\endtt
+
+Parametr "<bib-bÃ¡ze>" je jmÃ©no souboru bez pÅ™Ã­pony ".bib", ve kterÃ©m jsou
+pÅ™ipraveny bibliografickÃ© zÃ¡znamy. Parametr "<bst-styl>" je jmÃ©no
+stylovÃ©ho souboru bez pÅ™Ã­pony ".bst", kterÃ½ pouÅ¾ije Bib\TeX{} pro konverzi ze zdroje
+"<bib-bÃ¡ze>.bib" do vÃ½stupu "<dokument>.bbl". Tento vÃ½stup pak bude makrem
+"\usebibtex" pÅ™eÄten a vloÅ¾en do dokumentu. Typicky pouÅ¾Ã­vanÃ© <bst-styly>
+jsou "plain", "alpha", "apalike", "ieeetr", "unsrt". 
+ExistujÃ­ desÃ­tky, moÅ¾nÃ¡ stovky dalÅ¡Ã­ch ".bst" stylÅ¯, viz internet.
+
+PÅ™i prvnÃ­m zpracovÃ¡nÃ­ dokumentu \TeX{}em makro "\usebibtex" pÅ™ipravÃ­ vstupnÃ­
+pokyny pro Bib\TeX{} do souboru "<dokument>.aux" a zjistÃ­, Å¾e soubor
+"<dokument>.bbl" zatÃ­m neexistuje. To dÃ¡ najevo na terminÃ¡lu:
+
+\begtt
+WARNING: .bbl file doesn't exist. Use the ``bibtex <dokument>'' command.
+\endtt
+
+PÅ™ejdÄ›te tedy na pÅ™Ã­kazovÃ½ Å™Ã¡dek a napiÅ¡te "bibtex <dokument>". TÃ­m se
+spustÃ­ program Bib\TeX{}, kterÃ½ pÅ™eÄte ze souboru "<dokument>.aux" vstupnÃ­
+pokyny (kterou otevÅ™Ã­t ".bib" databÃ¡zi, kterÃ½ ".bst" styl a jakÃ© lejblÃ­ky
+jsou poÅ¾adovÃ¡ny) a na zÃ¡kladÄ› toho vygeneruje soubor "<dokument>.bbl", kterÃ½
+obsahuje vÃ½bÄ›r jen tÄ›ch zÃ¡znamÅ¯, kterÃ© byly uÅ¾ivatelem citovÃ¡ny pomocÃ­
+"\cite". Soubor "<dokument>.bbl" je navÃ­c zkonvertovanÃ½ z 
+".bib" formÃ¡tu do formÃ¡tu ÄitelnÃ©ho \TeX{}em.
+Tato konverze je Å™Ã­zena stylem ".bst".
+
+KdyÅ¾ znovu \TeX{}ujete dokument, makro "\usebibtex" v tomto pÅ™Ã­padÄ› shledÃ¡,
+Å¾e soubor "<dokument>.bbl" existuje, naÄte jej a vytvoÅ™Ã­ seznam literatury. 
+Seznam obsahuje jen citovanÃ© poloÅ¾ky. DruhÃ© spuÅ¡tÄ›nÃ­ \TeX{}u obvykle
+nestaÄÃ­, protoÅ¾e pÅ™Ã­kazy "\cite" jsou typicky dopÅ™ednÃ½mi referencemi, takÅ¾e
+zatÃ­m nemajÃ­ ponÄ›tÃ­ o pÅ™iÅ™azenÃ­ ÄÃ­sel k "<lejblÃ­kÅ¯m>" v seznamu literatury. 
+To se dozvÄ›dÃ­ aÅ¾ v~mÃ­stÄ› pouÅ¾itÃ­ "\usebibtex", coÅ¾ je typicky na konci 
+dokumentu. TakÅ¾e teprve tÅ™etÃ­ \TeX{}ovÃ¡nÃ­ dÃ¡ vÅ¡e do poÅ™Ã¡dku.
+
+Seznam literatury obsahuje po pouÅ¾itÃ­ Bib\TeX{}u jen citovanÃ¡ dÃ­lka. Pokud
+chcete do seznamu zaÅ™adit dalÅ¡Ã­ poloÅ¾ky, kterÃ© nejsou v textu explicitnÄ›
+odkazovÃ¡ny pÅ™Ã­kazem "\cite", pouÅ¾ijte "\nocite[<lejblÃ­k>]". Toto makro dÃ¡
+Bib\TeX{}u pokyn, aby do seznamu zahrnul i poloÅ¾ku s~<lejblÃ­kem>, ale v
+mÃ­stÄ› pouÅ¾itÃ­ tohoto makra se nevytiskne nic. KoneÄnÄ› pomocÃ­ "\nocite[*]" dÃ¡vÃ¡me
+Bib\TeX{}u vzkaz, Å¾e chceme mÃ­t v seznamu literatury celou ".bib" databÃ¡zi.
+
+Zdroj bibliografickÃ½ch zÃ¡znamÅ¯ mÅ¯Å¾e bÃ½t ve vÃ­ce ".bib" souborech. V
+takovÃ©m pÅ™Ã­padÄ› staÄÃ­ jejich nÃ¡zvy oddÄ›lit ÄÃ¡rkou:
+"\usebibtex{<bib-bÃ¡ze1>,<bib-bÃ¡ze2>}{<bst-styl>}".
+
+NÄ›kdy se stane, Å¾e autoÅ™i ".bib" databÃ¡zÃ­ nebo ".bst" stylÅ¯ neopustili pÅ™i
+tvorbÄ› tÄ›chto souborÅ¯ \LaTeX{}ovÃ½ zpÅ¯sob myÅ¡lenÃ­ a obÄas jim uklouzne nÄ›jakÃ¡
+\LaTeX{}ovÃ¡ konstrukce z prstÅ¯ aÅ¾ do poÄÃ­taÄe. Odtud se dostane do
+ÄtenÃ©ho ".bbl" souboru a nÃ¡Å¡ plain\TeX{} si s~tÃ­m nebude vÄ›dÄ›t rady. K tomu
+slouÅ¾Ã­ seznam "\bibtexhook", kde mÅ¯Å¾ete uvÃ©st definice tÄ›chto \LaTeX{}ovÃ½ch
+konstrukcÃ­. Tyto definice budou mÃ­t lokÃ¡lnÃ­ platnost jen pÅ™i ÄtenÃ­ ".bbl"
+souboru. NapÅ™Ã­klad
+
+\begtt
+\def\bibtexhook{\def\emph##1{{\em##1}}\def\frac##1##2{{##1\over##2}}}
+\endtt
+
+\noindent 
+{\bf VyuÅ¾itÃ­ jednou vygenerovanÃ© databÃ¡ze.} Tvorba seznamÅ¯
+literatury Bib\TeX{}em mÃ¡ jistou nevÃ½hodu. Pokud pozdÄ›ji do dokumentu
+vloÅ¾Ã­te dalÅ¡Ã­ "\cite[<lejblÃ­k>]", musÃ­te veÅ¡kerou anabÃ¡zi s bib\TeX{}em
+provÃ©st znovu. A protoÅ¾e v souÄasnÃ© dobÄ› probÃ­hÃ¡ inflace odbornÃ½ch publikacÃ­
+zpÅ¯sobenÃ¡ tÃ­m, Å¾e se podle kvanta publikacÃ­ a citacÃ­ daÅˆovÃ½ poplatnÃ­k
+rozhodl odmÄ›Åˆovat vÄ›dce, je kaÅ¾dÃ© zjednoduÅ¡enÃ­ prÃ¡ce s bibliografickÃ½mi
+zÃ¡znamy pÅ™Ã­nosnÃ©.
+Makro OPmac navrhuje Å™eÅ¡enÃ­, pÅ™i kterÃ©m staÄÃ­ pouÅ¾Ã­t Bib\TeX{} pro mnoho novÃ½ch
+ÄlÃ¡nkÅ¯ jen jednou.
+
+\begitems \style n
+* VytvoÅ™te si zvlÃ¡Å¡tnÃ­ dokument "<mojebÃ¡ze>.tex", do kterÃ©ho napÃ­Å¡ete:
+\begtt
+\input opmac  \genbbl{<bib-bÃ¡ze>}{<bst-styl>}  \end
+\endtt
+* Po \TeX{}ovÃ¡nÃ­ dokumentu "<mojebÃ¡ze>.tex" spusÅ¥te "bibtex <mojebÃ¡ze>".
+  TÃ­m se vytvoÅ™Ã­ soubor "<mojebÃ¡ze>.bbl".
+* Zpracujte \TeX{}em soubor "<mojebÃ¡ze>.tex" jeÅ¡tÄ› jednou. VytvoÅ™Ã­ se
+  seznam veÅ¡kerÃ© literatury, kterÃ½ byl v souboru "<bib-bÃ¡ze>.bib", pÅ™itom kaÅ¾dÃ¡
+  poloÅ¾ka je oznaÄena svÃ½m <lejblÃ­kem>. VytisknÄ›te si tento vÃ½stup a 
+  dejte si jej na nÃ¡stÄ›nku.
+* UloÅ¾te soubor "<mojebÃ¡ze>.bbl" nÄ›kam, kde jej umÃ­ pÅ™eÄÃ­st \TeX{} bez ohledu
+  na to, v kterÃ©m pracujete adresÃ¡Å™i. 
+* PÅ™ejdÄ›te k editaci svÃ©ho dokumentu, piÅ¡te "\cite" nebo "\nocite" podle potÅ™eby a
+  v mÃ­stÄ› seznamu literatury dejte sekvenci "\usebbl/<typ> <mojebÃ¡ze> ".
+  Ãšdaj <typ> mÃ¡ tyto moÅ¾nosti: 
+\begtt
+\usebbl/a <mojebÃ¡ze> % vypsat kompletnÄ› celou <mojebaze> (a=all),
+\usebbl/b <mojebÃ¡ze> % jen \(no)cite Ãºdaje Å™adit dle <mojebaze> (b=base), 
+\usebbl/c <mojebÃ¡ze> % jen \(no)cite Å™adit podle poÅ™adÃ­ citace (c=cite).
+\endtt
+\removelastskip
+\enditems
+
+Kroky 2 aÅ¾ 4 budete muset opakovat pouze tehdy, kdyÅ¾ budete chtÃ­t pÅ™idat do
+"<mojebÃ¡ze>.bbl" dalÅ¡Ã­ Ãºdaj, tj. po upgradu souboru "<bib-bÃ¡ze>.bib". 
+PrudÃ­-li rÅ¯znÃ­ odbÄ›ratelÃ© vaÅ¡Ã­ vÄ›deckÃ© Äinnosti poÅ¾adavky na rÅ¯znÃ© 
+"<bst-styly>", staÄÃ­ si vygenerovat
+podle rÅ¯znÃ½ch stylÅ¯ rÅ¯znÃ© soubory typu "mybbl-plain.bbl",
+"mybbl-ieeetr.bbl".
+
+\medskip
+\noindent
+{\bf PÅ™Ã­mÃ© ÄtenÃ­ ".bib" databÃ¡ze} je moÅ¾nÃ© pomocÃ­ makra "\usebib".
+Je-li toto makro pouÅ¾ito poprvÃ©, natÃ¡hne se dodateÄnÃ½ modul "opmac-bib.tex", 
+kterÃ½ navÃ­c potÅ™ebuje externÃ­ balÃ­Äek na ÄtenÃ­ ".bib" souborÅ¯ 
+"librarian.tex" od Paula Isamberta. UÅ¾itÃ­ je podobnÃ© jako pÅ™i "\usebbl":
+
+\begtt
+\usebib/c (<style>) <bib-bÃ¡ze> % Å™adit podle poÅ™adÃ­ citace (c=cite),
+\usebib/s (<style>) <bib-bÃ¡ze> % Å™adit podle klÃ­Äe ve stylu (s=style).
+\endtt
+
+Zde "<bib-bÃ¡ze>" je jeden nebo vÃ­ce ".bib" souborÅ¯ oddÄ›lenÃ½ch ÄÃ¡rkou bez
+mezery a bez pÅ™Ã­pony. Prametr "<style>" udÃ¡vÃ¡ ÄÃ¡st jmÃ©na souboru
+"opmac-bib-<style>.tex", ve kterÃ©m je specifikace formÃ¡tovÃ¡nÃ­ poloÅ¾ek.
+SouÄÃ¡stÃ­ balÃ­Äku je styl "simple", tedy soubor "opmac-bib-simple.tex",
+kterÃ½ si mÅ¯Å¾e uÅ¾ivatel zkopÃ­rovat na jinÃ½ nÃ¡zev a modifikovat dle svÃ½ch
+pÅ™edstav. VÃ­ce informacÃ­ je na konci souboru "opmac-bib.tex".
+
+\medskip
+\noindent 
+{\bf FormÃ¡tovÃ¡nÃ­ seznamu literatury} je Å™Ã­zeno makrem "\printbib",
+kterÃ© je vloÅ¾eno na zaÄÃ¡tek kaÅ¾dÃ© poloÅ¾ky v seznamu. 
+ImplicitnÄ› makro tiskne ÄÃ­sla poloÅ¾ek do
+hranatÃ½ch zÃ¡vorek a pÅ™i pouÅ¾itÃ­ "\nonumcitations" pÅ™edsadÃ­ prvnÃ­ Å™Ã¡dek
+poloÅ¾ky a nepÅ™idÃ¡vÃ¡ nic. Makro mÅ¯Å¾e vyuÅ¾Ã­t "\the\bibnum" pro tisk 
+ÄÃ­sla nebo "\the\bibmark" pro tisk znaÄky (pÅ™i "\nonumcitations").
+PÅ™Ã­klady:
+
+\begtt
+% ÄŒÃ­slovÃ¡nÃ­ poloÅ¾ek bez hranatÃ½ch zÃ¡vorek:
+\def\printbib{\hangindent=\parindent \indent \llap{\the\bibnum. }}
+
+% Tisk zkratek pÅ™i pouÅ¾itÃ­ bibTeXovÃ©ho stylu alpha a \nonumcitations:
+\def\printbib{\hangindent=\parindent \noindent [\the\bibmark]\quad}
+\endtt
+
+DalÅ¡Ã­ pÅ™Ã­klady (tÅ™eba jak \TeX{} zmÄ›Å™Ã­ Å¡Ã­Å™ku nejvÄ›tÅ¡Ã­ho ÄÃ­sla a podle toho
+vypoÄÃ­tÃ¡ odsazenÃ­ celÃ©ho seznamu) jsou uvedeny na
+\url{http://petr.olsak.net/opmac-tricks.html}.
+
+\sec MatematickÃ¡ sazba
+%%%%%%%%%%%%%%%%%%%%%%
+
+NÃ¡sledujÃ­cÃ­ text popisuje vlastnosti souboru maker "ams-math.tex" (resp.
+"tx-math.tex" pÅ™i pouÅ¾itÃ­ nÄ›kterÃ½ch PostScriptovÃ½ch fontÅ¯). Toto makro je
+makrem OPmac naÄÃ­tÃ¡no, takÅ¾e uvedenÃ© vlastnosti jsou k dispozici tÃ©Å¾
+uÅ¾ivatelÅ¯m OPmac.
+
+V matematickÃ© sazbÄ› (mezi dolary) nefungujÃ­ pÅ™epÃ­naÄe textovÃ½ch fontÅ¯
+deklarovanÃ½ch pÅ™Ã­kazem "\font". MÃ­sto toho se tam pÅ™epÃ­nÃ¡ mezi tzv. {\it
+matematickÃ½mi abecedami}. Jakmile zaÄnete psÃ¡t pÃ­smena
+mezi dolary bez pouÅ¾itÃ­ pÅ™epÃ­naÄe, je pouÅ¾ita implicitnÃ­ matematickÃ¡ abeceda
+"\mit". CelkovÄ› jsou k dispozici nÃ¡sledujÃ­cÃ­ abecedy:
+
+{\def\tthook{\catcode`\$=3 \catcode`/=0 \medmuskip=0mu \adef{ }{ }}%
+\begtt
+\mit     % matematickÃ¡ kurzÃ­va      $abc-xyz,ABC-XYZ$
+\it      % textovÃ¡ kurzÃ­va          $/it abc-xyz,ABC-XYZ$
+\rm      % textovÃ¡ antikva          $/rm abc-xyz,ABC-XYZ$
+\cal     % jednoduchÃ© cal. znaky    $/cal ABC-XYZ$
+\script  % kroucenÄ›jÅ¡Ã­ cal. znaky   $/script ABC-XYZ$
+\frak    % fraktura                 $/frak abc-xyz,ABC-XYZ$
+\bbchar  % zdvojenÃ© tahy            $/bbchar ABC-XYZ$
+\bf      % sans serif bold          $/bf abc-xyz,ABC-XYZ$
+\bi      % sans serif bold slanted  $/bi abc-xyz,ABC-XYZ$
+\endtt
+}
+
+DÃ¡le jsou v matematickÃ© sazbÄ› k dispozici stovky symbolÅ¯ dostupnÃ½ch pomocÃ­
+"\<nÄ›co>", napÅ™Ã­klad "\alpha" $\alpha$, "\geq" $\geq$, "\sum" $\sum$, 
+"\sphericalangle" $\sphericalangle$, "\bumpeq", $\bumpeq$. Seznam vÅ¡ech tÄ›chto symbolÅ¯
+najdete v dokumentaci k AMS\TeX{}u, kterÃ¡ se typicky jmenuje "amsguide.ps".
+
+MatematickÃ¡ sazba funguje v nastavenÃ© velikosti pÃ­sma podle "\typosize" nebo
+"\typoscale". V~nadpisech se doporuÄuje pouÅ¾Ã­t boldifikovanou sadu vÅ¡ech
+fontÅ¯, kterÃ¡ se zapÃ­nÃ¡ pomocÃ­ makra "\boldmath". NapÅ™Ã­klad:
+
+\begtt
+\def\nadpis#1\par{\centerline{\typosize[17/]\bf\boldmath #1}}
+\nadpis Tady je nadpis vÄetnÄ› vzorce $\int_a^b f(x) {\rm d}x$
+\endtt
+
+Makro "ams-math.tex" nastavuje jako implicitnÃ­ abecedu matematickou kurzÃ­vu,
+kterÃ¡ je mÃ­rnÄ› jinak kreslena neÅ¾ kurzÃ­va textovÃ¡. Naopak makro
+"tx-math.tex" nastavuje jako implicitnÃ­ abecedu textovou kurzÃ­vu pÅ™evzatou z
+\uv{okolnÃ­ho} textovÃ©ho fontu. Ta se ve vzoreÄcÃ­ch spolu s~textovÃ½m fontem
+bude esteticky snÃ¡Å¡et daleko lÃ©pe. Chcete-li toto implicitnÃ­ chovÃ¡nÃ­ zmÄ›nit,
+je moÅ¾nÃ© pouÅ¾Ã­t nÃ¡sledujÃ­cÃ­ globÃ¡lnÃ­ pÅ™epÃ­naÄe:
+
+\begtt
+\itvariables    % implicitnÃ­ abeceda bude textovÃ¡ kurzÃ­va,
+\mitvariables   % implicitnÃ­ abeceda bude matematickÃ¡ kurzÃ­va.
+\endtt
+%
+{\bf PoznÃ¡mka:} Vlastnosti popsanÃ© v tÃ©to kapitole (AMS symboly, "\bbchar",
+"\script", "\frak", sans serifovÃ½ font po pÅ™epÃ­naÄÃ­ch "\bf", "\bi" v math
+mÃ³du) vyÅ¾adujÃ­ zavÃ©st speciÃ¡lnÃ­ fonty (AMS fonty, EC fonty). Chcete-li
+se vyhnout tÃ©to zÃ¡vislosti na fontech, mÅ¯Å¾ete vyuÅ¾Ã­t
+\ulink[http://petr.olsak.net/opmac-tricks.html\#onlycm]{OPmac trik~0111}.
+
+
+\sec Okraje
+%%%%%%%%%%%
+
+Plain\TeX{} nastavuje levÃ½ okraj 1~in a Å¡Ã­Å™ku sazby ("\hsize") nastavuje
+tak, aby i pravÃ½ okraj pÅ™i formÃ¡tu papÃ­ru \uv{letter} byl 1\,in. TakÃ© hornÃ­ a
+dolnÃ­ okraj (do kterÃ©ho pÅ™esahuje zÃ¡hlavÃ­ a ÄÃ­sla stran) jsou
+nastaveny na 1~in pÅ™i formÃ¡tu papÃ­ru \uv{letter} a tÃ­m je urÄena vÃ½Å¡ka sazby
+("\vsize"). \csplain{} dÄ›lÃ¡ totÃ©Å¾, tj. okraje jsou 1~in, ale formÃ¡t papÃ­ru
+je~A4.\fnote
+  {PÅ™esnÄ›ji: \csplain{} nastavuje vÃ½Å¡ku sazby {\tt\char`\\vsize=239.2mm}, coÅ¾ vede 
+   k~dolnÃ­mu okraji o 7\,mm vÄ›tÅ¡Ã­mu neÅ¾ 1\,in.} 
+OPmac umoÅ¾Åˆuje toto nastavenÃ­ zmÄ›nit pÅ™Ã­kazem:\par\nobreak
+
+\begtt 
+\margins/<pg> <formÃ¡t> (<levÃ½>,<pravÃ½>,<hornÃ­>,<dolnÃ­>)<jednotka>
+napÅ™Ã­klad: 
+\margins/1 b5 (2,2,2,2)cm % nastavÃ­ vÅ¡echny okraje na 2 cm pro papÃ­r b5.
+<pg>... 1 = shodnÃ© okraje pro vÅ¡echny strÃ¡nky,
+<pg>... 2 = okraje pro lichÃ© strÃ¡nky, sudÃ© majÃ­ prohozeny <levÃ½>/<pravÃ½>,
+<formÃ¡t>... a3, a4, a5, b5, letter, a3l, a4l, a5l Äi uÅ¾ivatelem definovanÃ½,
+<levÃ½>,<pravÃ½>,<hornÃ­>,<dolnÃ­>... velikosti okrajÅ¯,
+<jednotka>... mm, cm, in, pt, pc, bp, dd, cc.
+\endtt
+
+KaÅ¾dÃ½ z parametrÅ¯ <levÃ½>, <pravÃ½>, <hornÃ­>, <dolnÃ­> mÅ¯Å¾e bÃ½t prÃ¡zdnÃ½.
+Jsou-li prÃ¡zdnÃ© oba <levÃ½> i <pravÃ½>, je zachovÃ¡no nastavenÃ­ "\hsize" a
+levÃ½ i pravÃ½ okraj je stejnÃ½. Je-li jen jeden z parametrÅ¯
+<levÃ½>, <pravÃ½> prÃ¡zdnÃ½, zÅ¯stÃ¡vÃ¡ zachovÃ¡no "\hsize" a neurÄenÃ½ okraj se
+dopoÄÃ­tÃ¡. Jsou-li <levÃ½> i <pravÃ½> neprÃ¡zdnÃ©, jsou oba okraje urÄeny 
+a je podle nich upraveno "\hsize". 
+AnalogickÃ© pravidlo platÃ­ pro <hornÃ­>, <dolnÃ­> v souvislosti 
+s~vÃ½Å¡kou sazby "\vsize". NapÅ™Ã­klad
+
+\begtt
+\margins/2 a4 (,18,,)mm  % vnÄ›jÅ¡Ã­ okraj na dvojstranÄ› 2*a4 je 18mm
+                         % \hsize, \vsize beze zmÄ›ny.
+\endtt
+
+Ãšdaj "<formÃ¡t>" mÅ¯Å¾e bÃ½t tÃ©Å¾ ve tvaru "(<Å¡Ã­Å™ka>,<vÃ½Å¡ka>)<jednotka>", kde
+"<jednotka>" je nepovinnÃ¡ a pokud chybÃ­, pouÅ¾ije se jednotka za Ãºdaji s
+okraji. Tedy tÅ™eba
+
+\begtt
+\margins/1 (100,200) (7,7,7,7)mm
+\endtt
+%
+deklaruje papÃ­r o rozmÄ›ru 100$\times$200\,mm a s okraji 7\,mm po kaÅ¾dÃ©
+stranÄ›. Mezery pÅ™ed a za Ãºdajem "<formÃ¡t>" nelze vynechat.
+
+UÅ¾ivatel mÅ¯Å¾e takÃ© pÅ™ed pouÅ¾itÃ­m "\margins" definovat vlastnÃ­ <formÃ¡t> papÃ­ru pomocÃ­
+pÅ™Ã­kazu "\sdef{pgs:<formÃ¡t>}{(<Å¡Ã­Å™ka>,<vÃ½Å¡ka>)<jednotka>}". 
+%Opmac napÅ™Ã­klad implicitnÄ› definuje:
+%
+%\begtt
+%\sdef{pgs:a4}{(210,297)mm}   \sdef{pgs:letter}{(8.5,11)in}
+%\sdef{pgs:b5}{(176,250)mm}   \sdef{pgs:a4l}{(297,210)mm}
+%\endtt
+
+Celou sazbu na Ãºkor okrajÅ¯ je moÅ¾no zvÄ›tÅ¡it/zmenÅ¡it pÅ™Ã­kazem
+"\magscale[<factor>]". NapÅ™Ã­klad "\magscale[500]" zmenÅ¡Ã­ sazbu na polovinu.
+PÅ™i tÃ©to zmÄ›nÄ› zÅ¯stÃ¡vÃ¡ na mÃ­stÄ› \uv{KnuthÅ¯v bod}, tj. bod o souÅ™adnicÃ­ch
+1\,in, 1\,in od hornÃ­ho a levÃ©ho okraje. Sazba samotnÃ¡ je zalomena zcela
+stejnÄ›. Jednotky
+pouÅ¾itÃ© v dokumentu jsou od tÃ©to chvÃ­le relativnÃ­. NapÅ™Ã­klad po
+"\magscale[2000]" je pouÅ¾itÃ¡ jednotka v dokumentu "1mm" ve skuteÄnosti "2mm".
+Makro "\magscale" ponechÃ¡vÃ¡ nezmÄ›nÄ›ny jen rozmÄ›ry strÃ¡nek danÃ© formÃ¡tem
+strÃ¡nek (a4, a3, atd.). MoÅ¾nost pouÅ¾itÃ­
+makra: "\magscale[1414] \margins/1 a4 (,,,)mm" umÃ­stÃ­ sazbu, kterÃ¡ je urÄena
+pro tisk na a5, doprostÅ™ed strÃ¡nky a4 a odpovÃ­dajÃ­cÃ­m zpÅ¯sobem ji zvÄ›tÅ¡Ã­,
+aby se to korektorÅ¯m lÃ©pe Äetlo. 
+
+\label[lastpage]
+\sec PoslednÃ­ strana
+%%%%%%%%%%%%%%%%%%%%
+
+ÄŒÃ­slo poslednÃ­ strany dokumentu (to nemusÃ­ bÃ½t poÄet stran) je uloÅ¾eno pÅ™i
+opakovanÃ©m zpracovÃ¡nÃ­ \TeX{}em v~registru "\lastpage". K tomu musÃ­ bÃ½t
+otevÅ™en soubor REF s daty pro kÅ™Ã­Å¾ovÃ© odkazy, rejstÅ™Ã­k a obsah. Pokud
+pracujete s tÄ›mito daty, je soubor REF automaticky otevÅ™en. Pokud ne, 
+mÅ¯Å¾ete si vynutit jeho otevÅ™enÃ­ pÅ™Ã­kazem "\openref".
+NenÃ­-li soubor REF otevÅ™en, je hodnota registru "\lastpage" rovna nule.
+ÄŒÃ­slovÃ¡nÃ­ strÃ¡nek ve tvaru <ÄÃ­slo>/<poÄet stran> zajistÃ­te napÅ™Ã­klad takto:
+
+\begtt
+\footline={\hss \rm \thefontsize[10]\the\pageno/\the\lastpage \hss}
+\endtt
+
+
+\sec DalÅ¡Ã­ jazyk
+%%%%%%%%%%%%%%%%
+
+OPmac pÅ™Ã­mo podporuje ÄeÅ¡tinu, slovenÅ¡tinu a angliÄtinu. OstatnÃ­ jazyky lze
+pouÅ¾Ã­t takÃ©, ale je potÅ™eba vynaloÅ¾it nepatrnÃ© ÃºsilÃ­. PÅ™edevÅ¡Ã­m je potÅ™eba
+pouÅ¾Ã­t \TeX{}ovÃ½ stroj a formÃ¡t takovÃ½, aby v nÄ›m byly podporovÃ¡ny vzory
+dÄ›lenÃ­ pÅ™Ã­sluÅ¡nÃ©ho jazyka. \CS{}plain pro pdf\TeX{} podporuje v~implicitnÃ­m
+nastavenÃ­ vzory dÄ›lenÃ­ 16 jazykÅ¯ (od bÅ™ezna 2019) a \CS{}plain pro Lua\TeX{}
+podporuje vzory dÄ›lenÃ­ vÅ¡ech jazykÅ¯ dostupnÃ½ch v \TeX{}ovÃ© distribuci (kolem
+57 jazykÅ¯). DoporuÄuji tedy pro vÃ­ce jazykÅ¯ pouÅ¾Ã­t Lua\TeX{}.
+
+NÃ¡sleduje ukÃ¡zka pro Å¡panÄ›lÅ¡tinu. UkÃ¡zku mÅ¯Å¾ete zpracovat \CS{}plainem v
+Lua\TeX{}u, tedy pÅ™Ã­kazem
+"luatex -fmt pdfcsplain dokument".
+
+\mubyte \ntie ^^c3^^b1\endmubyte \def\ntie{\~n}
+\mubyte \ccedilla ^^c3^^a7\endmubyte \def\ccedilla{\c c}
+\mubyte \Ccedilla ^^c3^^87\endmubyte \def\Ccedilla{\c C}
+
+\begtt
+\input opmac
+\input lmfonts  % Unicode fonty
+
+\sdef{mt:chap:es}{CapÃ­tulo}   % "Kapitola" v jazyku es
+\sdef{mt:t:es}{Cuadro}        % "Tabulka" v jazyku es
+\sdef{mt:f:es}{Figura}        % "ObrÃ¡zek" v jazyku es
+
+\eslang % Å panÄ›lskÃ© vzory dÄ›lenÃ­ slov + deklarovanÃ¡ slova v jazyku "es".
+
+\sec MaÃ±ana
+
+MaÃ±ana.
+
+\caption/f Test % vytvoÅ™Ã­ text "Figura 1.1 Test"
+
+\bye
+\endtt
+
+V ukÃ¡zce je patrnÃ©, Å¾e novÃ¡ tÅ™i slova ve Å¡panÄ›lÅ¡tinÄ› je tÅ™eba pÅ™idat pod
+zkratku jazyka "es" (podle ISO~639-1). Tato slova zaÄnou bÃ½t pouÅ¾Ã­vÃ¡na automaticky
+po zapnutÃ­ vzorÅ¯ dÄ›lenÃ­ slov, tedy po pouÅ¾itÃ­ pÅ™epÃ­naÄe "\eslang".
+
+Pokud pouÅ¾Ã­vÃ¡te OPmac s formÃ¡tem generovanÃ½m z "etex.src" (tj. pÅ™Ã­kaz 
+"xetex dokument" nebo "luatex dokument"), pak nefunguje pÅ™epÃ­naÄ "\eslang" a
+mÃ­sto nÄ›j zapnete vzory dÄ›lenÃ­ pomocÃ­ "\uselanguage{espanol}".
+NavÃ­c v takovÃ©m pÅ™Ã­padÄ› musÃ­te pÅ™iÅ™adit dlouhÃ©mu nÃ¡zvu jazyka jeho zkratku podle
+ISO~639-1 pÅ™Ã­kazem "\isolangset{espanol}{es}".
+
+PÅ™i abecednÃ­m Å™azenÃ­ rejstÅ™Ã­ku pomocÃ­ "\makeindex" mÅ¯Å¾e OPmac ohlÃ¡sit
+(nenÃ­-li pouÅ¾it \csplain) varovÃ¡nÃ­: ``falling back to ASCII sorting''.
+Pokud chcete dodrÅ¾et pravidla Å™azenÃ­ danÃ©ho jazyka, je proto nutnÃ© definovat makro 
+"\sortingdata<iso-kÃ³d>". DÃ¡le mÅ¯Å¾ete pÅ™idat makro
+"\specsortingdata<iso-kÃ³d>". PÅ™Ã­klad:
+
+\begtt
+\def\sortingdataes {aAÃ¤Ã„Ã¡Ã,bB,cCÃ§Ã‡,^^P^^Q^^R,dD,...,zZ,.}
+\def\specsortingdataes {ch:^^P Ch:^^Q CH:^^R}
+\endtt
+
+PrvÃ© makro obsahuje skupiny znakÅ¯ oddÄ›lenÃ© od sebe ÄÃ¡rkami a ukonÄenÃ©
+ÄÃ¡rkou-teÄkou. Znaky v kaÅ¾dÃ© skupinÄ› jsou nerozliÅ¡itelnÃ© pÅ™i prvÃ©m prÅ¯chodu
+(primÃ¡rnÃ­ Å™azenÃ­). Jsou-li z~tohoto pohledu nÄ›kterÃ© Ãºdaje shodnÃ©, je na tyto
+Ãºdaje pouÅ¾ito sekundÃ¡rnÃ­ Å™azenÃ­, ve kterÃ©m uÅ¾ jsou vÅ¡echny znaky rozliÅ¡eny a
+seÅ™azeny v poÅ™adÃ­, jako v makru. PoznÃ¡mka: tÅ™i teÄky v pÅ™Ã­kladu si musÃ­ Å¡panÄ›lsky
+mluvÃ­cÃ­ uÅ¾ivatel doplnit za reÃ¡lnÃ¡ data sÃ¡m.
+
+Å˜adicÃ­ algoritmus umoÅ¾Åˆuje skupiny znakÅ¯ (spÅ™eÅ¾ky Ch, Dz atd.) interpretovat
+jako jedinÃ½ znak. K tomu slouÅ¾Ã­ makro "\specsortingdata<iso-kÃ³d>". V nÄ›m
+jsou mezerami od sebe oddÄ›leny Ãºdaje ve tvaru "<skupina>:<token>". OPmac
+provede vÃ½mÄ›nu "<skupina>" za "<token>" pÅ™ed zahÃ¡jenÃ­m Å™adicÃ­ho algoritmu,
+takÅ¾e "<token>" je moÅ¾nÃ© vloÅ¾it do "\sortingdata<iso-kÃ³d>" jako jeden znak.
+Je nutnÃ© pouÅ¾Ã­vat znaky, kterÃ© nejsou souÄÃ¡stÃ­ abecedy jazyka, napÅ™Ã­klad
+"^^A", "^^B" atd. PÅ™itom je potÅ™eba se vyhnout znakÅ¯m "^^I" a "^^M" ,
+protoÅ¾e tyto majÃ­ speciÃ¡lnÃ­ kategorii.
+
+OPmac definuje internÃ­ makro "\sortingdata", kterÃ©
+je moÅ¾nÃ© pouÅ¾Ã­t pro ÄeÅ¡tinu, slovenÅ¡tinu a angliÄtinu.
+Makro "\sortingdata<iso-code>" mÃ¡ pÅ™ednost pÅ™ed internÃ­m makrem
+"\sortingdata", je-li definovÃ¡no a jazyk odpovÃ­dajÃ­cÃ­ ISO kÃ³du mÃ¡
+aktivovÃ¡ny vzory dÄ›lenÃ­ slov.
+
+KoneÄnÄ› mÅ¯Å¾ete pozmÄ›nit seznam ignorovanÃ½ch znakÅ¯ (z hlediska Å™azenÃ­), kterÃ½
+je uveden v makru "\setignoredchars" takto:
+
+{\catcode`\<=12
+\begtt
+\def\setignoredchars{\setlccodes ,.;.?.!.:.'.".|.(.).[.].<.>.=.+.{}{}}
+\endtt
+}%
+Toto makro mÅ¯Å¾ete pÅ™edefinovat, ale ponechte v pÅ™edu "\setlccodes", vzadu
+"{}{}" a za kaÅ¾dÃ½m znakem piÅ¡te teÄku, kterÃ¡ je implicitnÃ­m ignorovanÃ½m
+znakem.
+
+\maybebreak 4cm
+
+\sec PÅ™eddefinovanÃ© styly dokumentÅ¯
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ImplicitnÃ­ styl dokumentu pÅ™i pouÅ¾itÃ­ OPmac zahrnuje vÃ½chozÃ­ parametry a
+vzhled sazby
+jako v plain\TeX u. PochopitelnÄ›
+uÅ¾ivatel si styl dokumentu obvykle upravÃ­ pomocÃ­ svÃ½ch maker a tÅ™eba s
+vyuÅ¾itÃ­m maker OPmac.
+
+Od bÅ™ezna 2019 nabÃ­zÃ­ OPmac kromÄ› toho zkratky s vÃ½chozÃ­m nastavenÃ­m jinÃ½ch
+stylÅ¯, coÅ¾ je moÅ¾nÃ© pouÅ¾Ã­t, pokud chce uÅ¾ivatel vytvoÅ™it
+bÄ›Å¾nÃ½ typ dokumentu a nechce se zdrÅ¾ovat nastavovÃ¡nÃ­m parametrÅ¯ a
+definicÃ­ vlastnÃ­ch maker. Jsou pÅ™ipraveny deklaraÄnÃ­ makra "\report" a 
+"\letter", kterÃ¡ je moÅ¾nÃ© pouÅ¾Ã­t v zÃ¡hlavÃ­ dokumentu.
+
+Deklarace "\report" je urÄena pro psanÃ­ zprÃ¡v. PÃ­smo je nastaveno
+na 11 bodÅ¯, odsazenÃ­ odstavcÅ¯ je 1,2\,em. Makro "\tit" pouÅ¾ije menÅ¡Ã­ font
+neÅ¾ obvykle, protoÅ¾e se nepÅ™edpoklÃ¡dÃ¡, Å¾e bude pouÅ¾ita ÃºroveÅˆ \uv{kapitola}.
+PrvnÃ­ strÃ¡nka je neÄÃ­slovanÃ¡, ostatnÃ­ jsou ÄÃ­slovÃ¡ny (od strany~2). 
+PoznÃ¡mky pod Äarou jsou ÄÃ­slovÃ¡ny vzestupnÄ› v celÃ©m dokumentu.
+PÅ™i pouÅ¾itÃ­ tohoto makra v zÃ¡hlavÃ­ dokumentu je pÅ™ipraveno tÃ©Å¾ makro
+"\author<text><konec Å™Ã¡dku>", kterÃ© umÃ­stÃ­ <text> v kurzÃ­vÄ› doprostÅ™ed
+Å™Ã¡dku. PÅ™i pouÅ¾itÃ­ "\nl" je text rozdÄ›len do vÃ­ce Å™Ã¡dkÅ¯, kaÅ¾dÃ½ je centrovÃ¡n.
+
+Deklarace "\letter" je urÄena pro psanÃ­ dopisÅ¯. PÃ­smo je nastaveno na 11
+bodÅ¯, odsazenÃ­ nenÃ­ Å¾Ã¡dnÃ© a mezi odstavci je pÅ¯lÅ™Ã¡dkovÃ¡ mezera. StrÃ¡nky
+nejsou ÄÃ­slovÃ¡ny. Chcete-li je ÄÃ­slovat, mÅ¯Å¾ete pouÅ¾Ã­t napÅ™Ã­klad kÃ³d uvedenÃ½
+v sekci \ref[lastpage].
+PÅ™i pouÅ¾itÃ­ tohoto makra je dÃ¡le pÅ™ipraveno makro
+"\address" pro psanÃ­ vÃ­ceÅ™Ã¡dkovÃ½ch adres a makro "\subject" kterÃ© vypÃ­Å¡e
+tuÄnÄ› slovo \uv{VÄ›c:} nebo \uv{Vec:} nebo \uv{Subject:} v zÃ¡vislosti na
+pouÅ¾itÃ©m jazyce. UÅ¾itÃ­ makra "\address" vypadÃ¡ takto:
+
+\begtt
+\address
+  <prvnÃ­ Å™Ã¡dek adresy>
+  <druhÃ½ Å™Ã¡dek adresy>
+  <atd.>
+  <prÃ¡zdnÃ½ Å™Ã¡dek>
+\endtt
+%
+tedy Å™Ã¡dky se neukonÄujÃ­ Å¾Ã¡dnÃ½m speciÃ¡lnÃ­m znakem, ale konec Å™Ã¡dku na 
+vstupu je koncem Å™Ã¡dku i v sazbÄ›. 
+Makro vytvoÅ™Ã­ "\vtop" se sazbou Å™Ã¡dkÅ¯ tak, Å¾e jeho Å¡Ã­Å™ka
+odpovÃ­dÃ¡ nejÅ¡irÅ¡Ã­mu Å™Ã¡dku. Chcete-li mÃ­t vÃ­ceÅ™Ã¡dkovou adresu u pravÃ©ho
+okraje strÃ¡nky staÄÃ­ tedy psÃ¡t "\hfill\address..." 
+A pÅ™ed adresu lze takÃ© do prvnÃ­ho
+Å™Ã¡dku pÅ™edsadit text jednoduÅ¡e pomocÃ­ "<text>\address..."
+
+AnalogickÃ½ deklarÃ¡tor "\book" nenÃ­ zahrnut, protoÅ¾e kniha vyÅ¾aduje individuÃ¡lnÃ­
+pÃ©Äi typografa a kaÅ¾dÃ¡ kniha mÅ¯Å¾e bÃ½t jinÃ¡. Na takovÃ½ projekt je ÃºÄelnÃ© si
+pÅ™ipravit vlastnÃ­ makra. DeklarÃ¡tor "\slides" takÃ© nenÃ­ zahrnut, ale je
+moÅ¾nÃ© pouÅ¾Ã­t OPmac triky 
+\ulink[http://petr.olsak.net/opmac-tricks.html\#slidy]{0017 a 0022}.
+
+
+\sec ShrnutÃ­
+%%%%%%%%%%%%
+
+\vskip-.5\baselineskip
+\def\tthook{\adef!{\string\endtt}\adef&{\kern.25em}}
+\begtt
+\tit  <NÃ¡zev titulu (ukonÄenÃ½ koncem Å™Ã¡dku)>
+\chap <NÃ¡zev kapitoly (ukonÄenÃ½ koncem Å™Ã¡dku)>
+\sec  <NÃ¡zev sekce (ukonÄenÃ½ koncem Å™Ã¡dku)>
+\secc <NÃ¡zev podsekce (ukonÄenÃ½ koncem Å™Ã¡dku)>
+
+\maketoc         % generovÃ¡nÃ­ obsahu
+\ii <heslo>,<heslo> % vloÅ¾enÃ­ hesel do rejstÅ™Ã­ku
+\makeindex       % generovÃ¡nÃ­ rejstÅ™Ã­ku
+
+\label[<lejblÃ­k>] % deklarace pÅ™ed cÃ­lem odkazu
+\ref[<lejblÃ­k>]   % odkaz na kapitolu, sekci nebo podsekci
+\pgref[<lejblÃ­k>] % odkaz na strÃ¡nku
+
+\caption/t      % ÄÃ­slovanÃ½ popisek tabulky
+\caption/f      % ÄÃ­slovanÃ½ popisek obrÃ¡zku
+\eqmark         % ÄÃ­slovanÃ¡ rovnice
+
+\begitems           % zaÄÃ¡tek vÃ½Ätu poloÅ¾ek
+\enditems           % konec vÃ½Ätu poloÅ¾ek
+\begtt              % zaÄÃ¡tek verbatim vÃ½pisu
+!              % konec verbatim vÃ½pisu
+\activettchar <znak> % inicializace znaku pro in-text verbatim
+\verbinput          % verbatim vÃ½pis ze souboru
+\begmulti           % zaÄÃ¡tek vÃ­cesloupcovÃ© sazby
+\endmulti           % konec vÃ­cesloupcovÃ© sazby
+
+\cite[<lejblÃ­ky>]  % mÃ­sto, odkud se odkazuje do seznamu literatury
+\rcite[<lejblÃ­ky>] % jako \cite, ale bez zÃ¡vorek kolem
+\sortcitations \shortcitations \nonumcitations % deklarace typu odkazÅ¯
+\bib[<lejblÃ­k>]    % poloÅ¾ka v seznamu literatury
+\usebibtex{<bib-bÃ¡ze>}{<bst-styl>}  % pouÅ¾itÃ­ bibTeXu pro seznam literatury
+\genbbl{<bib-bÃ¡ze>}{<bst-styl>}     % pÅ™edgenerovÃ¡nÃ­ seznamu literatury
+\usebbl/? <bbl-bÃ¡ze>  % pouÅ¾itÃ­ pÅ™edgenerovanÃ© databÃ¡ze, ? je z {a,b,c}
+\usebib/? (<style>) <bib-bÃ¡ze> % pÅ™Ã­mÃ© ÄtenÃ­ .bib bez BibTeXu, ? je z {c,s}
+
+\fontfam[<nÃ¡zev fontovÃ© rodiny>]                 % vÃ½bÄ›r fontovÃ© rodiny
+\typosize[<font-velikost>/<Å™Ã¡dkovÃ¡nÃ­>]           & % nastavenÃ­ velikosti sazby
+\typoscale[<faktor-font>/<faktor-Å™Ã¡dkovÃ¡nÃ­>]       % Å¡kÃ¡lovÃ¡nÃ­ velikosti sazby
+\thefontsize[<velikost>] \thefontscale[<faktor>]& % velikost aktuÃ¡lnÃ­ho fontu
+
+\inspic <soubor>.<pÅ™Ã­pona> % vloÅ¾enÃ­ obrÃ¡zku, pÅ™Ã­pony: jpg, png, pdf
+\table{<pravidlo>}{<data>} &% makro pro tabulku
+\frame{<text>}            % orÃ¡movanÃ½ text
+\fnote{<text>}  % poznÃ¡mka pod Äarou (lokÃ¡lnÃ­ ÄÃ­slovÃ¡nÃ­ na kaÅ¾dÃ© strÃ¡nce)
+\mnote{<text>}  % poznÃ¡mka na okraji (pravÃ©m nebo levÃ©m podle strÃ¡nky)
+
+\hyperlinks{<barva-in>}{<barva-out>}  % v PDF budou odkazy klikacÃ­
+\outlines{<ÃºroveÅˆ>}                 % PDF bude mÃ­t zÃ¡loÅ¾ku s obsahem
+
+\magscale[<faktor>]  % zvÄ›tÅ¡enÃ­/zmenÅ¡enÃ­ sazby beze zmÄ›ny zlomu
+\margins/<pg> <formÃ¡t> (<levÃ½>,<pravÃ½>,<hornÃ­>,<dolnÃ­>)<jednotka>  % okraje
+
+\report \letter % inicializace pÅ™eddefinovanÃ©ho stylu dokumentu
+\endtt
+
+\bye
+
+
