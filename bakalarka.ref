@@ -1,0 +1,116 @@
+%% OPmac - REF file (\inputref)
+\Xrefversion{2}
+\Xpage{-1}
+\Xpage{-2}
+\Xpage{-3}
+\Xpage{-4}
+\Xpage{-5}
+\Xpage{-6}
+\Xpage{1}
+\Xtoc{0}{\bfshape }{1}{Introduction}{1}
+\Xtoc{1}{\rm }{1.1}{Motivation}{1}
+\Xpage{2}
+\Xtoc{0}{\bfshape }{2}{Evolutionary algorithms}{2}
+\Xtoc{1}{\rm }{2.1}{Components of evolutionary algorithms}{2}
+\Xtoc{2}{\rm }{2.1.1}{Representation of individuals}{2}
+\Xpage{3}
+\Xtoc{2}{\rm }{2.1.2}{Objective function}{3}
+\Xtoc{2}{\rm }{2.1.3}{Population}{3}
+\Xtoc{2}{\rm }{2.1.4}{Parent selection}{3}
+\Xpage{4}
+\Xtoc{2}{\rm }{2.1.5}{Crossover operator}{4}
+\Xtoc{2}{\rm }{2.1.6}{Mutation operator}{4}
+\Xtoc{2}{\rm }{2.1.7}{Replacement strategy}{4}
+\Xtoc{2}{\rm }{2.1.8}{Initialization}{4}
+\Xpage{5}
+\Xtoc{2}{\rm }{2.1.9}{Termination condition}{5}
+\Xtoc{1}{\rm }{2.2}{General scheme}{5}
+\Xlabel{s23}{2.3}
+\Xtoc{1}{\rm }{2.3}{Differential evolution}{5}
+\Xpage{6}
+\Xtoc{2}{\rm }{2.3.1}{Representation}{6}
+\Xtoc{2}{\rm }{2.3.2}{Mutation}{6}
+\Xtoc{2}{\rm }{2.3.3}{Crossover}{6}
+\Xpage{7}
+\Xtoc{2}{\rm }{2.3.4}{Replacement strategy}{7}
+\Xpage{8}
+\Xpage{9}
+\Xlabel{ch3}{3}
+\Xtoc{0}{\bfshape }{3}{Linkage information modeling}{9}
+\Xtoc{1}{\rm }{3.1}{Family Of Subsets}{9}
+\Xtoc{1}{\rm }{3.2}{Linkage tree}{9}
+\Xpage{10}
+\Xpage{11}
+\Xtoc{1}{\rm }{3.3}{Marginal product}{11}
+\Xlabel{DEFOSpseudocode}{3.2}
+\Xpage{12}
+\Xlabel{ch4}{4}
+\Xtoc{0}{\bfshape }{4}{Identification of the linkage structure}{12}
+\Xtoc{1}{\rm }{4.1}{Fitness-based method}{12}
+\Xpage{13}
+\Xtoc{1}{\rm }{4.2}{Distribution-based mathod}{13}
+\Xpage{14}
+\Xpage{15}
+\Xtoc{0}{\bfshape }{5}{Experiments}{15}
+\Xtoc{1}{\rm }{5.1}{Setup}{15}
+\Xpage{16}
+\Xtoc{1}{\rm }{5.2}{Algorithms}{16}
+\Xtoc{2}{\rm }{5.2.1}{Differential evolution variants}{16}
+\Xtab{DEvariants}{5.1}{DEvariants}
+\Xlabel{DEvariants}{5.1}
+\Xpage{17}
+\Xtab{Bset}{5.2}{Bset}
+\Xlabel{Bset}{5.2}
+\Xtoc{2}{\rm }{5.2.2}{Other algorithms}{17}
+\Xtoc{1}{\rm }{5.3}{Problems}{17}
+\Xpage{18}
+\Xtoc{2}{\rm }{5.3.1}{Sphere}{18}
+\Xtoc{2}{\rm }{5.3.2}{Levy}{18}
+\Xtoc{2}{\rm }{5.3.3}{Rastrigin}{18}
+\Xpage{19}
+\Xtoc{2}{\rm }{5.3.4}{Rosenbrock}{19}
+\Xtoc{2}{\rm }{5.3.5}{SoREB}{19}
+\Xtoc{2}{\rm }{5.3.6}{OSoreb}{19}
+\Xpage{20}
+\Xtoc{0}{\bfshape }{6}{Results}{20}
+\Xbib{Friedberg1958ALM}{1}{Friedberg, 1958}
+\Xbib{Friedberg1959ALM}{2}{Friedberg, 1959}
+\Xbib{comparison}{3}{Hansen, 2010}
+\Xbib{DE}{4}{Storn, 1997}
+\Xbib{IntoEA}{5}{Eiben, 2015}
+\Xbib{wong2015evolutionary}{6}{Wong, 2015}
+\Xbib{Luke2009}{7}{Luke,  2009 }
+\Xbib{Darwin}{8}{Charles, 1859}
+\Xbib{Spencer}{9}{Herbert, 1864}
+\Xbib{crossoverpic}{10}{Ferreira, 2015}
+\Xbib{mutationpic}{11}{Park,  2014 }
+\Xbib{FOS}{12}{Bosman, 2013}
+\Xbib{LT}{13}{"Thierens, }
+\Xbib{LTpic}{14}{Goldman, 2012}
+\Xbib{MP}{15}{Bouter, 2017}
+\Xbib{LINC}{16}{Munetomo, 1999}
+\Xbib{LIMD}{17}{Munetomo, 1999}
+\Xpage{21}
+\Xtoc{0}{\bfshape }{!1}{References}{21}
+\Xbib{MAIN}{18}{Olieman, 2021}
+\Xbib{MIC}{19}{Reshef, 2011}
+\Xbib{MIC2}{20}{Reshef, 2016}
+\Xbib{MI}{21}{Steuer, }
+\Xbib{TIC}{22}{Reshef, 2016}
+\Xbib{GMIC}{23}{Luedtke, 2013}
+\Xbib{MICE}{24}{Albanese, 2018}
+\Xbib{MINEPY}{25}{Albanese, 2012}
+\Xbib{CMAES1}{26}{Auger, 2010}
+\Xbib{CMAES2}{27}{Hansen, 2008}
+\Xbib{CMAES3}{28}{Hansen, 2007}
+\Xbib{CMAESIMPLEMENTATION}{29}{Hansen, 2014}
+\Xbib{FMIN}{30}{Nelder, 1965}
+\Xbib{SCIPY}{31}{Virtanen, 2020}
+\Xbib{DEJONG}{32}{De Jong, 1975}
+\Xpage{22}
+\Xbib{LEVY}{33}{Pohlheim, 1997}
+\Xbib{RASTRIGIN}{34}{Rastrigin, 1974}
+\Xbib{RASTRIGIN2}{35}{Rudolph, 1990}
+\Xbib{ROSENBROCK}{36}{Rosenbrock, 1960}
+\Xbib{HARDROSENBROCK}{37}{Picheny, 2013}
+\Xpage{23}

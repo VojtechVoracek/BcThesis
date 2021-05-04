@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfcsplain 2021.3.28)  19 APR 2021 18:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfcsplain 2021.3.28)  4 MAY 2021 14:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -412,348 +412,21 @@ the \pageno \ETC.}
 .\glue 13.6 plus 4.53326 minus 4.53326
 .etc.
 
- [7 <./DEpseudocode.jpg>] [8 <./provisional.jpg>] [9]
-Underfull \vbox (badness 1400) has occurred while \output is active
-\vbox(674.33032+2.13887)x415.41025, glue set 2.41376
-.\vbox(0.0+0.0)x0.0, glue set 25.0fil
-..\kern -25.0
-..\pdfdest name{pg:.10} xyz
-..\glue 0.0 plus 1.0fil minus 1.0fil
-.\glue(\topskip) 2.42238
-.\hbox(7.57762+2.13887)x415.41025, glue set - 0.71353
-..\hbox(0.0+0.0)x11.66563
-..\tenrm T
-..\tenrm h
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm l
-..\tenrm i
-..\tenrm n
-..\tenrm k
-..\tenrm a
-..\tenrm g
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm t
-..\tenrm r
-..\tenrm e
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm i
-..\tenrm s
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm a
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm t
-..\tenrm r
-..\tenrm e
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm w
-..\tenrm i
-..etc.
-.\penalty 10000
-.\glue(\baselineskip) 3.88351
-.\hbox(7.57762+2.13887)x415.41025, glue set 0.38841
-..\tenrm o
-..\tenrm f
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm p
-..\tenrm r
-..\tenrm o
-..\tenrm b
-..\tenrm l
-..\tenrm e
-..\tenrm m
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm v
-..\kern-0.61111
-..\tenrm a
-..\tenrm r
-..\tenrm i
-..\tenrm a
-..\tenrm b
-..\tenrm l
-..\tenrm e
-..\tenrm s
-..\tenrm .
-..\glue 4.88887 plus 5.49998 minus 0.4074
-..\tenrm E
-..\tenrm a
-..\tenrm c
-..\kern-0.30557
-..\tenrm h
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm n
-..etc.
-.\glue(\baselineskip) 3.88351
-.\hbox(7.57762+3.1472)x415.41025, glue set 0.2428
-..\mF F
-..\kern1.09236
-..\mathoff
-..\mathon
-..\hbox(5.09035+1.49721)x4.30238, shifted 1.65
-...\mF j
-..\mathoff
-..\tenrm .
-..\glue 4.88887 plus 5.49998 minus 0.4074
-..\tenrm T
-..\tenrm h
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm k
-..\kern-0.30557
-..\tenrm e
-..\tenrm y
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm p
-..\tenrm r
-..\tenrm o
-..\tenrm p
-..\kern0.30556
-..\tenrm e
-..\tenrm r
-..\tenrm t
-..\kern-0.30557
-..\tenrm y
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm o
-..\tenrm f
-..etc.
-.\glue(\baselineskip) 2.2028
-.\hbox(8.25+2.75)x415.41025, glue set 0.19061
-..\tenrm v
-..\kern-0.61111
-..\tenrm a
-..\tenrm r
-..\tenrm i
-..\tenrm a
-..\tenrm b
-..\tenrm l
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm i
-..\tenrm s
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm t
-..\tenrm h
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm u
-..\tenrm n
-..\tenrm i
-..\tenrm o
-..\tenrm n
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm o
-..\tenrm f
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm t
-..\kern-0.30557
-..\tenrm w
-..\kern-0.30557
-..etc.
-.\glue(\baselineskip) 2.6
-.\hbox(8.25+3.1472)x415.41025, glue set 0.07765
-..\tenrm p
-..\tenrm u
-..\tenrm t
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm i
-..\tenrm t
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm m
-..\tenrm o
-..\tenrm r
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm f
-..\tenrm o
-..\tenrm r
-..\tenrm m
-..\tenrm a
-..\tenrm l
-..\tenrm l
-..\tenrm y
-..\kern-0.91667
-..\tenrm ,
-..\glue 3.66666 plus 2.29166 minus 0.97777
-..\tenrm f
-..\tenrm o
-..\tenrm r
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm a
-..\tenrm n
-..\kern-0.30557
-..etc.
-.\penalty 10000
-.\glue(\baselineskip) 2.87518
-.\hbox(7.57762+2.13887)x415.41025, glue set 282.43338fil
-..\tenrm w
-..\tenrm h
-..\tenrm i
-..\tenrm c
-..\kern-0.30557
-..\tenrm h
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm t
-..\tenrm h
-..\tenrm e
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm f
-..\tenrm o
-..\tenrm l
-..\tenrm l
-..\tenrm o
-..\kern-0.30557
-..\tenrm w
-..\tenrm i
-..\tenrm n
-..\tenrm g
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm a
-..\tenrm p
-..\tenrm p
-..\tenrm l
-..\tenrm i
-..\tenrm e
-..\tenrm s
-..\tenrm :
-..etc.
-.\glue 6.8 plus 2.26653 minus 2.26653
-.\glue 0.0
-.\glue(\parskip) 0.0
-.\glue(\baselineskip) 3.21114
-.\hbox(8.25+2.75)x415.41025, glue set 352.59355fil
-..\glue(\leftskip) 11.66563
-..\hbox(8.25+2.75)x0.0, glue set - 13.44456fil
-...\glue 0.0 plus 1.0fil minus 1.0fil
-...\tenrm 1
-...\tenrm )
-...\glue 3.66666 plus 1.83333 minus 1.22221
-..\mathon
-..\mF F
-..\kern1.09236
-..\mathoff
-..\mathon
-..\hbox(5.3472+0.0)x5.01498, shifted 1.65
-...\mF k
-..\mF ;
-..\glue(\thinmuskip) 1.8333
-..\mF F
-..\kern1.09236
-..\mathoff
-..\mathon
-..\hbox(5.3472+0.0)x3.08327, shifted 1.65
-...\mF l
-..\glue(\thickmuskip) 3.0555 plus 3.0555
-..\hbox(7.63889+2.13887)x8.55579
-...\hbox(7.63889+2.13887)x0.0
-....\mF 6
-...\hbox(4.08098+0.0)x8.55579
-....\tenrm =
-..\penalty 500
-..\glue(\thickmuskip) 3.0555 plus 3.0555
-..\mF ;
-..\mathoff
-..\penalty 10000
-..\glue(\parfillskip) 0.0 plus 1.0fil
-..\glue(\rightskip) 0.0
-.\glue(\parskip) 0.0
-.\glue(\baselineskip) 2.6
-.\hbox(8.25+2.75)x415.41025, glue set 345.26027fil
-..\glue(\leftskip) 11.66563
-..\hbox(8.25+2.75)x0.0, glue set - 13.44456fil
-...\glue 0.0 plus 1.0fil minus 1.0fil
-...\tenrm 2
-...\tenrm )
-...\glue 3.66666 plus 1.83333 minus 1.22221
-..\mathon
-..\mF F
-..\kern1.09236
-..\mathoff
-..\mathon
-..\hbox(5.3472+0.0)x5.01498, shifted 1.65
-...\mF k
-..\glue(\medmuskip) 2.4444 plus 1.2222 minus 2.4444
-..\mF \
-..\penalty 700
-..\glue(\medmuskip) 2.4444 plus 1.2222 minus 2.4444
-..\mF F
-..\kern1.09236
-..\mathoff
-..\mathon
-..\hbox(5.3472+0.0)x3.08327, shifted 1.65
-...\mF l
-..\glue(\thickmuskip) 3.0555 plus 3.0555
-..\tenrm =
-..\penalty 500
-..\glue(\thickmuskip) 3.0555 plus 3.0555
-..\mF ;
-..\mathoff
-..\penalty 10000
-..\glue(\parfillskip) 0.0 plus 1.0fil
-..\glue(\rightskip) 0.0
-.\glue(\parskip) 0.0
-.\glue(\baselineskip) 2.6
-.\hbox(8.25+3.1472)x415.41025, glue set 336.237fil
-..\glue(\leftskip) 11.66563
-..\hbox(8.25+2.75)x0.0, glue set - 13.44456fil
-...\glue 0.0 plus 1.0fil minus 1.0fil
-...\tenrm 3
-...\tenrm )
-...\glue 3.66666 plus 1.83333 minus 1.22221
-..\mathon
-..\mF F
-..\kern1.09236
-..\mathoff
-..\mathon
-..\hbox(5.3472+0.0)x5.01498, shifted 1.65
-...\mF k
-..\glue(\medmuskip) 2.4444 plus 1.2222 minus 2.4444
-..\mF [
-..\penalty 700
-..\glue(\medmuskip) 2.4444 plus 1.2222 minus 2.4444
-..\mF F
-..\kern1.09236
-..\mathoff
-..\mathon
-..\hbox(5.3472+0.0)x3.08327, shifted 1.65
-...\mF l
-..\mathoff
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\tenrm =
-..\glue 3.66666 plus 1.83333 minus 1.22221
-..\mathon
-..\mF F
-..\kern1.09236
-..\mathoff
-..\mathon
-..\hbox(5.09035+1.49721)x4.30238, shifted 1.65
-...\mF j
-..\mathoff
-..\penalty 10000
-..\glue(\parfillskip) 0.0 plus 1.0fil
-..etc.
-.\glue 6.8 plus 2.26653 minus 2.26653
-.\glue 0.0
-.\glue(\parskip) 0.0 plus 1.0
-.\glue(\baselineskip) 2.87518
-.etc.
-
- [10 <./LT.png>] [11 <./DEFOSpseudocode.jpg>] [12] [13]
+ [7 <./DEpseudocode.jpg>] [8 <./provisional.jpg>] [9] [10 <./LT.png>] [11 <./DE
+FOSpseudocode.jpg>] [12] [13] [14] [15 <./DE_final.png>] [16] [17] [18] [19] [2
+0]
 (/usr/share/texlive/texmf-dist/tex/csplain/opmac/opmac-bib-simple.tex)
 (./myreferences.bib)
-l.684 OPmac WARNING: Missing field ``address'' in [IntoEA].
-l.684 OPmac WARNING: Entrytype @book  from [Luke2009] undefined.
-l.684 OPmac WARNING: Missing field ``isbn'' in [Darwin].
-l.684 OPmac WARNING: Missing field ``isbn'' in [Spencer].
-WARNING: unknown UTF-8 code: `ć = ^^c4^^87' (line: 684)
-WARNING: unknown UTF-8 code: `ã = ^^c3^^a3' (line: 684)
-l.684 OPmac WARNING: Entrytype @mics  from [mutationpic] undefined.
-l.684 OPmac WARNING: Missing field ``journal'' in [FOS].
+l.1022 OPmac WARNING: Missing field ``address'' in [IntoEA].
+l.1022 OPmac WARNING: Entrytype @book  from [Luke2009] undefined.
+l.1022 OPmac WARNING: Missing field ``isbn'' in [Darwin].
+l.1022 OPmac WARNING: Missing field ``isbn'' in [Spencer].
+WARNING: unknown UTF-8 code: `ć = ^^c4^^87' (line: 1022)
+WARNING: unknown UTF-8 code: `ã = ^^c3^^a3' (line: 1022)
+l.1022 OPmac WARNING: Entrytype @mics  from [mutationpic] undefined.
+l.1022 OPmac WARNING: Missing field ``journal'' in [FOS].
 
-Underfull \hbox (badness 1558) in paragraph at lines 684--684
+Underfull \hbox (badness 1558) in paragraph at lines 1022--1022
 \tenrm Learn-ing by Fil-ter-ing and Com-bin-ing Link-age Hi-er-ar-chies. 2013, 
 359{366.
 
@@ -793,12 +466,12 @@ Underfull \hbox (badness 1558) in paragraph at lines 684--684
 .\glue 3.66666 plus 1.83333 minus 1.22221
 .etc.
 
-l.684 OPmac WARNING: Missing field ``title'' in [LT].
-l.684 OPmac WARNING: Missing field ``year'' in [LT].
-l.684 OPmac WARNING: Missing field ``journal'' in [LTpic].
-l.684 OPmac WARNING: Missing field ``journal'' in [MP].
+l.1022 OPmac WARNING: Missing field ``title'' in [LT].
+l.1022 OPmac WARNING: Missing field ``year'' in [LT].
+l.1022 OPmac WARNING: Missing field ``journal'' in [LTpic].
+l.1022 OPmac WARNING: Missing field ``journal'' in [MP].
 
-Underfull \hbox (badness 1178) in paragraph at lines 684--684
+Underfull \hbox (badness 1178) in paragraph at lines 1022--1022
 \tenrm Valued Gene-Pool Op-ti-mal Mix-ing Evo-lu-tion-ary Al-go-rithm. 2017, 70
 5{712.
 
@@ -837,9 +510,9 @@ Underfull \hbox (badness 1178) in paragraph at lines 684--684
 .\tenrm l
 .etc.
 
-l.684 OPmac WARNING: Missing field ``journal'' in [LINC].
-[14]
-Underfull \hbox (badness 2735) in paragraph at lines 684--684
+l.1022 OPmac WARNING: Missing field ``journal'' in [LINC].
+[21]
+Underfull \hbox (badness 2735) in paragraph at lines 1022--1022
 \tenit IEEE Trans-ac-tions on Evo-lu-tion-ary Com-pu-ta-tion\tenrm . 2021, 25 (
 2), 358-370.
 
@@ -879,23 +552,46 @@ Underfull \hbox (badness 2735) in paragraph at lines 684--684
 .\tenit l
 .etc.
 
-[15] ){/usr/share/texmf/fonts/enc/dvips/lm/lm-cstt.enc}{/usr/share/texmf/fonts/
-enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{
-/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/d
-vips/lm/lm-cs.enc}{xl2tech.enc}<./Technika-Bold.pfb><./Technika-Book.pfb><./Tec
-hnika-BookItalic.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
-6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (21 pages, 1862312 bytes).
+[22]
+l.1022 OPmac WARNING: Entrytype @masterthesis from [RASTRIGIN2] undefined.
+[23] )pdfTeX warning (dest): name{toc:.5.2.6} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{toc:.5.2.5} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{toc:.5.2.4} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{toc:.5.2.3} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{toc:.5.1.2} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{toc:.5.1.1} has been referenced but does not exist,
+ replaced by a fixed one
+
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-cstt.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-cs.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-mathex.enc}{xl2tech.enc}<./Technika-Bold.pfb><./Technika-Book.pfb><./Technika-
+BookItalic.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/l
+mmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/symbols/msbm6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm8.pfb>
+Output written on bakalarka.pdf (29 pages, 2022357 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 370 compressed objects within 4 object streams
- 72 named destinations out of 1000 (max. 500000)
- 286 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 642 PDF objects out of 1000 (max. 8388607)
+ 572 compressed objects within 6 object streams
+ 123 named destinations out of 1000 (max. 500000)
+ 403 words of extra memory for PDF output out of 10000 (max. 10000000)
 

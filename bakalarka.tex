@@ -299,7 +299,7 @@ created offsprings to replace some members of the old population.
 The algorithm returns the best individual found so far, eventually some statistics concerning
 the run of algorithm.
 
-\sec Differential evolution
+\label[s23] \sec Differential evolution
 
 This chapter is mainly based on these references:~\cite[DE, Luke2009]
 
@@ -412,7 +412,7 @@ $$
 
 
 
-\chap Linkage information modeling
+\label[ch3] \chap Linkage information modeling
 
 It is worth nothing, that DE, as was described in previous chapter, uses random, uniform
 crossover. The crossover has no assumptions about the structure of optimized function,
@@ -440,13 +440,14 @@ divides the set of all variables into two mutually exclusive subsets of variable
 $\cal F$ $\setminus$ $\cal F$$_j$. Variable within those subsets are crossed over together.~\cite[FOS]
 
 To put it more formally, within crossover for each individual $\vec{x}_i$ each block
-$\cal F$$_j$ is iteratively considered in random order. For each block $\cal F$$_j$ is
-randomly generated new mutant vector $\vec{m}_i$ in the same way as standard mutation.
-If the mutants values for variables contained in $\cal F$$_j$ are different from those
-in parent $\vec{x}_i$, then these value are overwritten in the parent $\vec{x}_i$, this
-produces $\vec{x}_{i,new}$ which is then evaluated by the fitness function. New individual
-$\vec{x}_{i, new}$ is only accented if it has better or equal fitness value than the
-original $\vec{x}_i$. How the DE changes is captured in the figure~\ref[DEFOSpseudocode].
+$\cal F$$_j$ is iteratively considered in random order (crossover probability CR $= 1$).
+For each block $\cal F$$_j$ is randomly generated new mutant vector $\vec{m}_i$ in the
+same way as standard mutation. If the mutants values for variables contained in $\cal F$$_j$
+are different from those in parent $\vec{x}_i$, then these value are overwritten in the
+parent $\vec{x}_i$, this produces $\vec{x}_{i,new}$ which is then evaluated by the fitness
+function. New individual $\vec{x}_{i, new}$ is only accented if it has better or equal
+fitness value than the original $\vec{x}_i$. How the DE changes is captured in the
+figure~\ref[DEFOSpseudocode].
 
 %\bigskip
 
@@ -489,7 +490,7 @@ there exist subsets $\cal F$$_k, \cal F$$_l$ for which the following applies:
 The hierarchical clustering procedure starts by assigning each problem variable to a separate
 block in random order. The procedu proccedes bottom-up, therefore the tree is initialized with
 these univariete blocks as leaves. In each step new node is created by merging two nodes of the
-tree which were determined, by given distance measure $\cal D$, as the most dependent. It is
+tree which were determined, by given distance measure $\cal M$, as the most dependent. It is
 important to mention that each node can be merged only once. The process of merging stops
 when no more merges are possible to put it another way, root node has been created.
 Due to the way the procedure works, root node has to be a set of all problem variables.
@@ -544,8 +545,8 @@ of block. If newly created block meets the following conditions:
 *$|{\cal F}_n| \leq \theta_2, \theta_2 \in{\bbchar{N}}$,
 \enditems
 
-\noindent where thresholds $\theta_1$ and $\theta_2$ are defined by user, usually chosen as
-$\theta_1 > 0$ and $\theta_2 < D$. Then $\cal F$$_n$ is inserted to the FOS $\cal F$ and $\cal F$$_a, \cal F$$_b$ are
+\noindent where thresholds $\theta_1 > 0$, $\theta_2 \in [1, D]$ and  factor $K \in (0,1]$ are defined by user.
+Then $\cal F$$_n$ is inserted to the FOS $\cal F$ and $\cal F$$_a, \cal F$$_b$ are 
 removed from $\cal F$. The procedure runs until a newly created block $\cal F$$_n$ has not
 met mentioned conditions or until MP-FOS has became the compact FOS.
 
@@ -574,30 +575,30 @@ real, positive number as output. $\cal M$ is defined as follows~\cite[LT]:
 
 $$
 {\cal M}(X_i, X_j) = {1 \over |X_i| |X_j|} \sum_{u \in X_i} \sum_{v \in X_j}
-n_{u, v} \eqmark
+p_{u, v} \eqmark
 $$
 
-\noindent where $X_i$ and $X_j$ are sets of variables and $n_{u, v}$ is element of the
-\em dependency matrix \em $\cal N$ at position $u,v$.
+\noindent where $X_i$ and $X_j$ are sets of variables and $p_{u, v}$ is element of the
+\em dependency matrix \em $\cal P$ at position $u,v$.
 
 The dependency matrix 
 
 $$
 %{\cal N} = \pmatrix{ a & b & \dot \cr c & d & \dot}
-{\cal N} = \pmatrix{n_{0,0} & n_{0,1} & \dots & \dots & n_{0, D-1} \cr 
-n_{1,0} & n_{1,1} & & & \vdots \cr
+{\cal P} = \pmatrix{p_{0,0} & p_{0,1} & \dots & \dots & p_{0, D-1} \cr 
+p_{1,0} & p_{1,1} & & & \vdots \cr
 \vdots & & \ddots &  & \vdots \cr
 \vdots & &  & \ddots & \vdots \cr
-n_{D-1, 0} & \dots & \dots & \dots & n_{D-1, D-1}} \in {\bbchar R}^{D \times D}
+p_{D-1, 0} & \dots & \dots & \dots & p_{D-1, D-1}} \in {\bbchar R}^{D \times D}
 $$
 
 \noindent is a symetric and positive semi-definite matrix.
 The dependency matrix gives the dependency between each pair of variables specifically,
-the element $n_{i, j}$ denotes he pairwise dependency strength between i-th and j-th
-problem variables. Consequently $\cal N$ contains zeros on diagonal i.e. $\forall i =
-0, 1, ..., D-1 : n_{i, i} = 0$.
+the element $p_{i, j}$ denotes he pairwise dependency strength between i-th and j-th
+problem variables. Consequently $\cal P$ contains zeros on diagonal i.e. $\forall i =
+0, 1, ..., D-1 : p_{i, i} = 0$.
 
-There are several methods how to contruct the dependency matrix $\cal N$ nevertheless,
+There are several methods how to contruct the dependency matrix $\cal P$ nevertheless,
 this work focus only on two of them.
 
 \sec Fitness-based method
@@ -619,7 +620,7 @@ a pairwise dependency $d_{i,j,k}$ is calculated. The overall pairwise dependency
 those variables is determined by aggregating those values as following:
 
 $$
-n_{j, k} = {1 \over m} \sum_{i \in C} d_{i,j,k}.
+p_{j, k} = {1 \over m} \sum_{i \in C} d_{i,j,k}.
 $$
 
 In order to calculate $d_{i,j,k}$, four individuals are picked by combining all possible
@@ -670,14 +671,350 @@ d_{i,j,k} = \cases{1 - {\Delta_{i,j,k} \over \Delta_{i,j}} & if $\Delta_{i,j} \g
 \cr 1 - {\Delta_{i,j} \over \Delta_{i,j, k}} & otherwise.} \eqmark
 $$
 
-\noindent note that $d_{i,j,k}$ as well as $n_{j,k}$ lie within $[0, 1)$ with $0$ indicating
+\noindent note that $d_{i,j,k}$ as well as $p_{j,k}$ lie within $[0, 1)$ with $0$ indicating
 independent variables.
 
 
 \sec Distribution-based mathod
-The second method to construct the dependency matrix $\cal N$ is called 
+The second method to construct the dependency matrix $\cal P$ is called the \em maximal
+information coefficient \em (MIC)~\cite[MIC]. There exists more methods used to identify
+dependencies between a pair of variables based on the distribution of the
+population~\cite[MP, MAIN], however MIC achieved better accurancy in comparison to other
+methods.~\cite[MIC, MIC2]
 
-%\chap Setup
+MIC is based on the idea, that if a relationship between a pair of variables exists,
+then it is posible to draw a grid on the scatterplot of the two variables that partitions
+the data to encapsulate that relationship.
+
+To calculate MIC, all possible grids up to maximal grid resolution are considered. Note
+that maximal grid resolution depends on the sample size. For each pair of integers $(x, y)$
+the largest possible mutual information (MI)~\cite[MI] achieveable by any x-by-y grid applied
+to the data is computed. Those mutual information values are then normalized by the logarithm
+of the minimum $x$ and $y$. Finally, MIC is defined as maximum of thos highest normalized
+mutual information values.~\cite[MIC] Formally:
+
+$$
+MIC_{i,j} = \max_{(x,y) : x \leq B, y \leq B} \Bigg( \max_{g : G_{x, y}} \Big( {MI_{i,j}|_g
+\over \log \min(x, y)} \Big)\Bigg),
+$$
+
+\noindent where $B$ is user-specified value defining maximal grid resolution, $G_{x,y}$ denotes
+a set of all possible x-by-y grids and $MI_{i,j}|_g$ stands for mutual information of $i$-th and
+$j$-th variables achieved by application of grid $g$.
+
+As was mentioned above achieved good results in various comparisons, however a big limitation
+of MIC is its high computational cost. Therefore several optimized algorithms for approximating
+the MIC have been published.~\cite[MIC, TIC, GMIC]. In this work MICE \em minepy \em
+implementation~\cite[MICE, MINEPY] is used.
+
+In this wrok MICE is not calculated from the whole population, but only subset $C$ of all
+individuals in population is considered. The dependency matrix $\cal P$ is then formally
+calculated as following:
+
+
+\centerline{$p_{i,j} = $ MICE$_{i,j}|_C$.}
+
+
+
+\chap Experiments
+
+In \ref[s23] section the standard differential evolution was introduced. It was also noted
+that DE does not have any tool to recognize or model the linkage information between certain
+parts of solution. In chapter \ref[ch3] two possible
+representations of dependency structure were introduced assuming known pairwise dependencies
+and in the chapter ~\ref[ch4] two ways to find pairwise dependencies and thereby build the dependency matrix
+$\cal P$ were presented.
+
+By combination of above it is possible to propose adjusted DE with dependency detection. The
+adjusted version differs from original in two factors. Firstly, in every generation the
+dependency matrix $\cal P$ and FOS structure based on it is built. Secondly, crossover is
+modified to respect dependent blocks.
+
+\medskip
+\picw=14.7cm \cinspic DE_final.png
+\bigskip
+\caption/f Pseudocode of DE with dependency detection
+\medskip
+
+The main goal of experiments is to study performance of various types of DE with dependency
+detection differing in creating the matrix $\cal P$, or in the building FOS $\cal F$. Compare
+them between each other and with standard DE and other optimization algorithms.
+
+\sec Setup
+
+All experimental results described in this work measures the first time a global optimum was
+hit, in other words, the number of fitness function calls needed to reach the global optimum
+for the first time within the run. For each problem, each algorithm and each dimension 25
+independent runs are performed. The performance is considered successful if at least 24 runs
+converged to the global optimum or to a predefined sufficiently close approximation within
+$300000 \cdot D$ calls of the fitness function. Toleration was set to $10^{-8}$.
+
+The associate population size is the smallest possible size so that the algorithms performance
+is considered successful. It is determined by starting from smallest possible population and
+letting the algorithm runs 25 times. If the performance have not been successful, the population
+size for the next trial will increase by $k$. This procudere is repeated until the successful
+population size is found ot until population size reaches upper limit $T$. In the first case
+optimal population size is searched for by performing bisection search between the current
+poopulation size and the previous size. In the second case is considered unsuccessful for
+certain problem and dimension.
+
+All experimental result are arithmetically averaged over successful runs.
+
+
+
+\sec Algorithms
+
+\secc Differential evolution variants
+
+Within the experiments seven types of differential evolution were compared. The original DE
+as was introdued in~\ref[s23] section. (DE\_UNIFORM). Remaining six variants of DE are divided
+into three pairs according to how they create the distance matrix $\cal P$. Within each pair,
+one variant uses linkage tree FOS (LT) and second marginal product FOS (MP). The first pair
+uses nonlinearity check to create $\cal P$ (DE\_LT\_NC and DE\_MP\_NC). The second pair take
+advantage of maximal information coefficient (DE\_LT\_MIC and DE\_MP\_MIC). The third pair
+are DE variants with full prior knowledge of pairwise dependencies, therefore they build
+optimal $\cal P$, which is (0, 1)-matrix with zeros for independent pairs and ones for
+dependent (DE\_LT+ and DE\_MP+).
+
+\midinsert \clabel[DEvariants]{DEvariants}
+\ctable{cccc}{
+\hfil 
+& Nonlinearity check & Max. inf. coeff. & Optimal \crl \tskip4pt
+Linkage tree & DE\_LT\_NC & DE\_LT\_MIC & DE\_LT+ \cr
+Marginal product & DE\_MP\_NC & DE\_MP\_MIC & DE\_MP+ \cr
+}
+\caption/t Overview of newly proposed variants of DE.
+\endinsert
+
+\noindent All above-mentioned types shares the following:
+
+\begitems
+*Initialization of individuals $\sim {\cal N}({\bf 0},100 \cdot {\bf I}_D)$, where $\cal N$ is
+multivariate normal distribution, $\bf 0$ stands for the zero vector and ${\bf I}_D$ represents
+$D \times D$ identity matrix.
+*The diffrential weight $F = 0.7$
+\enditems
+
+\noindent Other parameters:
+
+\begitems
+*The crossover probability for DE\_UNIFORM: $CR = 0.9$
+*The degree of strength of univariate blocks: $C = 2$
+*Threshold $\theta_1$ defining the minimal strength of block to be accepted:
+
+$$
+\theta_1 = \cases{ 10^{-1} & for DE\_MP\_MIC,\cr
+10^{-8} & otherwise.} 
+$$
+*Maximal size of block: $\theta_2 = 6$
+*Maximum potential degree of strength of block reduction during merging
+
+$$
+K = \cases{ 0.8 & for DE\_MP+,\cr
+0.4 & for DE\_MP\_NC,\cr
+0.7 & for DE\_MP\_MIC.} 
+$$
+
+*Number of checked individuals within non-linearity check method: $m = \lceil0.15 \cdot NP\rceil$
+*The subset used to calculate MICE $C = C_b \cup C_r$, where $C_b$ is set of $\lceil 0.3 \cdot
+NP\rceil$ best individuals in population and $C_r$ is a set of $\lceil 0.1 \cdot NP\rceil$
+randomly chosen individuals from the remaining.
+*The maximal MICE grid resolution $B$ is set according to the following table (rounded to the
+nearest integer in an upward direction):
+
+
+\midinsert \clabel[Bset]{Bset}
+\ctable{ll}{
+\hfil 
+Number of samples & B parameter\crl \tskip4pt
+$|C| < 25$ & $ |C|^{0.85}$ \cr
+$25 \leq |C| < 50$ & $|C|^{0.8}$ \cr
+$50 \leq |C| < 250$ & $|C|^{0.75}$ \cr
+$250 \leq |C| < 500$ & $|C|^{0.7}$ \cr
+$500 \leq |C| < 1000$ & $|C|^{0.65}$ \cr
+$1000 \leq |C| < 2500$ & $|C|^{0.60}$ \cr
+$2500 \leq |C| < 5000$ & $|C|^{0.55}$ \cr
+}
+\caption/t The dependence of the cardinality of $C$ on the parameter $B$ taken
+from~\cite[MICE].
+\endinsert
+
+*For the MICE parameter $c$ which determines how many more clumps
+there will be than columns in every partition was set default value $15$~\cite[MICE]
+\enditems
+
+
+\noindent All above-mentioned values were found empirically unless otherwise stated.
+
+\secc Other algorithms
+
+Covariance matrix adaptation evolution strategy (CMA-ES) belongs to the class of
+evolutionary algorithms. CMA-ES is considered state-of-the-art in evolutionary
+computation and has very quickly become the standard tool for continuous
+optimisation.~\cite[CMAES1, CMAES2, CMAES3]
+In this work the Hanses's implementation of CMA-ES is used.~\cite[CMAESIMPLEMENTATION]
+
+Last considered algorithm is Nelder-Mead simplex algorithm~\cite[FMIN], the optimization algorithm
+which is not an evolutionary algorithm nevertheless, it uses only function values,
+therefore may be used for blackbox optimization. The Scipy implementation called
+FMIN is used~\cite[SCIPY].
+
+
+
+\sec Problems
+
+To study the impact of various types of linkage learning on the performance of DE and to
+benchmark all above-mentioned algorithm, six optimization problems to minimize are considered.
+
+Before the introduction of the problems, state the important property of functions, the
+\em additive separability\em. Define additively separable function $F$ as:
+
+$$
+F(x_0, x_1, ..., x_{D-1}) = f_0(x_0) + f_1(x_1) + ... + f_{D-1}(x_{D-1}),
+$$
+
+\noindent where $f_0, f_1, ..., f_{D-1}$ are functions of one variable. It is crucial that
+the optimum of D-dimensional additively separable function may be obtained by performing
+D independent one-dimensional optimizations along each dimension, formally:
+
+$$
+\min_{[x_0, x_1, ..., x_{D-1}] \in{\bbchar{R}^D},} F(x_0, x_0, ..., x_{D-1}) = \min_{x_0 \in{\bbchar{R}}}
+f_0(x_0) + \min_{x_1 \in{\bbchar{R}}} f_1(x_1) + ... + \min_{x_{D-1} \in{\bbchar{R}}} f_{D-1}
+(x_{D-1})
+$$
+
+It can be seen that standard DE which optimize each dimension independently would be suitable
+for optimizing additively separable functions because additively separable function are
+exactly those function without dependencies between variables.
+
+
+\secc Sphere
+
+The first benchmark function is sphere funcion also known as De Jong F1~\cite[DEJONG]. It is presumable the easiest
+continous domain optimization problem. It is convex, separable and has one local minimum.
+
+Definition of the sphere function:
+$$
+f_{sphere}(\vec{x}) = \sum_{i=0}^{D-1}x_i^2
+$$
+Global minimum:
+$$
+f_{sphere}(\vec{x}_{min}) = 0
+$$
+$$
+\vec{x}_{min} = [0, 0, ..., 0]
+$$
+
+
+\secc Levy
+
+The second considered benchmark problem is Levy function~\cite[LEVY]. Like Sphere, it is separable
+function with one local minimum nevertheless, Levy function is considered more difficult to
+optimize.
+
+The Levy function is defined as follows:
+$$
+f_{Levy}(\vec{x}) = \sin^2(\pi v_0) + \sum_{i=0}^{D-2}\Big[(v_i -1)^2 (1 + 10\sin^2(\pi v_i +1)
+)\Big] + (v_{D-1} - 1)^2 (1 + sin^2(2\pi v_{D-1})), 
+$$
+\noindent where $v_i = 1 + {x_i -1 \over 4}$, for all $i = 0, 1, ..., D-1$.
+\medskip
+\noindent Global minimum:
+$$
+f_{Levy}(\vec{x}_{min}) = 0
+$$
+$$
+\vec{x}_{min} = [1, 1, ..., 1]
+$$
+
+\secc Rastrigin
+
+The Rastrigin function~\cite[RASTRIGIN, RASTRIGIN2] is the third benchamrk problem. Like the previous functions, this one
+is also separable. It it difficult function to optimize, due to regular ‘‘noise'' it has many
+regularly distributed local minimum. The Rastrigin function is defined as:
+$$
+f_{Rastrigin}(\vec{x}) = 10 \cdot D + \sum_{i=0}^{D-1}\Big [x_i^2 - 10\cos(2\pi x_i) \Big]
+$$
+Global minimum:
+$$
+f_{Rastrigin}(\vec{x}_{min}) = 0
+$$
+$$
+\vec{x}_{min} = [0, 0, ..., 0]
+$$
+
+\secc Rosenbrock
+The Rosenbrock function~\cite[ROSENBROCK], also known as Banana function is the first considered unseparable
+function, because it has overlapping dependencies. Each pair of consecutive variables is
+dependent. The Rocenbrock function contains narrow, parabolic valley, where the global
+minimum is located. However, even though this valley is easy to find, convergence to the
+minimum is difficult~\cite[HARDROSENBROCK]. The definition of Rosenbrock function is as follows:
+$$
+f_{Rosenbrock}(\vec{x}) = \sum_{i=0}^{D-2} \Big [100 (x_{i+1} - x_i^2)^2 + (1 - x_i)^2\Big]
+$$
+Global minimum:
+$$
+f_{Rosenbrock}(\vec{x}_{min}) = 0
+$$
+$$
+\vec{x}_{min} = [1, 1, ..., 1]
+$$
+
+\secc SoREB
+
+The Sum of Rotated Ellipsoid Blocks or abbreviated SoREB~\cite[MP] is defined as follows:
+$$
+f_{Ellipsoid}(\vec{x}) = \sum_{i=0}^{l-1} \Big [10^{{6i \over l-1}}x_i^2\Big]
+$$
+$$
+f_{SoREB}(\vec{x}, k) = \sum_{i=0}^{D/k-1} \Big[f_{Ellipsoid}\big(R_\theta([x_{ki}, ..., x_{k(i+1)-1}])\big) \Big]
+$$
+
+\noindent Where $R_\theta$ defines the rotation of a vector around the origin by the angle of
+$\theta$ and $k$ is size of block, defined by user. Rotated blocks of variables which enter to
+$f_{ellipsoid}$ as an input creates strongly connected components. Variables within the block
+have strong dependencies but are completely independent of any variables outside their block.
+This feature is called block-separability.
+
+Within comparison four types of the SoREB function differing in the size of blocks (2, 3, 4, 5)
+were considered. The rotation of $\theta = 45^\circ$ was used.
+
+\noindent Global minimum:
+$$
+f_{SoREB}(\vec{x}_{min}, k) = 0; k \in{\bbchar{N}}
+$$
+$$
+\vec{x}_{min} = [0, 0, ..., 0]
+$$
+
+
+
+\secc OSoreb
+
+The SoREB function conations only non-overlapping non-decomposable block of size $k$. In~\cite[MP]
+the overlapping version of this problem was defined as OSoREB. In addition to the original
+SoREB problem a SoREB blocks of length 2 for every pair of successive variables in belonging to
+other original blocks are used. For OSoREB is used $k = 5$ and $\theta = 45^\circ$.
+Definition of OSoREB:
+$$
+f_{OSoREB}(\vec{x}, k) = f_{SoREB}(\vec{x}, k) + \sum_{i=1}^{D/k-1} \Big [f_{Ellipsoid}\big(R_\theta([x_{ki-1}, x_{ki}])\big)\Big]
+$$
+Global minimum:
+$$
+f_{OSoREB}(\vec{x}_{min}, k) = 0; k \in{\bbchar{N}}
+$$
+$$
+\vec{x}_{min} = [0, 0, ..., 0]
+$$
+
+
+\chap Results
+
+
+
+
+
+
 
 %\chap Results
 
