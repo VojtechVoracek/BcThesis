@@ -18,43 +18,110 @@
 \title {Differential Evolution Crossover with Dependency Detection}
 \titleCZ {Křížení pro diferenciální evoluci s detekcí závislostí}
 \author {Vojtěch Voráček}
-\date {March 2021}
+\date {May 2021}
+\supervisor {Ing. Petr Pošík, Ph.D.}
 
-\pagetwo    {}  % The text printed on the page 2 at the bottom.
 
-\abstractEN {
-   This document shows and tests an usage of the plain\TeX{} officially
-   (may be) recommended design style {\ssr CTUstyle} for bachelor (Bsc.), master
-   (Ing.), or doctoral (Ph.D.) theses at the Czech Technical University in
-   Prague. The template defines all thesis mandatory structural elements and
-   typesets their content to fulfil the university formal rules.
+\pagetwo    {
+   \picw=18.3cm 
+   \cinspic zadani.png
+}  % The text printed on the page 2 at the bottom.
 
-   This is version 2 of this template which implements the Technika font
-   recommended by CTU graphics identity reference since 2016.
-}
+
 \abstractCZ {
-    Abstrakt stručně a přesně
-    reprezentuje obsah práce, shrnuje cíl, metody, výsledky a závěry. 
+    Diferenciální evoluce je považována za jeden z nejlepších evolučních algoritmů
+    pro spojité black-box optimalizační problémy. Originální verze diferenciální evoluce
+    použí náhodný uniformí operátor křížení, který nebere v potaz potencialní závislosti
+    mezi částmi řešení a může tyto vazby narušovat.
+
+    \medskip
+
+    Cílem této práce je poskytnout nový operátor křížení pro diferenciální evoluci,
+    který bude vhodnější pro třídu problémů obsahující závislé komponenty řešení.
+
+    \medskip
+
+    V této práci jsou prezentovány dvě možnosti, jak nalézt závislosti mezi proměnnými
+    problému a dvě možnosti, jak modelovat strukturu vazeb. S užitím těhto metod byly
+    navženy čtyři nové operátory křížení.
+
+    \medskip
+
+    Nově navržené algoritmy jsou vyhodnoceny na množině referenčních funkcí a jsou
+    porovnány s dalšími optimalizačními algoritmy, včetně original diferenciální evoluce.
+
+    \medskip
+
+    Výsledky ukazují, že nově navžené algoritmy dosahují výrazně lepšího výkonu a
+    škálovatelnosti než originální diferenciální evoluce ve smyslu potřebného počtu
+    vyhodnocení účelové funkce k nalezení globálního optima. Něktére z nich podobné
+    škálovatelnosti jako CMA-ES, jeden z nejmodernějších evolučních algoritmů.
+
+    \medskip
+
 }           % If your language is Slovak use \abstractSK instead \abstractCZ
 
+\abstractEN {
+   The differential evolution is considered as one of the best evolutionary
+   algorithms for continuous black-box optimization problems. The original version of
+   differential evolution uses random uniform crossover operator which do not take
+   possible dependencies between parts of solution into account and may disrupts
+   these linkages.
+
+   \medskip
+   The goal of this work is to propose new a crossover operator for differential
+   evolution more suitable for the class of problems containing dependent solution components
+   of a solution.
+
+   \medskip
+
+   In this work are presented two options to find dependencies between problem variables
+   and two possibilities to model the linkage structure. Finally, with use of those methods
+   four new crossover operators are designed.
+
+   \medskip
+
+   Newly proposed algorithms are evaluated on a set of benchmark functions and compared
+   with other optimization algorithms including the original differential evolution.
+
+   \medskip
+
+   The results show that all newly proposed algorithms achieve significantly better performace
+   and scalability than original differential evolution in terms of fitness function
+   evaluations needed to find a global optimum. Some of them achieve comparable scalability
+   to state-of-the-art evolutionary algorithm CMA-ES.
+
+   \medskip
+}
+
+
 \keywordsEN {%
-   document design template; bachelor, master, Ph.D. thesis; \TeX{}.
+   Evolutionary algorithm, differential evolution, linkage tree, marginal product,
+   non-linearity check, maximal information coefficient, linkage learning.
 }
 \keywordsCZ {%
-    Klíčová slova jsou odborné termíny vyjadřující obsah práce. 
+    Evoluční algoritmus, diferenciální evoluce, vazebný strom, mezní produkt,
+    kontrola nelinearity, maximální informační koeficient, učení se závislostí. 
 }
 \thanks {           % Use main language here
-   Chtěl bych poděkovat své manželce Ludmile za podporu nejen finanční.
-   Díky tomu mohu na svém pracovišti dělat, co mě baví, a nejsem stresován 
-   výplatní páskou.
+   First of all, I would like to express my gratitude to my supervisor Ing. Petr
+   Pošík, Ph.D. for his guidance, his helpful comments, and his patience with me.
+   \smallskip
+   \rightline{Thank you!}
+   \smallskip
+   Many thanks belong also to my family, current and future, and to all my friends
+   for their support.
+   \smallskip
+   \rightline{Love you!}
 }
 \declaration {      % Use main language here
-   Prohlašuji, že jsem předloženou práci vypracoval
-   samostatně a že jsem uvedl veškeré použité informační zdroje v~souladu
-   s~Metodickým pokynem o~dodržování etických principů při přípravě
-   vysokoškolských závěrečných prací.
-
-   V Praze dne 13. 13. 2013 % !!! Attention, you have to change this item.
+   I declare that the presented work was developed independently and that I have
+   listed all sources of information used
+   within it in accordance with the methodical instructions for observing the ethical
+   principles in the preparation of university
+   theses.
+   \smallskip
+   Prague, 20. May 2020 % !!! Attention, you have to change this item.
    \signature % makes dots
 }
 
@@ -128,7 +195,7 @@ inspired by Darvin's theory of evolution by natural selection.~\cite[Darwin] The
 describes the process of development of organisms over time as a result of changes
 in heritable traits. Changes which allow an organism to better adapt to its environment
 will help it survive and reproduce more offspring. This phenomenon is commonly
-called as “Survival of the fittest” first used by Herbert Spencer.~\cite[Spencer]
+called as “Survival of the fittest” “takto” first used by Herbert Spencer.~\cite[Spencer]
 
 In analogy, EA maintains a “population” of potential solutions (\em individuals\em) for the
 given problem. Population is iteratively evolved by encouraging the reproduction of
@@ -168,17 +235,6 @@ a genotype-phenotype mapping. For instance, given an optimization problem on int
 decide to represent them by their binary code, then $20$ would be seen as a phenotype 
 and $10100$ as a genotype representing it.
 
-\bigskip
-
-\medskip
-\picw=15.3cm \cinspic g-pmapping.png
-\bigskip
-\caption/f Examples of genotype-phenotype mapping
-(a) Integere representation
-(b) Protein structure representation on a lattice model
-(c) Tree representation for a mathematical expression~\cite[wong2015evolutionary]
-\medskip
-
 \secc Objective function
 
 The role of the objective function, is to represent the requirement to adapt to.
@@ -217,26 +273,12 @@ generate new offsprings. The idea behind crossover is that by mating two
 individuals with different but desirable features, it is possible to produce offsprings
 which combines both of those features. Similarly to other genetic operators, crossover is stochastic.
 
-\medskip
-\picw=15.3cm \cinspic crossover.png
-\medskip
-\caption/f Example of One-point crossover (part of chromosome right to the Crossover point
-are swapped between two parents chromosomes)~\cite[crossoverpic]
-\medskip
-
-
 \secc Mutation operator
 
 \em Mutation \em is an unary genetic operator which changes parts of the chromosome of an
 individual, typically randomly. In mutation, the mutated individual may change entirely from
 the original individual. Mutation is used to maintain and introduce diversity in the
 genetic population.
-
-\medskip
-\picw=8cm \cinspic mutation.png
-\medskip
-\caption/f Example of mutation~\cite[mutationpic]
-\medskip
 
 \secc Replacement strategy
 
@@ -267,21 +309,15 @@ certainly stops the algorithm, such as the limited number of fitness function ca
 
 \sec General scheme
 
-%By merging all above-mentioned components, the evolutionary algorithm is formed.
-%It this section
-%irstly, an initial population is generated by initialization procedure.
 In the previous section, the main parts of an EA were introduced individually.
 By merging all above-mentioned components, the evolutionary algorithm is formed.
 This section describes the way an EA works as a whole.
-\bigskip
 
-%\medskip
+\midinsert \clabel[EAPSEUDO]{Evolutionary algorithm pseudocode}
 \picw=14cm \cinspic EApseudocode.jpg
 \medskip
 \caption/f General scheme of an evolutionary algorithm
-%\medskip
-
-\bigskip
+\endinsert
 
 Firstly, an initial population is generated by an initialization procedure.
 The population is subsequently evaluated by a fitness function. Then starts
@@ -387,30 +423,11 @@ $$
 P = \{\vec{p}_i |  \vec{p}_i = argmax(\vec{x}_i, \vec{o}_i); i = 0,1,...,NP-1\}
 $$
 
-%\medskip
-%\centerline{$P = \{\vec{p}_i |  \vec{p}_i = argmax(\vec{x}_i, \vec{o}_i); i = 1,2,...,NP\}$,}
-%\medskip
-
-
-\bigskip
-
-%\medskip
+\midinsert \clabel[DEPSEUOD]{Differential evolution pseudocode}
 \picw=14cm \cinspic DEpseudocode.jpg
 \medskip
 \caption/f General scheme of the differential evolution
-%\medskip
-
-\bigskip
-
-%\medskip
-\picw=14cm \cinspic provisional.jpg
-\medskip
-\caption/f DE recombination
-%\medskip
-
-\bigskip
-
-
+\endinsert
 
 \label[ch3] \chap Linkage information modeling
 
@@ -449,33 +466,23 @@ function. New individual $\vec{x}_{i, new}$ is only accented if it has better or
 fitness value than the original $\vec{x}_i$. How the DE changes is captured in the
 figure~\ref[DEFOSpseudocode].
 
-%\bigskip
-
-%\medskip
-%\picw=14cm \cinspic DEFOSpseudocode.jpg
-%\medskip
-%\caption/f Pseudocode of DE with adjusted crossover when FOS is known
-%\medskip
-
-%\bigskip
-
 
 \sec Linkage tree
 
 There exist many FOS structures and any of them can be used to model linkage structure,
-however this work focus on two of them. First of them is \em linkage tree \em (LT-FOS).
+however this work focus on two of them. First of them is \em linkage tree \em (LT).
 
-‘‘\em The Linkage Tree is the hierarchical cluster tree of the problem variables using
+“\em The Linkage Tree is the hierarchical cluster tree of the problem variables using
 an agglomerative hierarchical clustering algorithm with a distance measure $\cal M$.
 The distance measure $\cal M$$(X_1, X_2)$ measures the degree of dependency between
-two sets of variables $X_1$ and $X_2$.\em’’~\cite[LT]
+two sets of variables $X_1$ and $X_2$.\em”~\cite[LT]
 
 There exist more potential distance measures $\cal M$$(X_1, X_2)$, however, in this work,
 two distance measures are used. They are described in detail in following chapter~\ref[ch4].
 
 The linkage tree is a tree with $D$ leaf nodes and $D-1$ inner nodes, where $D$ is number
-of problem variables. Each node of the LT-FOS represents certain block of variables $\cal F$$_j$.
-The key property of the LT-FOS is that each $\cal F$$_j$ which containts more than one variable
+of problem variables. Each node of the LT represents certain block of variables $\cal F$$_j$.
+The key property of the LT is that each $\cal F$$_j$ which containts more than one variable
 is the union of two other sets $\cal F$$_k$, $\cal F$$_l \in $$\cal F$, where $j \neq k \neq l$
 (transitively). To put it more formally, for any subset $\cal F$$_i$, where $|\cal F$$_j| > 1$,
 there exist subsets $\cal F$$_k, \cal F$$_l$ for which the following applies:
@@ -497,26 +504,26 @@ Due to the way the procedure works, root node has to be a set of all problem var
 The tree itself contains multiple levels of dependencies. From univariate level at a height of
 zero to complete dependency between all variables at a depth of zero.~\cite[LT]
 
-\medskip
+\midinsert \clabel[LTREE]{Linkage tree}
 \picw=10cm \cinspic LT.png
 \medskip
 \caption/f Example Linkage tree~\cite[LTpic]
-\medskip
+\endinsert
 
 
-The \em DE using the LT FOS structure \em (LT-FOS DE) build the LT-FOS in every generation. 
-Once the tree is built, LT-FOS DE traverses the tree in the opposite order of the merging.
+The \em DE using the LT structure \em (LT DE) build the LT in every generation. 
+Once the tree is built, LT DE traverses the tree in the opposite order of the merging.
 
 \sec Marginal product
 
-Second introduced FOS structure is \em marginal product \em (MP-FOS)~\cite[MP]. The MP-FOS is
+Second introduced FOS structure is \em marginal product \em (MP)~\cite[MP]. The MP is
 defined as set $\cal F$, where for each $\cal F$$_k, \cal F$$_l \in \cal F$ holds that
-$\cal F$$_k \cap \cal F$$_l = \emptyset$. When all variables are independent, MP-FOS is called
+$\cal F$$_k \cap \cal F$$_l = \emptyset$. When all variables are independent, MP is called
 univariate FOS and $\cal F$$ = \{\{0\}, \{1\}, ... , \{D-1\}\}$, where $D$ is number of problem
-variables. On the contrary, when all variables are considered dependent, MP-FOS is called compact
-FOS.
+variables. On the contrary, when all variables are considered pairwise dependent, MP is
+called compact FOS.
 
-Before introduction of the \em MP-FOS building procedure \em it is necessary to define
+Before introduction of the \em MP building procedure \em it is necessary to define
 \em strength of block \em $\cal S_{M}$$(\cal F$$_j)$ which determines dependency rate
 within certain block $\cal F$$_j$ according to given distance measure $\cal M$. The strength of
 block is defined as following:
@@ -532,7 +539,7 @@ $$
 \noindent where $C \geq 0$ is user selected factor defining the degree of strength of 
 univariete blocks.
 
-The MP-FOS building procedures starts by initializing MP-FOS $\cal F$ as univariete FOS and by
+The MP building procedures starts by initializing MP $\cal F$ as univariete FOS and by
 assigning the strength of block to each block. In each step new block $\cal F$$_n$ is created
 by merging two blocks ${\cal F}_a, {\cal F}_b \in \cal F$, which are determined, by given
 distance measure $\cal M$, as the most dependent. Then, $\cal F$$_n$ is assigned its strength
@@ -548,19 +555,19 @@ of block. If newly created block meets the following conditions:
 \noindent where thresholds $\theta_1 > 0$, $\theta_2 \in [1, D]$ and  factor $K \in (0,1]$ are defined by user.
 Then $\cal F$$_n$ is inserted to the FOS $\cal F$ and $\cal F$$_a, \cal F$$_b$ are 
 removed from $\cal F$. The procedure runs until a newly created block $\cal F$$_n$ has not
-met mentioned conditions or until MP-FOS has became the compact FOS.
+met mentioned conditions or until MP has became the compact FOS.
 
-The \em DE using the MP FOS structure \em (MP-FOS DE) build the MP-FOS in every generation.
-After building the MP-FOS, MP-FOS DE traverses FOS in the opposite order of the merging, in
+The \em DE using the MP FOS structure \em (MP DE) build the MP in every generation.
+After building the MP, MP DE traverses FOS in the opposite order of the merging, in
 other words, from the last one added to FOS to the first one.
 
 
-\medskip
-\label[DEFOSpseudocode]
+\midinsert \clabel[DEFOSpseudocode]{Provisional}
 \picw=14cm \cinspic DEFOSpseudocode.jpg
 \medskip
 \caption/f provisional pseudocode
-\medskip
+\endinsert
+
 
 \label[ch4] \chap Identification of the linkage structure
 
@@ -716,7 +723,7 @@ calculated as following:
 
 
 
-\chap Experiments
+\label[ch5] \chap Experiments
 
 In \ref[s23] section the standard differential evolution was introduced. It was also noted
 that DE does not have any tool to recognize or model the linkage information between certain
@@ -730,41 +737,19 @@ adjusted version differs from original in two factors. Firstly, in every generat
 dependency matrix $\cal P$ and FOS structure based on it is built. Secondly, crossover is
 modified to respect dependent blocks.
 
-\medskip
+\midinsert \clabel[DE final]{Differential evolution with dependency detection}
 \picw=14.7cm \cinspic DE_final.png
 \bigskip
-\caption/f Pseudocode of DE with dependency detection
-\medskip
+\caption/f Pseudocode of the differential evolution with dependency detection
+\endinsert
 
 The main goal of experiments is to study performance of various types of DE with dependency
 detection differing in creating the matrix $\cal P$, or in the building FOS $\cal F$. Compare
 them between each other and with standard DE and other optimization algorithms.
 
-\sec Setup
+\label[s51] \sec Algorithms
 
-All experimental results described in this work measures the first time a global optimum was
-hit, in other words, the number of fitness function calls needed to reach the global optimum
-for the first time within the run. For each problem, each algorithm and each dimension 25
-independent runs are performed. The performance is considered successful if at least 24 runs
-converged to the global optimum or to a predefined sufficiently close approximation within
-$300000 \cdot D$ calls of the fitness function. Toleration was set to $10^{-8}$.
-
-The associate population size is the smallest possible size so that the algorithms performance
-is considered successful. It is determined by starting from smallest possible population and
-letting the algorithm runs 25 times. If the performance have not been successful, the population
-size for the next trial will increase by $k$. This procudere is repeated until the successful
-population size is found ot until population size reaches upper limit $T$. In the first case
-optimal population size is searched for by performing bisection search between the current
-poopulation size and the previous size. In the second case is considered unsuccessful for
-certain problem and dimension.
-
-All experimental result are arithmetically averaged over successful runs.
-
-
-
-\sec Algorithms
-
-\secc Differential evolution variants
+\label[s511] \secc Differential evolution variants
 
 Within the experiments seven types of differential evolution were compared. The original DE
 as was introdued in~\ref[s23] section. (DE\_UNIFORM). Remaining six variants of DE are divided
@@ -776,14 +761,14 @@ are DE variants with full prior knowledge of pairwise dependencies, therefore th
 optimal $\cal P$, which is (0, 1)-matrix with zeros for independent pairs and ones for
 dependent (DE\_LT+ and DE\_MP+).
 
-\midinsert \clabel[DEvariants]{DEvariants}
+\midinsert \clabel[DEvariants]{Differential evolution variants}
 \ctable{cccc}{
 \hfil 
 & Nonlinearity check & Max. inf. coeff. & Optimal \crl \tskip4pt
 Linkage tree & DE\_LT\_NC & DE\_LT\_MIC & DE\_LT+ \cr
 Marginal product & DE\_MP\_NC & DE\_MP\_MIC & DE\_MP+ \cr
 }
-\caption/t Overview of newly proposed variants of DE.
+\caption/t Overview of newly proposed variants of the differential evolution.
 \endinsert
 
 \noindent All above-mentioned types shares the following:
@@ -792,14 +777,18 @@ Marginal product & DE\_MP\_NC & DE\_MP\_MIC & DE\_MP+ \cr
 *Initialization of individuals $\sim {\cal N}({\bf 0},100 \cdot {\bf I}_D)$, where $\cal N$ is
 multivariate normal distribution, $\bf 0$ stands for the zero vector and ${\bf I}_D$ represents
 $D \times D$ identity matrix.
-*The diffrential weight $F = 0.7$
+*The differential weight $F = 0.7$
 \enditems
 
 \noindent Other parameters:
 
 \begitems
 *The crossover probability for DE\_UNIFORM: $CR = 0.9$
-*The degree of strength of univariate blocks: $C = 2$
+*The degree of strength of univariate blocks:
+$$
+C = \cases{ 1 & for DE\_MP+,\cr
+2 & otherwise.} 
+$$
 *Threshold $\theta_1$ defining the minimal strength of block to be accepted:
 
 $$
@@ -819,11 +808,9 @@ $$
 *The subset used to calculate MICE $C = C_b \cup C_r$, where $C_b$ is set of $\lceil 0.3 \cdot
 NP\rceil$ best individuals in population and $C_r$ is a set of $\lceil 0.1 \cdot NP\rceil$
 randomly chosen individuals from the remaining.
-*The maximal MICE grid resolution $B$ is set according to the following table (rounded to the
-nearest integer in an upward direction):
-
-
-\midinsert \clabel[Bset]{Bset}
+*The maximal MICE grid resolution $B$ is set according to the table~\ref[T52] (rounded to the
+nearest integer in an upward direction).
+\midinsert \clabel[T52]{MICE grid resolution \em B \em}
 \ctable{ll}{
 \hfil 
 Number of samples & B parameter\crl \tskip4pt
@@ -835,7 +822,7 @@ $500 \leq |C| < 1000$ & $|C|^{0.65}$ \cr
 $1000 \leq |C| < 2500$ & $|C|^{0.60}$ \cr
 $2500 \leq |C| < 5000$ & $|C|^{0.55}$ \cr
 }
-\caption/t The dependence of the cardinality of $C$ on the parameter $B$ taken
+\caption/t The dependence of the cardinality of $C$ on the parameter $B$, taken
 from~\cite[MICE].
 \endinsert
 
@@ -852,21 +839,26 @@ Covariance matrix adaptation evolution strategy (CMA-ES) belongs to the class of
 evolutionary algorithms. CMA-ES is considered state-of-the-art in evolutionary
 computation and has very quickly become the standard tool for continuous
 optimisation.~\cite[CMAES1, CMAES2, CMAES3]
-In this work the Hanses's implementation of CMA-ES is used.~\cite[CMAESIMPLEMENTATION]
+In this work the Hanses's implementation of CMA-ES with default parameters is
+used.~\cite[CMAESIMPLEMENTATION]
 
 Last considered algorithm is Nelder-Mead simplex algorithm~\cite[FMIN], the optimization algorithm
 which is not an evolutionary algorithm nevertheless, it uses only function values,
 therefore may be used for blackbox optimization. The Scipy implementation called
-FMIN is used~\cite[SCIPY].
+FMIN is used~\cite[SCIPY]. Minimal absolute difference in candidate solution between iterations
+(\em xtol \em) as well as minimal absolute difference in fitness function values between
+iterations (\em ftol \em) is set to $10^{-12}$. Independent restarts are allowed.
 
 
 
-\sec Problems
+\sec Test problems
 
-To study the impact of various types of linkage learning on the performance of DE and to
-benchmark all above-mentioned algorithm, six optimization problems to minimize are considered.
+The first set of benchmarking problems is called Test problems. Those problems are in a sence
+suitable for above-introduced algorithms (unconstrained, noiseless, ...). These six
+optimization problems to minimise are considered to study the impact of various types of
+linkage learning on the performace of DE and to benchmark considered algorithms.
 
-Before the introduction of the problems, state the important property of functions, the
+Before the introduction of the Test problems, state the important property of functions, the
 \em additive separability\em. Define additively separable function $F$ as:
 
 $$
@@ -977,7 +969,8 @@ have strong dependencies but are completely independent of any variables outside
 This feature is called block-separability.
 
 Within comparison four types of the SoREB function differing in the size of blocks (2, 3, 4, 5)
-were considered. The rotation of $\theta = 45^\circ$ was used.
+were considered. The rotation of $\theta = {\pi / 8}$ was used with one exception, if $D = 5$, 
+$k$ is set to 4.
 
 \noindent Global minimum:
 $$
@@ -994,7 +987,7 @@ $$
 The SoREB function conations only non-overlapping non-decomposable block of size $k$. In~\cite[MP]
 the overlapping version of this problem was defined as OSoREB. In addition to the original
 SoREB problem a SoREB blocks of length 2 for every pair of successive variables in belonging to
-other original blocks are used. For OSoREB is used $k = 5$ and $\theta = 45^\circ$.
+other original blocks are used. For OSoREB is used $k = 5$ and $\theta = \pi / 8$.
 Definition of OSoREB:
 $$
 f_{OSoREB}(\vec{x}, k) = f_{SoREB}(\vec{x}, k) + \sum_{i=1}^{D/k-1} \Big [f_{Ellipsoid}\big(R_\theta([x_{ki-1}, x_{ki}])\big)\Big]
@@ -1008,18 +1001,337 @@ $$
 $$
 
 
-\chap Results
+\sec Black Box Optimization Benchmarking problems
+
+Black Box Optimization Benchmarking (BBOB) problems is the second consedered set of
+benchmarking problems. It is a set of 24 noise-less real-parameter single-objective benchmark
+functions defined in ~\cite[BBOBFUNC] as Real-Parameter Black-Box Optimization Benchmarking
+2009 Noiseless Functions. Those function were used for BBOB workshop 2009.
+The BBOB problems were selected with intention to evaluate the performance of algorithms
+with regard to standard difficulties which occurs in continuous domain search. So they
+definitely should, at least to a certain extent, reflect problems that are dealt with in
+practice. All BBOB problems are to be minimised.
+
+It is important to note that since BBOB problems cover wide range of possible optimization
+problems, proposed DE variants may be unsuitable for some of them. For instance, proposed
+DE variants lack a tool to handle constrains. 
 
 
 
 
+\sec Setup
+
+All experimental results described in this work~\ref[ch6] measures the first time a global
+optimum was hit, in other words, the number of fitness function calls needed to reach the
+small enough neigbourhood of the global optimum for the first time within the run.
+The toleration is $10^{-8}$.
+
+\secc Test problems specifics
+
+For each problem, each algorithm and each dimension 25
+independent runs are performed. The performance is considered successful if at least 24 runs
+converged to the global optimum or to a predefined sufficiently close approximation within
+$300000 \cdot D$ calls of the fitness function. 
+
+The associate population size of evolutionary algorithms is the smallest possible size so that
+the algorithms performance is considered successful. It is determined by starting from
+smallest possible population and letting the algorithm runs 25 times. If the performance 
+have not been successful, the population size for the next trial will increase by $k$. This
+procudere is repeated until the successful population size is found ot until population size
+reaches upper limit $T$. In the first case optimal population size is searched for by
+performing bisection search between the current poopulation size and the previous size. In
+the second case is considered unsuccessful for certain problem and dimension.
+
+\secc BBOB problems specifics
+
+The setup for BBOB problems is partially determined by authors of BBOB problems in \cite[BBOBSETUP].
+For each algorithm, dimension and optimized function five different function \em instances \em
+are used, each of them three times. The number of fitness functon calls is limited to
+$1000000 \cdot D$. The population size is set to 25, except for algorithms using MIC, for which
+it is increased to 50. For BBOB problems algorithm DE\_LT+ and DE\_MP+ are not considered,
+because the dependency structure of the problems may be unclear.
+
+BBOB problems evaluation as well as results visualization is provided by COCO (COmparing
+Continuous Optimizers) platform~\cite[COCO].
 
 
+\label[ch6] \chap Results
 
-%\chap Results
+In this chapter the results of experiments introduced in previous chapter \ref[ch5] are
+presented. The results are divided into two sections.
+
+
+\label[s61] \sec Test problems
+Firstly, results of the performance of the algorithms introduced in section \ref[s51] on the
+Test problems. Results are visualized in the form of graphs, which shows the dependence of
+the number of fitness function calls on the dimension of certain problem. These graphs are
+called scalability graphs. They shows the most important facets of algorithm's performance
+whatsmore, they provides a prediction regarding the performance on higher-dimensional problems.
+
+Each data point is the median of successful runs.
+To display data over a very wide range of values in a compact way and to get clearer results,
+a base-10 logarithmic scale is used for both axis of graphs. It is also worth noting that the
+y-axis does not start at zero.
+
+The Test results may be divided into three groups according to separability into separable
+problems (sphere, Levy, Rastrigin), block-separable problems (SoREB) and non-separable
+problems (Rosenbrock, OSoREB).
+\medskip
+\noindent 1) Separable problems
+\medskip
+
+For all three separable problems both algorithms with full prior knowledge (DE\_LT+, DE\_MP+)
+perform very similarly. For the easiest function (sphere) is DE\_LT+ a bit better,
+nevertheless for more difficult problems, the DE\_MP+ achieves
+a little better results than DE\_LT+ (for Levy and Rastrigin).
+
+Since separable problems does not conatin any dependencies between variables, it is not
+surprising that there is almost no difference in performance of DE\_LT\_MIC and DE\_LT+,
+because for separable problems, all possible linkage trees should be equally good. Therefore
+is does not matter what dependency matrix $\cal P$ DE\_LT\_MIC find and subsequently what
+linkage tree it build, the linkage tree would be just as good as the one built by DE\_LT+.
+
+The DE\_MP\_MIC is slightly worse than DE\_LT+, DE\_MP+ and DE\_LT\_MIC especially for higher
+dimensions. It is very hard to recognize separability by MIC because the DE selection
+operator alignt individuals with the fitness contours. Therefore DE\_MP\_MIC may determine
+some variables as dependent and build suboptimal MP-FOS which results in worse performace
+
+Although both algorithms usign non-linearity check (DE\_LT\_NC, DE\_MP\_NC) correctly
+recognize the separability of the problem and build optimal FOS, they have achieved significantly
+worse results than other newly-introduced variants of DE. The difference is mainly caused by the
+fact that DE\_LT\_NC and DE\_MP\_NC uses fitness function evaluations to find dependencies, in
+contrast with DE\_LT+, DE\_MP+ and DE\_LT\_MIC which also build optimal FOS but do not waste
+fitness function evaluations.
+
+It also provides an explanation of why the DE\_LT\_NC outperforms DE\_MP\_NC. Since
+DE\_LT\_NC, DE\_MP\_NC build optimal FOS, the DE\_LT\_NC performes comparably to DE\_LT+
+within crossover. Similarly to DE\_MP\_NC and DE\_MP+. And since DE\_LT+ and DE\_MP+
+perform similarly, DE\_LT\_NC and DE\_MP\_NC use comparable number of fitness function
+evaluations within the crossover. It is a fact that LT-FOS has necessarily higher
+cardinality than MP-FOS for same dimension, therefore DE\_LT\_NC find the optimimum
+within less number of generations than DE\_MP\_NC. Since dependency matrix is built
+in each generation, DE\_MP\_NC uses more fitness function calls to find dependencies
+which results in worse performance then DE\_LT\_NC.
+
+CMA-ES has achieved interesting results. For the sphere function, CMA-ES is a constant factor
+better than DE\_LT+, DE\_MP+, DE\_LT\_MIC, DE\_MP\_MIC, nevertheless as the difficulty of
+optimization of functions grows, the performance of CMA-ES is getting worse. For Levy function
+CMA-ES perform similarly to four mention algorithms and for the hardest function (Rastrigin)
+CMA-ES is significantly worse and achieves results comparable to DE\_LT\_NC and DE\_MP\_NC.
+But it is worth notting that CMA-ES scales better than NC variants of DE.
+
+Finally, FMIN outperforms all algorithms for low dimensions of sphere, nevertheless scales
+very bad and get outperformed by all algorithms in higher dimensions. FMIN is unable to find
+optimum, even for low dimensions, of harder functions as Levy and Rastrigin.
+
+\midinsert \clabel[separable]{Separable problems graphs}
+\picw=14.3cm \cinspic separable.png
+\caption/f Scalability graphs of separable problems. Each point is the median of
+successful runs.
+\endinsert
+
+\medskip
+\noindent 2) Block-separable problems
+\medskip
+
+The separable problems are represented by SoREB function with variable size of block (2, 3, 4
+, 5). It is worth notting the relationship between particular pair of DE variants which use
+same technique build dependency matrix.
+
+Firsty, the DE\_MP+ is, a constant factor better than DE\_LT+. It is not surprising, since
+block-separable structure of a problem may be represented by MP FOS very well.
+
+However for the second pair, which uses non-linear check, it can be seen that LT variant
+(DE\_LT\_NC) outperforms MP variant (DE\_MP\_NC). Although DE\_MP\_NC build same FOS as
+DE\_MP+, which perfcetly capture the structure of the problem, it cannot achieve better
+results than DE\_LT\_NC. It points to the fact that, worse performance within the crossover
+is compensated by lower number of fitness function evaluations used to find dependencies.
+
+Lastly, MIC variants (DE\_LT\_MIC, DE\_MP\_MIC) perform almost similarly for block size two
+and three. For $k = 4$ and $k = 5$ DE\_LT\_MIC achieve better result than DE\_MP\_MIC,
+nevertheless for the higher dimensions dependent blocks the dependent blocks are easier to
+recognize and the DE\_MP\_MIC outperforms DE\_LT\_MIC.
+
+The relationship between MIC variants and NC variants is also worth notting. It can be seen
+that, for $k = 2$ both MIC variants perform similarly to DE\_LT+ and better than NC variants,
+however as the size of block increases and more dependencies occur, MIC variants are getting
+outperformed by NC variants. It is causes by weaker ability of MIC to recognition dependencies,
+especially for low number of samples.
+
+The original DE\_UNIFORM performace shows up as the worst of all considered algorithms for
+block-separable problems. For bigger sizes of blocks the DE\_UNIFORM is even worse.
+
+CMA-ES perform similarly for all sizes of blocks in terms of the required number of evaluations.
+Since other algorithms need more evaluations for bigger blocks, CMA-ES outperforms all algorithm
+except DE\_MP+ for $k = 5$. Nevertheless DE\_LT+ and DE\_MP+ outscale CMA-ES, which scalability
+is comparable to DE\_LT\_NC and DE\_MP\_NC.
+
+Last considered algorithm FMIN shows best performace for small dimension, but the worst
+scalability of all algorithm and inability to find optimum for higher dimensions.
+
+Lastly note that DE\_LT+ and DE\_LT\_NC need on average more evaluations to find optimum for
+$D = 5$ than for $D = 5$ if $k = 5$, which shows certain limitations of LT when al variables
+are pairwise dependent.
+
+\midinsert \clabel[BLOCKSEPARABLE]{Block-separable problems graphs}
+\picw=14.3cm \cinspic block-separable.png
+\bigskip
+\caption/f Scalability graphs of block-separable problems. Each point is the median of
+successful runs.
+\endinsert
+
+\medskip
+\noindent 3) Non-separable problems
+\medskip
+
+Firstly, it is worth notting that no DE variant which build MP-FOS is able to find optimum
+of presented non-separable problems, even for small dimension. It is probably caused by
+overlapping dependency structure of both problems, which is impossible to model by MP-FOS.
+
+DE\_LT+ and DE\_LT\_MIC perform almost identicaly, the same trend may be observed in figure
+\ref[separable] representing results on separable functions. For Rosenbrock DE\_LT+ and
+DE\_LT\_MIC scale better than DE\_LT\_NC, nevertheless for OSoREB DE\_LT+ and DE\_LT\_MIC
+are only a constant factor better than DE\_LT\_NC. The slightly better relative scalability
+towards DE\_LT+ and DE\_LT\_MIC corresponds to the results obtained in \ref[block-separable]
+because OSoREB is in a sense closer to the block-separable problem than Rosenbrock and the
+dependency structure of OSoREB may be captured better within LT-FOS than the structure of
+Rosenbrock. Therefore the impact of correct recognition of dependencies, which DE\_LT\_NC
+does, increases.
+
+The same phenomenon may be seen in performance of DE\_UNIFORM which is a constant better than
+DE\_LT\_NC for Rosenbrock, with relative small number of dependencies. Nevertheless as the 
+number of dependencies increase from Rosenbrock to OSoREB, the scalability of DE\_UNIFORM
+is getting worse and DE\_UNIFORM is unable to find optimum of OSoREB in higher dimensions.
+
+On the other hand, the opposite trend can be viewed on performance of CMA-ES, which
+outperforms all other algorithms nevertheless, for Rosenbrock the difference is less
+significant and DE\_LT+ and DE\_LT\_MIC seemed to scale better than CMA-ES.
+
+For non-separable problems, similarly as for other
+FMIN show up as the best algorithm for low dimansions, similarly to sphere function, but
+scale the worst. Therefore is almost useless for higher dimensions.
+
+
+\midinsert \clabel[NonSEPARABLE]{Non-separable problems graphs}
+\picw=14.3cm \cinspic non-separable.png
+\bigskip
+\caption/f Scalability graphs of non-separable problems. Each point is the median of
+successful runs.
+\endinsert
+
+
+\sec BBOB problems
+
+
+Results on the BBOB problems are presented by graphs of Empirical cumulative distribution
+functions (ECDFs)~\cite[ECDF]. These ECDFs show on the y-axis the proportion of cases for which
+the number of fitness function evaluations needed to find the optimum was smaller than the value
+given on the x-axis. For x-axis a base-10 logarithmic scale is used and the total number of
+fitness function evaluations is diveded by dimension. Each graph also shows performance of the
+best algorithm of BBOB workshop 2009 noted as \em best 2009 \em.
+
+All results in this section were obtained by COCO platform. Complete results contains
+25 function for various dimensions (2, 3, 5, 10, 20, 40). Complete results are shown in
+Appendix~\ref[APPA].
+In this section, only selected functions of dimensions 5 and 20 occurs. 
+These functions were chosen to represent characteristic trend seen for more functions.
+
+Firstly, the set of functions on which all DE variants perform similarly but worse than CMA-ES
+and best 2009.
+This set is represented by so called Ellipsoid separable function on figure 6.4.
+
+\midinsert \clabel[ELLIPSOIDSEP]{Ellipsoid separable function graphs}
+\picw=.4\hsize
+\centerline {\inspic Ellipsoid5.png \hfil\hfil \inspic Ellipsoid20.png }\nobreak
+\medskip
+\caption/f Graphs of the empirical cumulative distribution functions of the introduced algorithms
+on the Ellipsoid separable function for dimensions five and twenty.
+\endinsert
+
+Secondly, for a number of functions, MP varints of DE are outperform by other DE variants,
+especially for higher dimensions, nevertheless LT and UNIFORM variants are outperformed by
+CMA-ES and by best 2009. The example of such a function may be seen on figure 6.5.
+
+\midinsert \clabel[BENT]{Bent function graphs}
+\picw=.4\hsize
+\centerline {\inspic Bent5.png \hfil\hfil \inspic Bent20.png }\nobreak
+\medskip
+\caption/f Graphs of the empirical cumulative distribution functions of the introduced algorithms
+on the Bent function for dimensions five and twenty.
+\endinsert
+
+The third observed trend within BBOB functions is significantly worse performace of DE
+variants againts CMA-ES and best 2009. All DE variants are unable to find global optimum
+for majority of these functions. Note that these are functions are mainly Multi-modal
+functions with weak global structure. This trend is caprured on figure 6.6.
+
+\midinsert \clabel[GRIEWANK]{Griewank function graphs}
+\picw=.4\hsize
+\centerline {\inspic Griewank5.png \hfil\hfil \inspic Griewank20.png }\nobreak
+\medskip
+\caption/f Graphs of the empirical cumulative distribution functions of the introduced algorithms
+on the Ellipsoid separable function for dimensions five and twenty.
+\endinsert
+
+
+\chap Conclusion
+
+The main goal of this work was to propose a crossover operatior with dependency detection
+for DE.
+
+In chapter~\ref[ch3] were introduced two representations of the dependency structure, linkage
+tree (LT) which contains itself multiple levels of dependencies, from univariate level to
+complete dependency, and marginal product (MP) which contains every problem variable exactly once.
+
+In chapter~\ref[ch4] two approaches that can find pairwise dependencies between variables were
+introduced. First, fitness-based approach called non-linearity check (NC) determining the
+possible dependence between a pair of variables according to the fitnes values. Second approach
+called maximal information coefficient (MIC) indentifies dependencies based on the 
+distribution of the population.
+
+Subsequently six new variants of DE differing in the crossover operator were proposed in 
+section~\ref[s51]. Except four regular variants using above-mention methods
+DE\_LT\_NC, DE\_MP\_NC, DE\_LT\_MIC, DE\_MP\_MIC, two artifical variants with full prior
+knowledge of dependency structure were also proposed. 
+
+According to results presented in section ~\ref[s61], newly proposed methods show to achieve a
+fair scalability, all of them outscale the original DE (DE\_UNIFORM) for almost all test
+problems, independent of the dependency structure. They also showed better scalability than
+FMIN algorithm and for some problems even better scalability than state-of-the-art
+evolutionary algorithm CMA-ES. So usege any of four propsoed regular variants of DE instead
+of original one would bring better performace.
+
+According to the results from previous chapter it may be concluded that linkage tree
+representation, thanks to its robustness, is seemed to be better choice than marginal
+product representation.
+
+It is worth noting that the results obtained by our NC methods should be compared to
+the MIC results with careful consideration. For instance, while NC methods can easy recognize
+separability of two variables, for MIC ones the same task is very hard because the DE selection
+operator alignt individuals with the fitness contours. On the other hand, MIC variants, in
+contrast with NC ones, do not need any fitness function evaluations to find dependencies.
+The disadvantage of MIC is that DE usually take advantage of relative small populations and
+since MIC is a statistical method, it achieves better results with more samples. On the other
+hand MIC would probably be more noise resistant than NC. However, no experiments to
+substantiate this assumption have not been presented so far, so there is a space for future
+work to prove or refute this hypothesis.
+
+Although all four regular variants of DE enhance the performance of the original DE,
+they have some limitations which would be be reduced by further adjustments.
+
+For instance, \em incremental dependency updating \em described in~\cite[MAIN] would
+propably significantly reduce the amounth of fitness function evaluations used by NC methods
+to find dependencies and decrease the difference in performance between NC methods
+and methods with full prior knowledge.
+
+The last unaswered question is, how to deal with problems containing overlapping
+sub-components. Not LT nor MP are able to represent these types of structures very
+well, whatsmore the optimal linkage structure of these problems is unknown. So to
+find the optimal structure for these problems would be also very interesting.
 
 \bibchap
 \usebib/c (simple) myreferences
 
+\label[APPA]  \app Complete BBOB results
 
 \bye
