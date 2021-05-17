@@ -34,8 +34,8 @@
 \Xtoc{2}{\rm }{2.3.1}{Representation}{5}
 \Xtoc{2}{\rm }{2.3.2}{Mutation}{5}
 \Xtoc{2}{\rm }{2.3.3}{Crossover}{5}
+\Xtoc{2}{\rm }{2.3.4}{Replacement strategy}{5}
 \Xpage{6}
-\Xtoc{2}{\rm }{2.3.4}{Replacement strategy}{6}
 \Xfig{DEPSEUOD}{2.2}{Differential evolution pseudocode}
 \Xlabel{DEPSEUOD}{2.2}
 \Xpage{7}
@@ -48,14 +48,14 @@
 \Xlabel{LTREE}{3.1}
 \Xpage{9}
 \Xtoc{1}{\rm }{3.3}{Marginal product}{9}
-\Xfig{DEFOSpseudocode}{3.2}{Provisional}
+\Xfig{DEFOSpseudocode}{3.2}{Differential evolution with known FOS}
 \Xlabel{DEFOSpseudocode}{3.2}
 \Xpage{10}
 \Xlabel{ch4}{4}
 \Xtoc{0}{\bfshape }{4}{Identification of the linkage structure}{10}
 \Xtoc{1}{\rm }{4.1}{Fitness-based method}{10}
 \Xpage{11}
-\Xtoc{1}{\rm }{4.2}{Distribution-based mathod}{11}
+\Xtoc{1}{\rm }{4.2}{Distribution-based method}{11}
 \Xpage{12}
 \Xpage{13}
 \Xlabel{ch5}{5}
@@ -81,10 +81,11 @@
 \Xtoc{2}{\rm }{5.2.4}{Rosenbrock}{16}
 \Xpage{17}
 \Xtoc{2}{\rm }{5.2.5}{SoREB}{17}
-\Xtoc{2}{\rm }{5.2.6}{OSoreb}{17}
+\Xtoc{2}{\rm }{5.2.6}{OSoREB}{17}
 \Xtoc{1}{\rm }{5.3}{Black Box Optimization Benchmarking problems}{17}
 \Xpage{18}
 \Xtoc{1}{\rm }{5.4}{Setup}{18}
+\Xlabel{s541}{5.4.1}
 \Xtoc{2}{\rm }{5.4.1}{Test problems specifics}{18}
 \Xtoc{2}{\rm }{5.4.2}{BBOB problems specifics}{18}
 \Xpage{19}
@@ -92,20 +93,23 @@
 \Xtoc{0}{\bfshape }{6}{Results}{19}
 \Xlabel{s61}{6.1}
 \Xtoc{1}{\rm }{6.1}{Test problems}{19}
+\Xtoc{2}{\rm }{6.1.1}{Separable problems}{19}
 \Xpage{20}
+\Xtoc{2}{\rm }{6.1.2}{Block-separable problems}{20}
+\Xpage{21}
 \Xfig{separable}{6.1}{Separable problems graphs}
 \Xlabel{separable}{6.1}
-\Xpage{21}
+\Xtoc{2}{\rm }{6.1.3}{Non-separable problems}{21}
 \Xpage{22}
 \Xfig{BLOCKSEPARABLE}{6.2}{Block-separable problems graphs}
 \Xlabel{BLOCKSEPARABLE}{6.2}
-\Xtoc{1}{\rm }{6.2}{BBOB problems}{22}
 \Xpage{23}
 \Xfig{NonSEPARABLE}{6.3}{Non-separable problems graphs}
 \Xlabel{NonSEPARABLE}{6.3}
+\Xtoc{1}{\rm }{6.2}{BBOB problems}{23}
+\Xpage{24}
 \Xfig{ELLIPSOIDSEP}{6.4}{Ellipsoid separable function graphs}
 \Xlabel{ELLIPSOIDSEP}{6.4}
-\Xpage{24}
 \Xfig{BENT}{6.5}{Bent function graphs}
 \Xlabel{BENT}{6.5}
 \Xfig{GRIEWANK}{6.6}{Griewank function graphs}
@@ -157,5 +161,9 @@
 \Xbib{ECDF}{39}{Shorack, 1986}
 \Xpage{29}
 \Xpage{31}
-\Xlabel{APPA}{A}
-\Xtoc{0}{\bfshape }{A}{Complete BBOB results}{31}
+\Xtoc{0}{\bfshape }{A}{Abbreviations}{31}
+\Xpage{32}
+\Xlabel{APPB}{B}
+\Xtoc{0}{\bfshape }{B}{Complete BBOB results}{32}
+\Xpage{33}
+\Xtoc{0}{\bfshape }{C}{Implementation and contents of CD}{33}

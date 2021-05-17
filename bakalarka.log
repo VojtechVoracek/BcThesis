@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfcsplain 2021.3.28)  13 MAY 2021 22:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdfcsplain 2021.3.28)  17 MAY 2021 06:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -121,8 +121,9 @@ fonts/map/pdftex/updmap/pdftex.map}
 \lb@sortnumber=\count58
 \NameCount=\count59
 \lb@read=\read3
-)) English hyphenation used (\language=0). \nonfrenchspacing is set on.
-[-1 <./ctulogo-new.pdf>]
+)) (./glosdata.tex)
+English hyphenation used (\language=0). \nonfrenchspacing is set on. [-1 <./ctu
+logo-new.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active
 \vbox(674.33032+0.0)x0.0
 .\vbox(0.0+0.0)x0.0, glue set 25.0fil
@@ -150,7 +151,7 @@ Overfull \vbox (66.52928pt too high) has occurred while \output is active
 
 
 [-3 <./zadani.png>] [-4]
-Underfull \hbox (badness 5771) in paragraph at lines 138--138
+Underfull \hbox (badness 5771) in paragraph at lines 137--137
 \tenrm pro spo-jité black-box op-ti-ma-li-zační
 
 \hbox(7.57762+2.13887)x190.63347, glue set 3.86623
@@ -189,7 +190,7 @@ Underfull \hbox (badness 5771) in paragraph at lines 138--138
 .etc.
 
 
-Underfull \hbox (badness 8170) in paragraph at lines 138--138
+Underfull \hbox (badness 8170) in paragraph at lines 137--137
 \tenrm dif-fer-en-tial evo-lu-tion, link-age tree,
 
 \hbox(7.57762+2.13887)x190.63347, glue set 4.34314
@@ -233,22 +234,1144 @@ Underfull \hbox (badness 8170) in paragraph at lines 138--138
 .\glue 3.66666 plus 2.29166 minus 0.97777
 .etc.
 
-[-5] [-6] [-7] [-8] [1] [2] [3] [4 <./EApseudocode.jpg>] [5] [6 <./DEpseudocode
-.jpg>] [7] [8 <./LT.png>] [9 <./DEFOSpseudocode.jpg>] [10] [11] [12] [13 <./DE_
-final.png>] [14] [15] [16] [17] [18] [19] [20 <./separable.png>]
-l.1195 OPmac WARNING: label [block-separable] unknown. Try to TeX me again.
-[21] [22 <./block-separable.png>] [23 <./non-separable.png> <./Ellipsoid5.png> 
-<./Ellipsoid20.png>] [24 <./Bent5.png> <./Bent20.png> <./Griewank5.png> <./Grie
-wank20.png>] [25] [26]
-(/usr/share/texlive/texmf-dist/tex/csplain/opmac/opmac-bib-simple.tex)
-(./myreferences.bib)
-l.1333 OPmac WARNING: Missing field ``address'' in [IntoEA].
-l.1333 OPmac WARNING: Entrytype @book  from [Luke2009] undefined.
-l.1333 OPmac WARNING: Missing field ``isbn'' in [Darwin].
-l.1333 OPmac WARNING: Missing field ``isbn'' in [Spencer].
-l.1333 OPmac WARNING: Missing field ``journal'' in [FOS].
+[-5] [-6] [-7] [-8] [1] [2] [3] WARNING: unknown UTF-8 code: `ﬀ =
+^^ef^^ac^^80' (line: 330) [4 <./EApseudocode.jpg>] [5] [6 <./DEpseudocode.jpg>]
+[7]
+Underfull \vbox (badness 1400) has occurred while \output is active
+\vbox(674.33032+2.13887)x415.41025, glue set 2.4137
+.\vbox(0.0+0.0)x0.0, glue set 25.0fil
+..\kern -25.0
+..\pdfdest name{pg:.8} xyz
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\topskip) 2.42238
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.67993
+..\hbox(0.0+0.0)x11.66563
+..\tenrm T
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm l
+..\tenrm i
+..\tenrm n
+..\tenrm k
+..\tenrm a
+..\tenrm g
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm r
+..\tenrm e
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm i
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm r
+..\tenrm e
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm w
+..\tenrm i
+..etc.
+.\penalty 10000
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.3774
+..\tenrm t
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm n
+..\kern-0.30557
+..\tenrm u
+..\tenrm m
+..\kern-0.30557
+..\tenrm b
+..\kern0.30556
+..\tenrm e
+..\tenrm r
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm o
+..\tenrm f
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm p
+..\tenrm r
+..\tenrm o
+..\tenrm b
+..\tenrm l
+..\tenrm e
+..\tenrm m
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm v
+..\kern-0.61111
+..\tenrm a
+..\tenrm r
+..\tenrm i
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+3.1472)x415.41025, glue set 0.26054
+..\tenrm v
+..\kern-0.61111
+..\tenrm a
+..\tenrm r
+..\tenrm i
+..\tenrm a
+..\tenrm b
+..\tenrm l
+..\tenrm e
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\mathon
+..\mF F
+..\kern1.09236
+..\mathoff
+..\mathon
+..\hbox(5.09035+1.49721)x4.30238, shifted 1.65
+...\mF j
+..\mathoff
+..\tenrm .
+..\glue 4.88887 plus 5.49998 minus 0.4074
+..\tenrm T
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm k
+..\kern-0.30557
+..\tenrm e
+..\tenrm y
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm p
+..etc.
+.\glue(\baselineskip) 2.2028
+.\hbox(8.25+2.75)x415.41025, glue set 0.06232
+..\tenrm o
+..\tenrm n
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm v
+..\kern-0.61111
+..\tenrm a
+..\tenrm r
+..\tenrm i
+..\tenrm a
+..\tenrm b
+..\tenrm l
+..\tenrm e
+..\tenrm ,
+..\glue 3.66666 plus 2.29166 minus 0.97777
+..\tenrm i
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm u
+..\tenrm n
+..\tenrm i
+..\tenrm o
+..\tenrm n
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm o
+..\tenrm f
+..etc.
+.\glue(\baselineskip) 2.6
+.\hbox(8.25+3.1472)x415.41025, glue set 0.06784
+..\tenrm T
+..\kern-0.91667
+..\tenrm o
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm p
+..\tenrm u
+..\tenrm t
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm i
+..\tenrm t
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm m
+..\tenrm o
+..\tenrm r
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm f
+..\tenrm o
+..\tenrm r
+..\tenrm m
+..\tenrm a
+..\tenrm l
+..\tenrm l
+..\tenrm y
+..\kern-0.91667
+..\tenrm ,
+..\glue 3.66666 plus 2.29166 minus 0.97777
+..\tenrm f
+..\tenrm o
+..\tenrm r
+..etc.
+.\penalty 10000
+.\glue(\baselineskip) 2.87518
+.\hbox(7.57762+2.13887)x415.41025, glue set 265.59735fil
+..\tenrm f
+..\tenrm o
+..\tenrm r
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm w
+..\tenrm h
+..\tenrm i
+..\tenrm c
+..\kern-0.30557
+..\tenrm h
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm f
+..\tenrm o
+..\tenrm l
+..\tenrm l
+..\tenrm o
+..\kern-0.30557
+..\tenrm w
+..\tenrm i
+..\tenrm n
+..\tenrm g
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\tenrm p
+..\tenrm p
+..\tenrm l
+..etc.
+.\glue 6.8 plus 2.26653 minus 2.26653
+.\glue 0.0
+.\glue(\parskip) 0.0
+.\glue(\baselineskip) 3.21114
+.\hbox(8.25+2.75)x415.41025, glue set 352.59355fil
+..\glue(\leftskip) 11.66563
+..\hbox(8.25+2.75)x0.0, glue set - 13.44456fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\tenrm 1
+...\tenrm )
+...\glue 3.66666 plus 1.83333 minus 1.22221
+..\mathon
+..\mF F
+..\kern1.09236
+..\mathoff
+..\mathon
+..\hbox(5.3472+0.0)x5.01498, shifted 1.65
+...\mF k
+..\mF ;
+..\glue(\thinmuskip) 1.8333
+..\mF F
+..\kern1.09236
+..\mathoff
+..\mathon
+..\hbox(5.3472+0.0)x3.08327, shifted 1.65
+...\mF l
+..\glue(\thickmuskip) 3.0555 plus 3.0555
+..\hbox(7.63889+2.13887)x8.55579
+...\hbox(7.63889+2.13887)x0.0
+....\mF 6
+...\hbox(4.08098+0.0)x8.55579
+....\tenrm =
+..\penalty 500
+..\glue(\thickmuskip) 3.0555 plus 3.0555
+..\mF ;
+..\mathoff
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 0.0
+.\glue(\parskip) 0.0
+.\glue(\baselineskip) 2.6
+.\hbox(8.25+2.75)x415.41025, glue set 345.26027fil
+..\glue(\leftskip) 11.66563
+..\hbox(8.25+2.75)x0.0, glue set - 13.44456fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\tenrm 2
+...\tenrm )
+...\glue 3.66666 plus 1.83333 minus 1.22221
+..\mathon
+..\mF F
+..\kern1.09236
+..\mathoff
+..\mathon
+..\hbox(5.3472+0.0)x5.01498, shifted 1.65
+...\mF k
+..\glue(\medmuskip) 2.4444 plus 1.2222 minus 2.4444
+..\mF \
+..\penalty 700
+..\glue(\medmuskip) 2.4444 plus 1.2222 minus 2.4444
+..\mF F
+..\kern1.09236
+..\mathoff
+..\mathon
+..\hbox(5.3472+0.0)x3.08327, shifted 1.65
+...\mF l
+..\glue(\thickmuskip) 3.0555 plus 3.0555
+..\tenrm =
+..\penalty 500
+..\glue(\thickmuskip) 3.0555 plus 3.0555
+..\mF ;
+..\mathoff
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 0.0
+.\glue(\parskip) 0.0
+.\glue(\baselineskip) 2.6
+.\hbox(8.25+3.1472)x415.41025, glue set 336.237fil
+..\glue(\leftskip) 11.66563
+..\hbox(8.25+2.75)x0.0, glue set - 13.44456fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\tenrm 3
+...\tenrm )
+...\glue 3.66666 plus 1.83333 minus 1.22221
+..\mathon
+..\mF F
+..\kern1.09236
+..\mathoff
+..\mathon
+..\hbox(5.3472+0.0)x5.01498, shifted 1.65
+...\mF k
+..\glue(\medmuskip) 2.4444 plus 1.2222 minus 2.4444
+..\mF [
+..\penalty 700
+..\glue(\medmuskip) 2.4444 plus 1.2222 minus 2.4444
+..\mF F
+..\kern1.09236
+..\mathoff
+..\mathon
+..\hbox(5.3472+0.0)x3.08327, shifted 1.65
+...\mF l
+..\mathoff
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm =
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\mathon
+..\mF F
+..\kern1.09236
+..\mathoff
+..\mathon
+..\hbox(5.09035+1.49721)x4.30238, shifted 1.65
+...\mF j
+..\mathoff
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..etc.
+.\glue 6.8 plus 2.26653 minus 2.26653
+.\glue 0.0
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\baselineskip) 2.87518
+.etc.
 
-Underfull \hbox (badness 1558) in paragraph at lines 1333--1333
+ [8 <./LT.png>] [9 <./DEFOSpseudocode.jpg>] [10] [11] [12] [13 <./DE_final.png>
+] [14]
+[15] [16] [17] [18] [19]
+Underfull \vbox (badness 1817) has occurred while \output is active
+\vbox(674.33032+2.13887)x415.41025, glue set 2.63205
+.\vbox(0.0+0.0)x0.0, glue set 25.0fil
+..\kern -25.0
+..\pdfdest name{pg:.20} xyz
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\pdfcolorstack 0 push {0 g 0 G}
+.\pdfcolorstack 0 pop
+.\glue(\topskip) 2.42238
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.26123
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm M
+..\tenrm I
+..\tenrm C
+..\tenrm ,
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm w
+..\tenrm h
+..\tenrm i
+..\tenrm c
+..\kern-0.30557
+..\tenrm h
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\tenrm l
+..\tenrm s
+..\tenrm o
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm b
+..\tenrm u
+..\tenrm i
+..\tenrm l
+..etc.
+.\penalty 10100
+.\glue(\baselineskip) 4.53418
+.\hbox(6.92696+0.0)x415.41025, glue set 389.0713fil
+..\tenrm t
+..\tenrm i
+..\tenrm o
+..\tenrm n
+..\tenrm s
+..\tenrm .
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 0.0
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\baselineskip) 6.02238
+.\hbox(7.57762+2.13887)x415.41025, glue set - 0.89519
+..\hbox(0.0+0.0)x11.66563
+..\tenrm I
+..\tenrm t
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\tenrm l
+..\tenrm s
+..\tenrm o
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm p
+..\tenrm r
+..\discretionary replacing 2
+...\tenrm o
+...\tenrm -
+..\tenrm o
+..\kern-0.30557
+..\tenrm v
+..\tenrm i
+..\tenrm d
+..\tenrm e
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\tenrm n
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm e
+..\tenrm x
+..\discretionary
+...\tenrm -
+..\tenrm p
+..\tenrm l
+..\tenrm a
+..\discretionary
+...\tenrm -
+..etc.
+.\penalty 10000
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.30136
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm N
+..\tenrm C
+..\tenrm ,
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm M
+..\tenrm P
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm N
+..\tenrm C
+..\glue 3.66666 plus 1.83148 minus 1.22343
+..\tenrm b
+..\tenrm u
+..\tenrm i
+..\tenrm l
+..\tenrm d
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.09453
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\tenrm +
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm w
+..\tenrm i
+..\tenrm t
+..\tenrm h
+..\tenrm i
+..\tenrm n
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm c
+..\tenrm r
+..\tenrm o
+..\tenrm s
+..\tenrm s
+..\tenrm o
+..\kern-0.30557
+..\tenrm v
+..\kern-0.30557
+..\tenrm e
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set - 0.28137
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\tenrm +
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\tenrm n
+..\tenrm d
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm M
+..\tenrm P
+..\tenrm +
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm p
+..\kern0.30556
+..\tenrm e
+..\tenrm r
+..\discretionary
+...\tenrm -
+..\tenrm f
+..\tenrm o
+..\tenrm r
+..\tenrm m
+..etc.
+.\penalty 100
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+0.0)x415.41025, glue set - 0.57512
+..\tenrm b
+..\tenrm l
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm n
+..\kern-0.30557
+..\tenrm u
+..\discretionary replacing 2
+...\tenrm m
+...\tenrm -
+..\tenrm m
+..\kern-0.30557
+..\tenrm b
+..\kern0.30556
+..\tenrm e
+..\tenrm r
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm o
+..\tenrm f
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm ^^L (ligature fi)
+..\tenrm t
+..\discretionary
+...\tenrm -
+..\tenrm n
+..\tenrm e
+..\tenrm s
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm f
+..\tenrm u
+..\tenrm n
+..\tenrm c
+..etc.
+.\glue(\baselineskip) 6.02238
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.2015
+..\tenrm h
+..\tenrm a
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm n
+..\tenrm e
+..\tenrm c
+..\discretionary
+...\tenrm -
+..\tenrm e
+..\tenrm s
+..\discretionary
+...\tenrm -
+..\tenrm s
+..\tenrm a
+..\tenrm r
+..\discretionary
+...\tenrm -
+..\tenrm i
+..\tenrm l
+..\tenrm y
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm h
+..\tenrm i
+..\tenrm g
+..\tenrm h
+..\tenrm e
+..\tenrm r
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm c
+..\tenrm a
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set - 0.25015
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm N
+..\tenrm C
+..\glue 3.66666 plus 1.83148 minus 1.22343
+..\tenrm ^^L (ligature fi)
+..\tenrm n
+..\tenrm d
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm o
+..\tenrm p
+..\discretionary
+...\tenrm -
+..\tenrm t
+..\tenrm i
+..\discretionary
+...\tenrm -
+..\tenrm m
+..\kern-0.30557
+..\tenrm u
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.94827
+..\tenrm S
+..\tenrm i
+..\tenrm n
+..\tenrm c
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm d
+..\tenrm e
+..\discretionary
+...\tenrm -
+..\tenrm p
+..\kern0.30556
+..\tenrm e
+..\tenrm n
+..\discretionary
+...\tenrm -
+..\tenrm d
+..\tenrm e
+..\tenrm n
+..\tenrm c
+..\tenrm y
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm m
+..\tenrm a
+..\discretionary
+...\tenrm -
+..\tenrm t
+..\tenrm r
+..\tenrm i
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.39746
+..\tenrm m
+..\tenrm o
+..\tenrm r
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm ^^L (ligature fi)
+..\tenrm t
+..\discretionary
+...\tenrm -
+..\tenrm n
+..\tenrm e
+..\tenrm s
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm f
+..\tenrm u
+..\tenrm n
+..\tenrm c
+..\discretionary
+...\tenrm -
+..\tenrm t
+..\tenrm i
+..\tenrm o
+..\tenrm n
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm c
+..\tenrm a
+..\tenrm l
+..\tenrm l
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..etc.
+.\penalty 10000
+.etc.
+
+ [20]
+[21 <./separable.png>]
+Underfull \vbox (badness 2671) has occurred while \output is active
+\vbox(674.33032+2.13887)x415.41025, glue set 2.99324
+.\vbox(0.0+0.0)x0.0, glue set 25.0fil
+..\kern -25.0
+..\pdfdest name{pg:.22} xyz
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\pdfcolorstack 0 push {0 g 0 G}
+.\glue(\splittopskip) 0.0
+.\vbox(413.57458+0.0)x415.41025
+..\hbox(369.17458+0.0)x415.41025, glue set - 38.41125fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(369.17458+0.0)x492.23276
+....\pdfrefximage(369.17458+0.0)x492.23276
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\penalty 10000
+..\glue 6.8 plus 2.26653 minus 2.26653
+..\glue 13.6 plus 4.53326 minus 4.53326
+..\write0<3>{\string \Xfig {BLOCKSEPARABLE}{6.2}{Block-separable problems graph
+s}}
+..\glue 0.0 plus -1.0
+..\glue(\parskip) 0.0 plus 1.0
+..\glue(\baselineskip) 5.11125
+..\hbox(6.88875+1.94443)x415.41025, glue set 0.42836
+...\glue(\leftskip) 11.66563 plus 1.0fil
+...\vbox(0.0+0.0)x0.0, glue set 13.99994fil
+....\kern -13.99994
+....\pdfdest name{ref:BLOCKSEPARABLE} xyz
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\write0<3>{\Xlabel{BLOCKSEPARABLE}{6.2}}
+...\thefont F
+...\kern-0.1564
+...\thefont i
+...\thefont g
+...\thefont u
+...\thefont r
+...\kern-0.184
+...\thefont e
+...\glue 1.9412 plus 0.97519 minus 0.6532
+...\thefont 6
+...\thefont .
+...\thefont 2
+...\thefont .
+...\kern 5.0
+...\tenrm S
+...\tenrm c
+...\tenrm a
+...\tenrm l
+...\tenrm a
+...\tenrm b
+...\tenrm i
+...\tenrm l
+...\tenrm i
+...\tenrm t
+...\kern-0.27779
+...\tenrm y
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...etc.
+..\penalty 30000
+..\glue(\baselineskip) 3.16682
+..\hbox(6.88875+0.0)x415.41025, glue set 162.44226fil
+...\glue(\leftskip) 11.66563 plus 1.0fil
+...\tenrm s
+...\tenrm u
+...\tenrm c
+...\tenrm c
+...\tenrm e
+...\tenrm s
+...\tenrm s
+...\tenrm f
+...\tenrm u
+...\tenrm l
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\tenrm r
+...\tenrm u
+...\tenrm n
+...\tenrm s
+...\tenrm .
+...\penalty 10000
+...\glue(\parfillskip) 0.0 plus 2.0fil
+...\glue(\rightskip) 11.66563 plus -1.0fil
+.\penalty 10000
+.\glue 13.6 plus 4.53326 minus 4.53326
+.\pdfcolorstack 0 pop
+.\glue(\topskip) 2.42238
+.\hbox(7.57762+2.13887)x415.41025, glue set - 0.41895
+..\tenrm I
+..\tenrm t
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm i
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm p
+..\tenrm r
+..\tenrm o
+..\tenrm b
+..\tenrm a
+..\tenrm b
+..\tenrm l
+..\tenrm y
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm c
+..\tenrm a
+..\tenrm u
+..\tenrm s
+..\tenrm e
+..\tenrm d
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm b
+..\kern-0.30557
+..\tenrm y
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..etc.
+.\penalty 10000
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 243.50468fil
+..\tenrm i
+..\tenrm s
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm i
+..\tenrm m
+..\tenrm p
+..\kern0.30556
+..\tenrm o
+..\tenrm s
+..\tenrm s
+..\tenrm i
+..\tenrm b
+..\tenrm l
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm o
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm m
+..\tenrm o
+..\kern0.30556
+..\tenrm d
+..\tenrm e
+..\tenrm l
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm b
+..\kern-0.30557
+..\tenrm y
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm M
+..etc.
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.24068
+..\hbox(0.0+0.0)x11.66563
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\tenrm +
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\tenrm n
+..\tenrm d
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm M
+..\tenrm I
+..\tenrm C
+..\glue 3.66666 plus 1.83148 minus 1.22343
+..\tenrm p
+..\kern0.30556
+..\tenrm e
+..etc.
+.\penalty 10100
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.22137
+..\tenrm s
+..\tenrm e
+..\tenrm r
+..\tenrm v
+..\kern-0.30557
+..\tenrm e
+..\tenrm d
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm i
+..\tenrm n
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm ^^L (ligature fi)
+..\tenrm g
+..\discretionary
+...\tenrm -
+..\tenrm u
+..\tenrm r
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\pdfstartlink(9.89993+3.30003)x* attr{/C[1 .8 0] /Border[0 0 .6]} action goto
+ name{ref:separable}
+..\pdfcolorstack 0 push {0 g 0 G}
+..\tenrm 6
+..\tenrm .
+..\tenrm 1
+..\pdfcolorstack 0 pop
+..\pdfendlink
+..\tenrm .
+..\glue 4.88887 plus 5.49998 minus 0.4074
+..\tenrm R
+..\tenrm e
+..\tenrm p
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.55548
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\tenrm +
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\tenrm n
+..\tenrm d
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm M
+..\tenrm I
+..\tenrm C
+..\glue 3.66666 plus 1.83148 minus 1.22343
+..\tenrm s
+..\tenrm c
+..\tenrm a
+..\tenrm l
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.95047
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\tenrm +
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm a
+..\tenrm n
+..\tenrm d
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm M
+..\tenrm I
+..\tenrm C
+..\glue 3.66666 plus 1.83148 minus 1.22343
+..\tenrm a
+..\tenrm r
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set - 0.32631
+..\tenrm s
+..\tenrm l
+..\tenrm i
+..\tenrm g
+..\tenrm h
+..\kern-0.30557
+..\tenrm t
+..\tenrm l
+..\tenrm y
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm b
+..\kern0.30556
+..\tenrm e
+..\tenrm t
+..\discretionary
+...\tenrm -
+..\tenrm t
+..\tenrm e
+..\tenrm r
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm r
+..\tenrm e
+..\tenrm l
+..\discretionary
+...\tenrm -
+..\tenrm a
+..\discretionary
+...\tenrm -
+..\tenrm t
+..\tenrm i
+..\tenrm v
+..\kern-0.30557
+..\tenrm e
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set 0.41168
+..\tenrm a
+..\tenrm n
+..\tenrm d
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm D
+..\tenrm E
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm L
+..\kern-0.91667
+..\tenrm T
+..\kern 0.65997
+..\vbox(0.4+0.0)x3.30003
+...\rule(0.4+0.0)x3.30003
+..\tenrm M
+..\tenrm I
+..\tenrm C
+..\glue 3.66666 plus 1.83148 minus 1.22343
+..\tenrm c
+..\tenrm o
+..\tenrm r
+..\discretionary
+...\tenrm -
+..\tenrm r
+..\tenrm e
+..\discretionary
+...\tenrm -
+..\tenrm s
+..\tenrm p
+..\kern0.30556
+..\tenrm o
+..\tenrm n
+..\tenrm d
+..etc.
+.\glue(\baselineskip) 3.88351
+.\hbox(7.57762+2.13887)x415.41025, glue set - 0.87215
+..\tenrm s
+..\tenrm e
+..\tenrm n
+..\tenrm s
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm c
+..\tenrm l
+..\tenrm o
+..\tenrm s
+..\tenrm e
+..\tenrm r
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm o
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm t
+..\tenrm h
+..\tenrm e
+..\glue 3.66666 plus 1.83333 minus 1.22221
+..\tenrm b
+..\tenrm l
+..\tenrm o
+..\kern0.30556
+..\tenrm c
+..\kern-0.30557
+..\tenrm k
+..\tenrm -
+..\discretionary
+..\tenrm s
+..etc.
+.\penalty 100
+.\glue(\baselineskip) 3.88351
+.etc.
+
+ [22 <./block-separable.png>] [23 <./non-separable.png>] [24 <./Ellipsoid5.png>
+ <./Ellipsoid20.png> <./Bent5.png> <./Bent20.png> <./Griewank5.png> <./Griewank
+20.png>]
+[25] [26] (/usr/share/texlive/texmf-dist/tex/csplain/opmac/opmac-bib-simple.tex
+) (./myreferences.bib)
+l.1343 OPmac WARNING: Missing field ``address'' in [IntoEA].
+l.1343 OPmac WARNING: Entrytype @book  from [Luke2009] undefined.
+l.1343 OPmac WARNING: Missing field ``isbn'' in [Darwin].
+l.1343 OPmac WARNING: Missing field ``isbn'' in [Spencer].
+l.1343 OPmac WARNING: Missing field ``journal'' in [FOS].
+
+Underfull \hbox (badness 1558) in paragraph at lines 1343--1343
 \tenrm Learn-ing by Fil-ter-ing and Com-bin-ing Link-age Hi-er-ar-chies. 2013, 
 359{366.
 
@@ -288,12 +1411,12 @@ Underfull \hbox (badness 1558) in paragraph at lines 1333--1333
 .\glue 3.66666 plus 1.83333 minus 1.22221
 .etc.
 
-l.1333 OPmac WARNING: Missing field ``title'' in [LT].
-l.1333 OPmac WARNING: Missing field ``year'' in [LT].
-l.1333 OPmac WARNING: Missing field ``journal'' in [LTpic].
-l.1333 OPmac WARNING: Missing field ``journal'' in [MP].
+l.1343 OPmac WARNING: Missing field ``title'' in [LT].
+l.1343 OPmac WARNING: Missing field ``year'' in [LT].
+l.1343 OPmac WARNING: Missing field ``journal'' in [LTpic].
+l.1343 OPmac WARNING: Missing field ``journal'' in [MP].
 
-Underfull \hbox (badness 1178) in paragraph at lines 1333--1333
+Underfull \hbox (badness 1178) in paragraph at lines 1343--1343
 \tenrm Valued Gene-Pool Op-ti-mal Mix-ing Evo-lu-tion-ary Al-go-rithm. 2017, 70
 5{712.
 
@@ -332,9 +1455,9 @@ Underfull \hbox (badness 1178) in paragraph at lines 1333--1333
 .\tenrm l
 .etc.
 
-l.1333 OPmac WARNING: Missing field ``journal'' in [LINC].
+l.1343 OPmac WARNING: Missing field ``journal'' in [LINC].
 
-Underfull \hbox (badness 2735) in paragraph at lines 1333--1333
+Underfull \hbox (badness 2735) in paragraph at lines 1343--1343
 \tenit IEEE Trans-ac-tions on Evo-lu-tion-ary Com-pu-ta-tion\tenrm . 2021, 25 (
 2), 358-370.
 
@@ -375,29 +1498,29 @@ Underfull \hbox (badness 2735) in paragraph at lines 1333--1333
 .etc.
 
 [27]
-l.1333 OPmac WARNING: Entrytype @masterthesis from [RASTRIGIN2] undefined.
+l.1343 OPmac WARNING: Entrytype @masterthesis from [RASTRIGIN2] undefined.
 [28]
-l.1333 OPmac WARNING: Missing field ``journal'' in [BBOBSETUP].
-[29] [30] [31] ){/usr/share/texmf/fonts/enc/dvips/lm/lm-cstt.enc}{/usr/share/te
-xmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-cs
-.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts
-/enc/dvips/lm/lm-mathex.enc}{xl2tech.enc}<./Technika-Bold.pfb><./Technika-Book.
-pfb><./Technika-BookItalic.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.p
-fb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
-ssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/symbols/msbm6.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msbm8.pfb>
-Output written on bakalarka.pdf (39 pages, 2958097 bytes).
+l.1343 OPmac WARNING: Missing field ``journal'' in [BBOBSETUP].
+[29] [30] [31] [32] [33] ){/usr/share/texmf/fonts/enc/dvips/lm/lm-cstt.enc}{/us
+r/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvip
+s/lm/lm-cs.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/t
+exmf/fonts/enc/dvips/lm/lm-mathex.enc}{xl2tech.enc}<./Technika-Bold.pfb><./Tech
+nika-Book.pfb><./Technika-BookItalic.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
+8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm8.pfb>
+Output written on bakalarka.pdf (41 pages, 2976379 bytes).
 PDF statistics:
- 797 PDF objects out of 1000 (max. 8388607)
- 702 compressed objects within 8 object streams
- 151 named destinations out of 1000 (max. 500000)
- 497 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 845 PDF objects out of 1000 (max. 8388607)
+ 748 compressed objects within 8 object streams
+ 159 named destinations out of 1000 (max. 500000)
+ 537 words of extra memory for PDF output out of 10000 (max. 10000000)
 
